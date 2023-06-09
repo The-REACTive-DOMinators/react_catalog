@@ -1,1 +1,10 @@
-// not empty
+@import "./styles/main.scss";
+
+body {
+  box-sizing: border-box;
+  
+  background: #2a2932;
+  color: $textColor;
+  font-family: "Mont", sans-serif;
+  font-style: normal;
+}
