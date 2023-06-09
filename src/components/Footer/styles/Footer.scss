@@ -1,0 +1,11 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 96px;
+  background-color: rgb(15, 17, 33);
+
+  &__logo {
+    min-height: 50px;
+  }
+};

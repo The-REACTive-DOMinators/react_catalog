@@ -1,0 +1,23 @@
+@mixin onTablet {
+  @media screen and (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media screen and (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin icoStyles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border-left: 1px solid $ico-border-color;
+}
+
+@mixin transition {
+  transition: all 0.5s ease-in-out;
+}
