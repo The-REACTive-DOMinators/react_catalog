@@ -2,9 +2,14 @@
 
 body {
   box-sizing: border-box;
-  
+
   background: #2a2932;
   color: $textColor;
   font-family: "Mont", sans-serif;
   font-style: normal;
+}
+
+iframe {
+  overflow: hidden;
+  pointer-events: none;
 }

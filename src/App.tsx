@@ -1,8 +1,9 @@
 import './App.scss';
+import { HomePage } from './modules/HomePage';
 
 const App = () => (
   <div className="App">
-    <h1>React Phone Catalog</h1>
+    <HomePage />
   </div>
 );
 
