@@ -1,0 +1,13 @@
+.icon {
+  @include icoStyles;
+
+  @include onTablet {
+    width: 48px;
+    height: $header-tablet-height;
+  }
+
+  @include onDesktop {
+    width: 64px;
+    height: $header-desktop-height;
+  }
+}

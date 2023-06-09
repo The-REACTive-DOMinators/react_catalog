@@ -1,0 +1,22 @@
+.nav {
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+
+    @include onTablet {
+      width: 300px;
+    }
+
+    @include onDesktop {
+      width: 450px;
+    }
+  }
+
+  &__link {
+    font-family: "Mont", sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgb(241, 242, 249);
+  }
+}

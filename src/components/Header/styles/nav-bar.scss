@@ -1,0 +1,48 @@
+.nav-bar {
+  display: none;
+
+  @include onTablet {
+    display: flex;
+    width: 400px;
+    justify-content: space-around;
+    list-style: none;
+
+    &__link {
+      font-family: "Mont", sans-serif;
+      color: $header-link-color;
+      text-decoration: none;
+      @include transition;
+
+      &::after {
+        position: relative;
+        top: 20px;
+        content: "";
+        display: block;
+        opacity: 0;
+        border-bottom: 4px solid $header-link-color-hovered;
+        border-radius: 2px;
+        @include transition;
+
+        @include onTablet {
+          top: 12px;
+        }
+
+        @include onDesktop {
+          top: 20px;
+        }
+      }
+
+      &:hover {
+        color: $header-link-color-hovered;
+
+        &::after {
+          opacity: 100;
+        }
+      }
+    }
+  }
+
+  @include onDesktop {
+    width: 450px;
+  }
+}
