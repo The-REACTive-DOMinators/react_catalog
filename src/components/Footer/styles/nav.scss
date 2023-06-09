@@ -1,15 +1,25 @@
 .nav {
   &__list {
-    display: flex;
-    justify-content: space-between;
     list-style: none;
 
+
     @include onTablet {
-      width: 300px;
+      display: flex;
+      justify-content: space-between;
+
+    }
+  }
+
+  &__item {
+    padding-bottom: 16px;
+
+    @include onTablet {
+      padding-bottom: 0;
+      padding-right: 20px;
     }
 
     @include onDesktop {
-      width: 450px;
+      padding-right: 50px;
     }
   }
 
