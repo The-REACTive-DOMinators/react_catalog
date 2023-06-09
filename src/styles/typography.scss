@@ -1,0 +1,95 @@
+@import "./fonts.scss";
+
+body {
+  background: #2a2932;
+  color: $textColor;
+  font-family: "Mont", sans-serif;
+  font-style: normal;
+}
+
+@mixin desctopTitle {
+  // desctop || tablet
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 1.17;
+  letter-spacing: -0.01em;
+}
+
+@mixin mobileTitle {
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 1.28;
+  letter-spacing: -0.01em;
+}
+
+@mixin desctopSecondaryTitle {
+  // desctop || tablet
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 1.28;
+  letter-spacing: -0.01em;
+}
+
+@mixin mobileSecondaryTitle {
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 1.4;
+}
+
+@mixin desctopThirdTitle {
+  // desctop || tablet
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 1.4;
+}
+
+@mixin mobileThirdTitle {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1;
+}
+
+@mixin desctopFourthTitle {
+  // desctop || tablet
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 26px;
+}
+
+@mixin mobileFourthTitle {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+@mixin buttons {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.5;
+
+  width: 176px;
+  height: 40px;
+
+  background: $accentColor;
+}
+
+@mixin buttonHover {
+  background: #a378ff;
+  flex-grow: 1;
+}
+
+@mixin buttonSelected {
+  background: #323542;
+}
+
+@mixin bodyText {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+@mixin smalltext {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+}
