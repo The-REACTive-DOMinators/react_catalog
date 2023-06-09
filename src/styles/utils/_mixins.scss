@@ -1,0 +1,98 @@
+@mixin onDesktop {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin mainTitle {
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 1.28;
+  letter-spacing: -0.01em;
+
+  @include onTablet {
+    // desctop || tablet
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 1.17;
+    letter-spacing: -0.01em;
+  }
+}
+
+@mixin secondaryTitle {
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 1.4;
+
+  @include onTablet {
+    // desctop || tablet
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 1.28;
+    letter-spacing: -0.01em;
+  }
+}
+
+@mixin thirdTitle {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1;
+
+  @include onTablet {
+    // desctop || tablet
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 1.4;
+  }
+}
+
+@mixin fourthTitle {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+
+  @include onTablet {
+    // desctop || tablet
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 26px;
+  }
+}
+
+@mixin buttons {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.5;
+
+  width: 176px;
+  height: 40px;
+
+  background: $accentColor;
+}
+
+@mixin buttonHover {
+  background: #a378ff;
+  flex-grow: 1;
+}
+
+@mixin buttonSelected {
+  background: #323542;
+}
+
+@mixin bodyText {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+@mixin smalltext {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+}
