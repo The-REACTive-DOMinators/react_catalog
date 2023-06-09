@@ -1,11 +1,56 @@
 .footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  height: 96px;
-  background-color: rgb(15, 17, 33);
+  height: 250px;
+  padding: 30px 16px 0;
+  background-color: $main-color;
+
+  @include onTablet {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 96px;
+
+
+    @include onTablet {
+      padding: 0 30px;
+    }
+
+    @include onDesktop {
+      padding: 0 152px;
+    }
+  }
 
   &__logo {
     min-height: 50px;
+    padding-bottom: 40px;
+
+    @include onTablet {
+      padding-bottom: 0;
+    }
+  }
+
+  &__arrow {
+    width: $arrow-size;
+    height: $arrow-size;
+    padding-left: 16px;
+  }
+
+  &__before {
+    font-family: "Mont", sans-serif;
+    flex-wrap: nowrap;
+    color: $link-color;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  &__back-link {
+    padding-left: 40%;
+    display: flex;
+    align-items: center;
+    width: 145px;
+    text-decoration: none;
+
+    @include onTablet {
+      padding-left: 0;
+    }
   }
 }

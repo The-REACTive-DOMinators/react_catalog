@@ -25,14 +25,15 @@ export const Footer: FC = () => {
           </li>
         </ul>
       </nav>
-
-      <a href="#!">
+      <a href="#!" className="footer__back-link">
+        <p className="footer__before">Back to top</p>
         <img
           src={arrow}
           alt="arrow"
           className="footer__arrow"
         />
       </a>
+
     </footer>
   );
 };
