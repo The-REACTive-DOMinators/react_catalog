@@ -1,5 +1,7 @@
 import { FC } from 'react';
 import './styles/main.scss';
+import { NavLink } from 'react-router-dom';
+// import classNames from 'classnames';
 import logo from '../../Icons/Logo.svg';
 import favIco from '../../Icons/Favourites.svg';
 import CartIco from '../../Icons/Cart.svg';
@@ -19,16 +21,27 @@ export const Header: FC = () => {
           <nav className="header__nav">
             <ul className="nav-bar">
               <li className="nav-bar__item">
-                <a href="#!" className="nav-bar__link">Home</a>
+                <NavLink to="/Home" className="nav__link">
+                  Home
+                </NavLink>
               </li>
+
               <li className="nav-bar__item">
-                <a href="#!" className="nav-bar__link">Phones</a>
+                <NavLink to="/Phones" className="nav__link">
+                  Phones
+                </NavLink>
               </li>
+
               <li className="nav-bar__item">
-                <a href="#!" className="nav-bar__link">Tablets</a>
+                <NavLink to="/Tablets" className="nav__link">
+                  Tablets
+                </NavLink>
               </li>
+
               <li className="nav-bar__item">
-                <a href="#!" className="nav-bar__link">Accessories</a>
+                <NavLink to="/Accessories" className="nav__link">
+                  Accessories
+                </NavLink>
               </li>
             </ul>
           </nav>

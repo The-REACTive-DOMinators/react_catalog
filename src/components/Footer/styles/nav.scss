@@ -2,7 +2,6 @@
   &__list {
     list-style: none;
 
-
     @include onTablet {
       display: flex;
       justify-content: space-between;
