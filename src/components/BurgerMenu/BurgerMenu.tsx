@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import { useState, FC } from 'react';
 import './BurgerMenu.scss';
-import logo from '../../images1/BurgerLogo.png';
-import close from '../../images1/Close.png';
-import buttonImage1 from '../../images1/FavoriteIcon.png';
-import buttonImage2 from '../../images1/BucketIcon.png';
+import cn from 'classnames';
+import { NavLink } from 'react-router-dom';
+// eslint-disable-next-line
+import logo from '../../images/icons/Logo.svg';
+import close from '../../images/icons/close.svg';
+import favorite from '../../images/icons/heartLike.svg';
+import shopCart from '../../images/icons/shoppingbag.svg';
 
-export const BurgerMenu: React.FC = () => {
+export const BurgerMenu: FC = () => {
   const [isOpen, setIsOpen] = useState(true);
 
   const toggleMenu = () => {
@@ -13,33 +16,49 @@ export const BurgerMenu: React.FC = () => {
   };
 
   return (
-    <nav className={`burger-menu ${isOpen ? 'open' : ''}`}>
+    <nav className={cn('burger-menu', { open: isOpen })}>
       <div className="header">
         <div className="logo">
-          <a href="#home">
-            <img src={logo} alt="Logo" />
-          </a>
+          <NavLink to="/home" className="logo-image">
+            <img
+              src={logo}
+              alt="Logo"
+              className="logo-image-img"
+            />
+          </NavLink>
         </div>
-        <button type="button" className="close-icon" onClick={toggleMenu}>
-          <img src={close} alt="Close Icon" />
-        </button>
+        <div
+          className="close-icon"
+        >
+          <NavLink to="/home" onClick={toggleMenu}>
+            <img src={close} alt="Close Icon" />
+          </NavLink>
+        </div>
       </div>
-      <div className="links">
-        <a href="/home">Home</a>
-        <a href="/phones">Phones</a>
-        <a href="/tablets">Tablets</a>
-        <a href="/accessories">Accessories</a>
+      <div className="nav">
+        <NavLink to="/home" className="nav-link">Home</NavLink>
+        <NavLink to="/phones" className="nav-link">Phones</NavLink>
+        <NavLink to="/tablets" className="nav-link">Tablets</NavLink>
+        <NavLink to="/accessories" className="nav-link">Accessories</NavLink>
       </div>
       <div className="footer">
-        <div className="footer-button-container">
-          <a href="/favorites">
-            <img src={buttonImage1} alt="Button 1" />
-          </a>
+        <div className="footer-container footer-container-fav">
+          <NavLink to="/favorites">
+            <img
+              src={favorite}
+              alt="Button 1"
+              className="footer-container_icon"
+            />
+          </NavLink>
         </div>
-        <div className="footer-button-container">
-          <a href="/bucket">
-            <img src={buttonImage2} alt="Button 1" />
-          </a>
+        <div className="footer-container">
+          <NavLink to="/bucket">
+            <img
+              src={shopCart}
+              alt="Button 1"
+              className="footer-container_icon"
+            />
+          </NavLink>
         </div>
       </div>
     </nav>

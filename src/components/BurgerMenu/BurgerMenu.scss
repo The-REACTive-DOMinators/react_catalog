@@ -1,12 +1,13 @@
+@import "../.././styles/utils/variables";
+
 .burger-menu {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   width: 100%;
-  color: #75767f;
+  color: $secondaryTextColor;
   background-color: #0f1121;
-  padding: 16px;
   transition: transform 0.3s ease;
   transform: translateX(-100%);
   height: 100vh;
@@ -21,35 +22,38 @@
     align-items: center;
     justify-content: space-between;
     height: 48px;
+  }
+  .logo {
+    width: 100%;
+    border-bottom: $menuBorders;
+    height: 100%;
+    display: flex;
+    align-items: center;
 
-    .logo,
-    .close-icon {
-      margin: 0;
-      padding: 0;
-    }
-
-    .logo {
-      margin-right: auto;
-    }
-
-    .close-icon {
-      margin-left: auto;
-      cursor: pointer;
-      background: none;
-      width: 16px;
-      height: 16px;
-      border: none;
-      outline: none;
+    &-image {
+      display: block;
+      padding-left: 16px;
     }
   }
 
-  .links {
+  .close-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-left: $menuBorders;
+    border-bottom: $menuBorders;
+    right: 0;
+  }
+
+  .nav {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 32px;
 
-    a {
+    &-link {
       text-transform: uppercase;
       font-size: 12px;
       line-height: 11px;
@@ -89,22 +93,47 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px;
+    padding: 0;
     box-sizing: border-box;
     background-color: #0f1121;
 
-    .footer-button-container {
+    &-container {
+      box-sizing: border-box;
       flex: 1;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100%;
+      border-top: $menuBorders;
 
-      img {
+      &-fav {
+        border-right: $menuBorders;
+      }
+
+      &_icon {
         width: 16px;
         height: 16px;
         display: block;
         margin: 0 auto;
+        position: relative;
+        transition: all 0.3s ease;
+        &:hover {
+          transform: scale(1.2);
+          z-index: 1;
+        }
+
+        &:hover::after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          width: 100%;
+          height: 100%;
+          background-color: rgba(255, 255, 255, 0.2);
+          border-radius: 50%;
+          z-index: -1;
+        }
       }
 
       &:hover {
