@@ -9,7 +9,7 @@
 
     &__link {
       font-family: "Mont", sans-serif;
-      color: $header-link-color;
+      color: $link-color;
       text-decoration: none;
       @include transition;
 
@@ -34,15 +34,17 @@
 
       &:hover {
         color: $header-link-color-hovered;
-
-        &::after {
-          opacity: 100;
-        }
       }
     }
   }
 
   @include onDesktop {
     width: 450px;
+  }
+}
+
+.is-active {
+  &::after {
+    opacity: 100;
   }
 }
