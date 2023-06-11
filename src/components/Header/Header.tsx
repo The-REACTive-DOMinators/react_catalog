@@ -53,7 +53,6 @@ export const Header: FC = () => {
                   Tablets
                 </NavLink>
               </li>
-
               <li className="nav-header__item">
                 <NavLink
                   to="/Accessories"
