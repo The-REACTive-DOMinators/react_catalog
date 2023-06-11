@@ -2,6 +2,7 @@
   height: 250px;
   padding: 30px 16px 0;
   background-color: $main-color;
+  box-shadow: 0 1px 0 0 $shadow-color;
 
   @include onTablet {
     display: flex;
@@ -21,6 +22,7 @@
   &__logo {
     min-height: 50px;
     padding-bottom: 40px;
+    cursor: pointer;
 
     @include onTablet {
       padding-bottom: 0;
@@ -40,16 +42,20 @@
     font-size: 12px;
     font-weight: 700;
   }
+}
 
-  &__back-link {
-    padding-left: 40%;
-    display: flex;
-    align-items: center;
-    width: 145px;
-    text-decoration: none;
+.back-top {
+  padding-left: 40%;
+  display: flex;
+  align-items: center;
+  width: 145px;
+  text-decoration: none;
+  color: $link-color;
+  background-color: transparent;
+  border-color: transparent;
+  cursor: pointer;
 
-    @include onTablet {
-      padding-left: 0;
-    }
+  @include onTablet {
+    padding-left: 0;
   }
 }

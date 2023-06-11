@@ -1,16 +1,15 @@
-.nav {
+.nav-footer {
   &__list {
     list-style: none;
 
     @include onTablet {
       display: flex;
       justify-content: space-between;
-
     }
   }
 
   &__item {
-    padding-bottom: 16px;
+    padding-bottom: 12px;
 
     @include onTablet {
       padding-bottom: 0;
@@ -23,9 +22,16 @@
   }
 
   &__link {
-    font-family: "Mont", sans-serif;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: rgb(241, 242, 249);
+    @include link;
+
+    &::after {
+      @include onTablet {
+        @include afterLink;
+      }
+    }
+
+    &:hover {
+      @include hoveredLink;
+    }
   }
 }
