@@ -1,9 +1,18 @@
 import { FC } from 'react';
 import './styles/main.scss';
+import { NavLink } from 'react-router-dom';
+import classNames from 'classnames';
 import logo from '../../Icons/Logo.svg';
 import arrow from '../../Icons/Arrow.svg';
 
 export const Footer: FC = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <footer className="footer">
       <img
@@ -12,27 +21,55 @@ export const Footer: FC = () => {
         className="footer__logo"
       />
 
-      <nav className="footer__nav nav">
-        <ul className="nav__list">
-          <li className="nav__item">
-            <a href="#!" className="nav__link">Github</a>
+      <nav className="footer__nav nav-footer">
+        <ul className="nav-footer__list">
+          <li className="nav-footer__item">
+            <NavLink
+              to="/Github"
+              className={
+                ({ isActive }) => (
+                  classNames('nav-footer__link', { 'is-active': isActive })
+                )
+              }
+            >
+              Github
+            </NavLink>
           </li>
-          <li className="nav__item">
-            <a href="#!" className="nav__link">Contacts</a>
+          <li className="nav-footer__item">
+            <NavLink
+              to="/Contacts"
+              className={
+                ({ isActive }) => (
+                  classNames('nav-footer__link', { 'is-active': isActive })
+                )
+              }
+            >
+              Contacts
+            </NavLink>
           </li>
-          <li className="nav__item">
-            <a href="#!" className="nav__link">rights</a>
+          <li className="nav-footer__item">
+            <NavLink
+              to="/Rights"
+              className={
+                ({ isActive }) => (
+                  classNames('nav-footer__link', { 'is-active': isActive })
+                )
+              }
+            >
+              Rights
+            </NavLink>
           </li>
         </ul>
       </nav>
-      <a href="#!" className="footer__back-link">
-        <p className="footer__before">Back to top</p>
+      <button type="submit" onClick={scrollToTop} className="back-top">
+        Back to Top
+
         <img
           src={arrow}
           alt="arrow"
           className="footer__arrow"
         />
-      </a>
+      </button>
 
     </footer>
   );
