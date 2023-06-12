@@ -30,7 +30,7 @@ export const BurgerMenu: FC = () => {
         <div
           className="close-icon"
         >
-          <NavLink to="/home" onClick={toggleMenu}>
+          <NavLink to="/home" onClick={toggleMenu} className="close-icon-img">
             <img src={close} alt="Close Icon" />
           </NavLink>
         </div>

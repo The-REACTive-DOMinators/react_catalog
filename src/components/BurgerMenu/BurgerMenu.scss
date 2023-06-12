@@ -29,6 +29,7 @@
     height: 100%;
     display: flex;
     align-items: center;
+    box-sizing: border-box;
 
     &-image {
       display: block;
@@ -37,6 +38,7 @@
   }
 
   .close-icon {
+    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -45,6 +47,12 @@
     border-left: $menuBorders;
     border-bottom: $menuBorders;
     right: 0;
+
+    &-img {
+      display: block;
+      width: 16px;
+      height: 16px;
+    }
   }
 
   .nav {
