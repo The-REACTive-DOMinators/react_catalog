@@ -1,13 +1,12 @@
-/* eslint-disable max-len */
 import './App.scss';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { HomePage } from './modules/HomePage';
-import { PhonesPage } from './modules/HomePage/PhonePage/PhonePage';
-import { TabletsPage } from './modules/HomePage/TabletsPage/TabletsPage';
-import { AccessoriesPage } from './modules/HomePage/AccessoriesPage/AccessoriesPage';
-import { ShoppingCartPage } from './modules/HomePage/ShoppingCartPage/ShoppingCartPage';
-import { FavoritesPage } from './modules/HomePage/FavoritesPage/FavoritesPage';
-import { PageNotFound } from './modules/HomePage/PageNotFound/PageNotFound';
+import { PhonesPage } from './modules/PhonePage/PhonePage';
+import { TabletsPage } from './modules/TabletsPage/TabletsPage';
+import { AccessoriesPage } from './modules/AccessoriesPage/AccessoriesPage';
+import { ShoppingCartPage } from './modules/ShoppingCartPage/ShoppingCartPage';
+import { FavoritesPage } from './modules/FavoritesPage/FavoritesPage';
+import { PageNotFound } from './modules/PageNotFound/PageNotFound';
 
 const App = () => (
   <div className="App">

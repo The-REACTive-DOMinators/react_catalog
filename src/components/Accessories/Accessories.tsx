@@ -1,4 +1,4 @@
-export const AccessoriesPage = () => {
+export const Accessories = () => {
   return (
     <h1>Accessories Page</h1>
   );

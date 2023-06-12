@@ -1,6 +1,6 @@
 import { ProductList } from '../ProductList/ProductList';
 
-export const PhonesPage = () => {
+export const Phones = () => {
   return (
     <>
       <h1>Phones Page</h1>

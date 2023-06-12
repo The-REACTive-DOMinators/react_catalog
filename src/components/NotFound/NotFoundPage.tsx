@@ -1,4 +1,4 @@
-export const NotFoundPage = () => {
+export const NotFound = () => {
   return (
     <>
       {/* <Header /> */}
