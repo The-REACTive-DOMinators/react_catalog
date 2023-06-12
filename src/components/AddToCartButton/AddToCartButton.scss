@@ -1,0 +1,24 @@
+&__add_button {
+  @include buttons;
+
+  width: 100px;
+  height: 40px;
+
+  @include onTablet {
+    width: 125px;
+  }
+
+  @include onDesktop {
+    width: 160px;
+  }
+
+  margin-right: 8px;
+
+  &--selected {
+    @include buttonSelected;
+  }
+
+  &:hover {
+    @include buttonHover;
+  }
+}

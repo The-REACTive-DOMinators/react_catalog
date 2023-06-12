@@ -52,13 +52,13 @@
   }
 }
 
-@mixin prise {
+@mixin price {
   font-weight: 800;
   font-size: 22px;
   line-height: 1.4;
 }
 
-@mixin discountPrise {
+@mixin discountPrice {
   font-weight: 600;
   font-size: 22px;
   line-height: 28px;

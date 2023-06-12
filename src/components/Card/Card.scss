@@ -60,13 +60,13 @@
     margin-top: 8px;
 
     &--fullPrice {
-      @include prise;
+      @include price;
 
       display: block;
     }
 
-    &--discountPrise {
-      @include discountPrise;
+    &--discountPrice {
+      @include discountPrice;
 
       display: block;
       margin-left: 8px;
@@ -98,46 +98,5 @@
 
   &__buttons {
     display: flex;
-  }
-
-  &__add_button {
-    @include buttons;
-
-    width: 100px;
-    height: 40px;
-
-    @include onTablet {
-      width: 125px;
-    }
-
-    @include onDesktop {
-      width: 160px;
-    }
-
-    margin-right: 8px;
-
-    &--selected {
-      @include buttonSelected;
-    }
-
-    &:hover {
-      @include buttonHover;
-    }
-  }
-
-  &__favorite_button {
-    @include likeButton;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    &:hover {
-      @include likeButtonHover;
-    }
-
-    &--selected {
-      @include likeButtonSelected;
-    }
   }
 }

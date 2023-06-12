@@ -1,0 +1,15 @@
+&__favorite_button {
+  @include likeButton;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    @include likeButtonHover;
+  }
+
+  &--selected {
+    @include likeButtonSelected;
+  }
+}

@@ -1,18 +1,16 @@
-import { FC, useState } from 'react';
-import cn from 'classnames';
+import { FC, memo } from 'react';
+import { Link } from 'react-router-dom';
+
 import { Device } from '../../types/Device';
 import './Card.scss';
-import { FavoriteIcon } from '../../icons/FavoriteIcon';
-import { FavoriteFullIcon } from '../../icons/FavouriteFullIcon';
+import { FavoriteButton } from '../FavoriteButton';
+import { AddToCartButton } from '../AddToCartButton';
 
 interface Props {
   phone: Device;
 }
 
-export const Card: FC<Props> = ({ phone }) => {
-  const [isSelected, setIsSelected] = useState(false);
-  const [isFavorite, setIsFavorite] = useState(false);
-
+export const Card: FC<Props> = memo(({ phone }) => {
   const {
     phoneId,
     name,
@@ -26,14 +24,10 @@ export const Card: FC<Props> = ({ phone }) => {
     image,
   } = phone;
 
-  const onHandleClick = () => {
-    setIsFavorite(!isFavorite);
-  };
-
   return (
     <div className="card__container">
       <div className="card__content">
-        <a href="/" className="card__link">
+        <Link to="/" className="card__link">
           <div className="card__photo_container">
             <img
               src={image}
@@ -41,18 +35,19 @@ export const Card: FC<Props> = ({ phone }) => {
               className="card__image"
             />
           </div>
-        </a>
+        </Link>
 
-        <a href="/" className="card__phone_link">
+        <Link to="/" className="card__phone_link">
           {name}
-        </a>
+        </Link>
 
         <div className="card__price">
           <p className="card__price--fullPrice">
             &#36;
             {price}
           </p>
-          <p className="card__price--discountPrise">
+
+          <p className="card__price--discountPrice">
             <del>
               &#36;
               {fullPrice}
@@ -64,43 +59,28 @@ export const Card: FC<Props> = ({ phone }) => {
 
         <div className="card__char">
           <p className="card__char--category_name"> Screen </p>
+
           <p>{screen}</p>
         </div>
 
         <div className="card__char">
           <p className="card__char--category_name"> Capacity </p>
+
           <p>{capacity}</p>
         </div>
 
         <div className="card__char">
           <p className="card__char--category_name"> RAM </p>
+
           <p>{ram}</p>
         </div>
 
         <div className="card__buttons">
-          <button
-            type="button"
-            className={cn('card__add_button', {
-              'card__add_button--selected': isSelected,
-            })}
-            onClick={() => setIsSelected(!isSelected)}
-          >
-            {isSelected ? 'Added to cart' : 'Add to cart'}
-          </button>
+          <AddToCartButton />
 
-          <button
-            type="button"
-            className={cn('card__favorite_button', {
-              'card__favorite_button--selected': isFavorite,
-            })}
-            onClick={onHandleClick}
-          >
-            {isFavorite
-              ? <FavoriteFullIcon />
-              : <FavoriteIcon />}
-          </button>
+          <FavoriteButton />
         </div>
       </div>
     </div>
   );
-};
+});
