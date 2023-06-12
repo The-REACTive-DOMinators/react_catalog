@@ -2,7 +2,7 @@ import { FC } from 'react';
 import './styles/main.scss';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
-import { LogoIcon } from '../../Icons/Logo';
+import { LogoIcon } from '../../Icons/LogoIco';
 import { FavIco } from '../../Icons/FavIco';
 import { CartIco } from '../../Icons/CartIco';
 

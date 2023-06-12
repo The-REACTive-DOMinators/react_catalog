@@ -3,7 +3,7 @@ import './styles/main.scss';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 import { Arrow } from '../../Icons/Arrow';
-import { LogoIcon } from '../../Icons/Logo';
+import { LogoIcon } from '../../Icons/LogoIco';
 
 export const Footer: FC = () => {
   const scrollToTop = () => {
