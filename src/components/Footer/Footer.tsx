@@ -59,6 +59,7 @@ export const Footer: FC = () => {
       </nav>
       <button type="submit" onClick={scrollToTop} className="back-top">
         Back to Top
+
         <Arrow
           className="footer__arrow"
         />
