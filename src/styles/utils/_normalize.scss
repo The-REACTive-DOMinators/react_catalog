@@ -1,7 +1,9 @@
-@import "./styles/main.scss";
+* {
+  box-sizing: border-box;
+}
 
 body {
-  box-sizing: border-box;
+  min-height: 100vh;
 
   background: $mainBackground;
   color: $textColor;
@@ -12,4 +14,10 @@ body {
 iframe {
   overflow: hidden;
   pointer-events: none;
+}
+
+button,
+a {
+  cursor: pointer;
+  color: $textColor;
 }

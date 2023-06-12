@@ -1,11 +1,11 @@
-@mixin onDesktop {
-  @media (min-width: 1200px) {
+@mixin onTablet {
+  @media (min-width: 640px) {
     @content;
   }
 }
 
-@mixin onTablet {
-  @media (min-width: 640px) {
+@mixin onDesktop {
+  @media (min-width: 1200px) {
     @content;
   }
 }
@@ -52,6 +52,19 @@
   }
 }
 
+@mixin prise {
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 1.4;
+}
+
+@mixin discountPrise {
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 28px;
+  color: $secondaryTextColor;
+}
+
 @mixin fourthTitle {
   font-weight: 700;
   font-size: 16px;
@@ -78,11 +91,25 @@
 
 @mixin buttonHover {
   background: #a378ff;
-  flex-grow: 1;
+  // flex-grow: 1;
 }
 
 @mixin buttonSelected {
   background: #323542;
+}
+
+@mixin likeButton {
+  width: 40px;
+  height: 40px;
+  background: $likeButtonBcg;
+}
+
+@mixin likeButtonHover {
+  background-color: $likeButtonHoverBcg;
+}
+
+@mixin likeButtonSelected {
+  background-color: $mainBackground;
 }
 
 @mixin bodyText {
