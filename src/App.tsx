@@ -1,15 +1,10 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.scss';
-import { BurgerMenu } from './components/BurgerMenu';
+import { HomePage } from './modules/HomePage';
 
-const App = () => {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<BurgerMenu />} />
-      </Routes>
-    </BrowserRouter>
-  );
-};
+const App = () => (
+  <div className="App">
+    <HomePage />
+  </div>
+);
 
 export default App;
