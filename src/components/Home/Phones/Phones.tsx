@@ -1,7 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-console */
 import { useEffect, FC, useState } from 'react';
 import { Phone } from '../../../types/Phone';
-import { client } from '../../../services/fetchPhones';
+import { getPhones } from '../../../api/phones';
 
 export const Phones: FC = () => {
   const [phoneData, setPhoneData] = useState<Phone[]>([]);
@@ -11,10 +11,12 @@ export const Phones: FC = () => {
   useEffect(() => {
     const fetchPhoneData = async () => {
       try {
-        const data = await client.get<Phone[]>('/phones');
+        const data = await getPhones();
 
         setPhoneData(data);
         setIsLoading(false);
+
+        console.log(data);
       } catch (error) {
         setIsLoading(false);
         setHasError(true);
@@ -22,12 +24,14 @@ export const Phones: FC = () => {
     };
 
     fetchPhoneData();
-  }, []);
+  }, [setPhoneData, setIsLoading, setHasError]);
 
   return (
     <>
       <div>
-        {phoneData}
+        {phoneData.map((phone) => (
+          <div key={phone.id}>{phone.name}</div>
+        ))}
         {isLoading}
         {hasError}
       </div>

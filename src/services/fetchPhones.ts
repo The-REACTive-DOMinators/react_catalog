@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-const BASE_URL = 'https://loading_phones';
+const BASE_URL = 'https://server-store-p1t7.onrender.com';
 
 // returns a promise resolved after a given delay
 function wait(delay: number) {
