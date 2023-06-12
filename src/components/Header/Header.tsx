@@ -3,8 +3,8 @@ import './styles/main.scss';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 import { LogoIcon } from '../../Icons/LogoIco';
-import { FavIco } from '../../Icons/FavIco';
-import { CartIco } from '../../Icons/CartIco';
+import { FavoriteIcon } from '../../Icons/FavoriteIcon';
+import { ShoppingCartIcon } from '../../Icons/ShoppingCartIcon';
 import { MenuIco } from '../../Icons/MenuIco';
 
 export const Header: FC = () => {
@@ -72,20 +72,22 @@ export const Header: FC = () => {
 
         <div className="header__icons">
           <NavLink to="/Favourite" className="header__fav icon">
-            <FavIco
+            <FavoriteIcon
               className="header__img"
             />
           </NavLink>
 
           <NavLink to="/Cart" className="header__cart icon">
-            <CartIco
+            <ShoppingCartIcon
               className="header__img"
             />
           </NavLink>
         </div>
 
         <div className="header__burger-menu">
-          <MenuIco className="header__img" />
+          <NavLink to="/menu" className="header__cart icon">
+            <MenuIco className="header__img" />
+          </NavLink>
         </div>
       </header>
     </>

@@ -7,6 +7,7 @@ import { AccessoriesPage } from './modules/AccessoriesPage/AccessoriesPage';
 import { ShoppingCartPage } from './modules/ShoppingCartPage/ShoppingCartPage';
 import { FavoritesPage } from './modules/FavoritesPage/FavoritesPage';
 import { PageNotFound } from './modules/PageNotFound/PageNotFound';
+import { BurgerMenu } from './components/BurgerMenu';
 
 const App = () => (
   <div className="App">
@@ -16,6 +17,7 @@ const App = () => (
       <Route path="/" element={<HomePage />}>
         <Route path="/home" element={<Navigate to="/" />} />
       </Route>
+      <Route path="/menu" element={<BurgerMenu />} />
       <Route path="/phones" element={<PhonesPage />} />
       <Route path="/tablets" element={<TabletsPage />} />
       <Route path="/accessories" element={<AccessoriesPage />} />

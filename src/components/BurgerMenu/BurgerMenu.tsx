@@ -3,10 +3,10 @@ import './BurgerMenu.scss';
 import cn from 'classnames';
 import { NavLink } from 'react-router-dom';
 // eslint-disable-next-line
-import { LogoIcon } from '../../icons/Logo';
-import { CloseIcon } from '../../icons/CloseIcon';
-import { FavoriteIcon } from '../../icons/FavoriteIcon';
-import { ShoppingCartIcon } from '../../icons/ShoppingCartIcon';
+import { LogoIcon } from '../../Icons/LogoIco';
+import { CloseIcon } from '../../Icons/CloseIcon';
+import { FavoriteIcon } from '../../Icons/FavoriteIcon';
+import { ShoppingCartIcon } from '../../Icons/ShoppingCartIcon';
 
 export const BurgerMenu: FC = () => {
   const [isOpen, setIsOpen] = useState(true);
