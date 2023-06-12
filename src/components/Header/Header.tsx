@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { Logo } from '../../Icons/logo';
 import { FavIco } from '../../Icons/FavIco';
 import { CartIco } from '../../Icons/CartIco';
+import { MenuIco } from '../../Icons/MenuIco';
 
 export const Header: FC = () => {
   return (
@@ -85,11 +86,7 @@ export const Header: FC = () => {
         </div>
 
         <div className="header__burger-menu">
-          <img
-            src=""
-            alt="Menu"
-            className="header__img"
-          />
+          <MenuIco className="header__img" />
         </div>
       </header>
     </>
