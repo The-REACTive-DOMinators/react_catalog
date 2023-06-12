@@ -3,10 +3,10 @@ import './BurgerMenu.scss';
 import cn from 'classnames';
 import { NavLink } from 'react-router-dom';
 // eslint-disable-next-line
-import logo from '../../images/icons/Logo.svg';
-import close from '../../images/icons/close.svg';
-import favorite from '../../images/icons/heartLike.svg';
-import shopCart from '../../images/icons/shoppingbag.svg';
+import { LogoIcon } from '../../icons/Logo';
+import { CloseIcon } from '../../icons/CloseIcon';
+import { FavoriteIcon } from '../../icons/FavoriteIcon';
+import { ShoppingCartIcon } from '../../icons/ShoppingCartIcon';
 
 export const BurgerMenu: FC = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -20,18 +20,14 @@ export const BurgerMenu: FC = () => {
       <div className="header">
         <div className="logo">
           <NavLink to="/home" className="logo-image">
-            <img
-              src={logo}
-              alt="Logo"
-              className="logo-image-img"
-            />
+            <LogoIcon className="logo-image-img" />
           </NavLink>
         </div>
         <div
           className="close-icon"
         >
           <NavLink to="/home" onClick={toggleMenu} className="close-icon-img">
-            <img src={close} alt="Close Icon" />
+            <CloseIcon />
           </NavLink>
         </div>
       </div>
@@ -44,20 +40,12 @@ export const BurgerMenu: FC = () => {
       <div className="footer">
         <div className="footer-container footer-container-fav">
           <NavLink to="/favorites">
-            <img
-              src={favorite}
-              alt="Button 1"
-              className="footer-container_icon"
-            />
+            <FavoriteIcon className="footer-container_icon" />
           </NavLink>
         </div>
         <div className="footer-container">
           <NavLink to="/bucket">
-            <img
-              src={shopCart}
-              alt="Button 1"
-              className="footer-container_icon"
-            />
+            <ShoppingCartIcon className="footer-container_icon" />
           </NavLink>
         </div>
       </div>
