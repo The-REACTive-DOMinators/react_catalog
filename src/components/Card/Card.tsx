@@ -1,16 +1,30 @@
-import { FC, memo } from 'react';
+import {
+  FC, memo, useCallback, useState,
+} from 'react';
+import cn from 'classnames';
 import { Link } from 'react-router-dom';
-
 import { Device } from '../../types/Device';
 import './Card.scss';
-import { FavoriteButton } from '../FavoriteButton';
-import { AddToCartButton } from '../AddToCartButton';
+import { Button } from '../Button';
+import { FavoriteIcon } from '../../icons/FavoriteIcon';
+import { FavoriteFullIcon } from '../../icons/FavouriteFullIcon';
 
 interface Props {
   phone: Device;
 }
 
 export const Card: FC<Props> = memo(({ phone }) => {
+  const [isAdd, setIsAdd] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const handleAdd = useCallback(() => {
+    setIsAdd(!isAdd);
+  }, [isAdd]);
+
+  const handleFavorite = useCallback(() => {
+    setIsFavorite(!isFavorite);
+  }, [isFavorite]);
+
   const {
     phoneId,
     name,
@@ -18,9 +32,7 @@ export const Card: FC<Props> = memo(({ phone }) => {
     price,
     screen,
     capacity,
-    // color,
     ram,
-    // year,
     image,
   } = phone;
 
@@ -69,16 +81,36 @@ export const Card: FC<Props> = memo(({ phone }) => {
           <p>{capacity}</p>
         </div>
 
-        <div className="card__char">
+        <div className="card__char card__char--last">
           <p className="card__char--category_name"> RAM </p>
 
           <p>{ram}</p>
         </div>
 
         <div className="card__buttons">
-          <AddToCartButton />
+          <div className={cn('add_button', {
+            'add_button--selected': isAdd,
+          })}
+          >
+            <Button
+              onHandleClick={handleAdd}
+              content={isAdd
+                ? 'Added to cart'
+                : 'Add to cart'}
+            />
+          </div>
 
-          <FavoriteButton />
+          <div className={cn('favorite_button', {
+            'favorite_button--selected': isFavorite,
+          })}
+          >
+            <Button
+              onHandleClick={handleFavorite}
+              content={isFavorite
+                ? <FavoriteFullIcon />
+                : <FavoriteIcon />}
+            />
+          </div>
         </div>
       </div>
     </div>

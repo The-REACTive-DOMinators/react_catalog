@@ -2,7 +2,6 @@
 @import "../../styles/utils/variables";
 
 .card {
-
   &__container {
     width: 212px;
     height: 439px;
@@ -71,11 +70,12 @@
       display: block;
       margin-left: 8px;
     }
+  }
 
-    &__separate-line {
-      margin-top: 8px;
-      border: 1px solid $separatLineColor;
-    }
+  &__separate-line {
+    margin-top: 8px;
+    margin-bottom: 16px;
+    border: 1px solid $separatLineColor;
   }
 
   &__char {
@@ -86,17 +86,58 @@
 
     margin-bottom: 8px;
 
-    &:last-child {
-      margin-bottom: 16px;
-    }
-
     &--category_name {
       color: $secondaryTextColor;
+    }
+
+    &--last {
+      margin-bottom: 16px;
     }
 
   }
 
   &__buttons {
     display: flex;
+  }
+}
+
+.add_button {
+  @include buttons;
+
+  width: 100px;
+  height: 40px;
+
+  @include onTablet {
+    width: 125px;
+  }
+
+  @include onDesktop {
+    width: 160px;
+  }
+
+  margin-right: 8px;
+
+  &--selected {
+    @include buttonSelected;
+  }
+
+  &:hover {
+    @include buttonHover;
+  }
+}
+
+.favorite_button {
+  @include likeButton;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    @include likeButtonHover;
+  }
+
+  &--selected {
+    @include likeButtonSelected;
   }
 }
