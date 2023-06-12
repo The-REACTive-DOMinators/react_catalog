@@ -3,7 +3,7 @@ import './styles/main.scss';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 import { Arrow } from '../../Icons/Arrow';
-import { Logo } from '../../Icons/logo';
+import { LogoIcon } from '../../Icons/Logo';
 
 export const Footer: FC = () => {
   const scrollToTop = () => {
@@ -15,7 +15,7 @@ export const Footer: FC = () => {
 
   return (
     <footer className="footer">
-      <Logo className="footer__logo" />
+      <LogoIcon className="footer__logo" />
 
       <nav className="footer__nav nav-footer">
         <ul className="nav-footer__list">

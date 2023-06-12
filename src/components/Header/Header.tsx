@@ -2,7 +2,7 @@ import { FC } from 'react';
 import './styles/main.scss';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
-import { Logo } from '../../Icons/logo';
+import { LogoIcon } from '../../Icons/Logo';
 import { FavIco } from '../../Icons/FavIco';
 import { CartIco } from '../../Icons/CartIco';
 
@@ -11,7 +11,7 @@ export const Header: FC = () => {
     <>
       <header className="header">
         <div className="header__menu">
-          <Logo className="header__logo" />
+          <LogoIcon className="header__logo" />
 
           <nav className="header__nav">
             <ul className="nav-header">
