@@ -37,7 +37,7 @@
   content: "";
   display: block;
   opacity: 0;
-  border-bottom: 4px solid $link-color-hovered;
+  border-bottom: 4px solid $textColor;
   border-radius: 2px;
   @include transition;
 
@@ -51,5 +51,5 @@
 }
 
 @mixin hoveredLink {
-  color: $link-color-hovered;
+  color: $textColor;
 }

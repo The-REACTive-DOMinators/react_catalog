@@ -1,7 +1,5 @@
 import { FC } from 'react';
 import './styles/main.scss';
-import { NavLink } from 'react-router-dom';
-import classNames from 'classnames';
 import { Arrow } from '../../Icons/Arrow';
 import { LogoIcon } from '../../Icons/LogoIco';
 
@@ -20,48 +18,27 @@ export const Footer: FC = () => {
       <nav className="footer__nav nav-footer">
         <ul className="nav-footer__list">
           <li className="nav-footer__item">
-            <NavLink
-              to="/Github"
-              className={
-                ({ isActive }) => (
-                  classNames('nav-footer__link', { 'is-active': isActive })
-                )
-              }
-            >
+            <a href="!#" className="nav-footer__link">
               Github
-            </NavLink>
+            </a>
           </li>
+
           <li className="nav-footer__item">
-            <NavLink
-              to="/Contacts"
-              className={
-                ({ isActive }) => (
-                  classNames('nav-footer__link', { 'is-active': isActive })
-                )
-              }
-            >
+            <a href="!#" className="nav-footer__link">
               Contacts
-            </NavLink>
+            </a>
           </li>
+
           <li className="nav-footer__item">
-            <NavLink
-              to="/Rights"
-              className={
-                ({ isActive }) => (
-                  classNames('nav-footer__link', { 'is-active': isActive })
-                )
-              }
-            >
+            <a href="!#" className="nav-footer__link">
               Rights
-            </NavLink>
+            </a>
           </li>
         </ul>
       </nav>
       <button type="submit" onClick={scrollToTop} className="back-top">
         Back to Top
-        <Arrow
-          className="footer__arrow"
-        />
+        <Arrow className="footer__arrow" />
       </button>
 
     </footer>

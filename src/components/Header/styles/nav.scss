@@ -28,7 +28,7 @@
 }
 
 .is-active {
-  color: $link-color-hovered;
+  color: $textColor;
 
   &::after {
     opacity: 100;

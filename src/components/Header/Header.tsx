@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import './styles/main.scss';
 import { NavLink } from 'react-router-dom';
-import classNames from 'classnames';
 import { LogoIcon } from '../../Icons/LogoIco';
 import { FavoriteIcon } from '../../Icons/FavoriteIcon';
 import { ShoppingCartIcon } from '../../Icons/ShoppingCartIcon';
 import { MenuIco } from '../../Icons/MenuIco';
+import { PageNavLink } from '../PageNavlink/PageNavLink';
 
 export const Header: FC = () => {
   return (
@@ -17,54 +17,18 @@ export const Header: FC = () => {
           <nav className="header__nav">
             <ul className="nav-header">
               <li className="nav-header__item">
-                <NavLink
-                  to="/Home"
-                  className={
-                    ({ isActive }) => (
-                      classNames('nav-header__link', { 'is-active': isActive })
-                    )
-                  }
-                >
-                  Home
-                </NavLink>
+                <PageNavLink to="/Home" text="Home" />
               </li>
 
               <li className="nav-header__item">
-                <NavLink
-                  to="/Phones"
-                  className={
-                    ({ isActive }) => (
-                      classNames('nav-header__link', { 'is-active': isActive })
-                    )
-                  }
-                >
-                  Phones
-                </NavLink>
+                <PageNavLink to="/Phones" text="Phones" />
               </li>
 
               <li className="nav-header__item">
-                <NavLink
-                  to="/Tablets"
-                  className={
-                    ({ isActive }) => (
-                      classNames('nav-header__link', { 'is-active': isActive })
-                    )
-                  }
-                >
-                  Tablets
-                </NavLink>
+                <PageNavLink to="/Tablets" text="Tablets" />
               </li>
               <li className="nav-header__item">
-                <NavLink
-                  to="/Accessories"
-                  className={
-                    ({ isActive }) => (
-                      classNames('nav-header__link', { 'is-active': isActive })
-                    )
-                  }
-                >
-                  Accessories
-                </NavLink>
+                <PageNavLink to="/Accessories" text="Accessories" />
               </li>
             </ul>
           </nav>
