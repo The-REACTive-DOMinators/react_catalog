@@ -4,7 +4,7 @@ import { Phone } from '../../../types/Phone';
 import { client } from '../../../services/fetchPhones';
 
 export const Phones: FC = () => {
-  const [phoneData, setPhoneData] = useState<Phone[]>([]); // Используем ваш интерфейс Phone
+  const [phoneData, setPhoneData] = useState<Phone[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
 
@@ -24,9 +24,13 @@ export const Phones: FC = () => {
     fetchPhoneData();
   }, []);
 
-  // Дополнительный код вашего компонента, использующий состояния phoneData, isLoading и hasError
-
   return (
-    <></>
+    <>
+      <div>
+        {phoneData}
+        {isLoading}
+        {hasError}
+      </div>
+    </>
   );
 };
