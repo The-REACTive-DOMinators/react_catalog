@@ -2,22 +2,16 @@ import { FC } from 'react';
 import './styles/main.scss';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
-import logo from '../../Icons/Logo.svg';
-import favIco from '../../Icons/Favourites.svg';
-import CartIco from '../../Icons/Cart.svg';
-import MenuIco from '../../Icons/Burger.svg';
+import { Logo } from '../../Icons/logo';
+import { FavIco } from '../../Icons/FavIco';
+import { CartIco } from '../../Icons/CartIco';
 
 export const Header: FC = () => {
   return (
     <>
       <header className="header">
         <div className="header__menu">
-          <img
-            src={logo}
-            alt="logo"
-            className="header__logo"
-            id="Top"
-          />
+          <Logo className="header__logo" />
 
           <nav className="header__nav">
             <ul className="nav-header">
@@ -77,26 +71,22 @@ export const Header: FC = () => {
         </div>
 
         <div className="header__icons">
-          <div className="header__fav icon">
-            <img
-              src={favIco}
-              alt="Favourite"
+          <NavLink to="/Favourite" className="header__fav icon">
+            <FavIco
               className="header__img"
             />
-          </div>
+          </NavLink>
 
-          <div className="header__cart icon">
-            <img
-              src={CartIco}
-              alt="Stroke"
+          <NavLink to="/Cart" className="header__cart icon">
+            <CartIco
               className="header__img"
             />
-          </div>
+          </NavLink>
         </div>
 
         <div className="header__burger-menu">
           <img
-            src={MenuIco}
+            src=""
             alt="Menu"
             className="header__img"
           />

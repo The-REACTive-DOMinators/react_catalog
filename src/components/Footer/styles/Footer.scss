@@ -32,7 +32,9 @@
   &__arrow {
     width: $arrow-size;
     height: $arrow-size;
-    padding-left: 16px;
+    margin-left: 16px;
+    padding: 10px;
+    background-color: #323542;
   }
 
   &__before {

@@ -2,8 +2,8 @@ import { FC } from 'react';
 import './styles/main.scss';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
-import logo from '../../Icons/Logo.svg';
-import arrow from '../../Icons/Arrow.svg';
+import { Arrow } from '../../Icons/Arrow';
+import { Logo } from '../../Icons/logo';
 
 export const Footer: FC = () => {
   const scrollToTop = () => {
@@ -15,11 +15,7 @@ export const Footer: FC = () => {
 
   return (
     <footer className="footer">
-      <img
-        src={logo}
-        alt="logo"
-        className="footer__logo"
-      />
+      <Logo className="footer__logo" />
 
       <nav className="footer__nav nav-footer">
         <ul className="nav-footer__list">
@@ -64,9 +60,7 @@ export const Footer: FC = () => {
       <button type="submit" onClick={scrollToTop} className="back-top">
         Back to Top
 
-        <img
-          src={arrow}
-          alt="arrow"
+        <Arrow
           className="footer__arrow"
         />
       </button>

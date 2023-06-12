@@ -24,6 +24,7 @@
 
 @mixin link {
   font-family: "Mont", sans-serif;
+  font-weight: 800;
   color: $link-color;
   text-decoration: none;
   text-transform: uppercase;

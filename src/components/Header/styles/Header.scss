@@ -53,3 +53,11 @@
     }
   }
 }
+
+.icon {
+  @include transition;
+
+  &:hover {
+    background-color: grey;
+  }
+}
