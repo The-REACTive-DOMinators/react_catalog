@@ -33,6 +33,7 @@ function request<T>(
       if (!response.ok) {
         throw new Error();
       }
+      
 
       return response.json();
     });
