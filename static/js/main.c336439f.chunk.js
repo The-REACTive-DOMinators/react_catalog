@@ -1,2 +1,0 @@
-(this["webpackJsonpreact_phone-catalog"]=this["webpackJsonpreact_phone-catalog"]||[]).push([[0],{11:function(e,t,n){"use strict";n.r(t);var c=n(3),a=n.n(c),o=(n(8),n(9),n(0)),r=function(){return Object(o.jsx)("div",{className:"App",children:Object(o.jsx)("h1",{children:"React Phone Catalog"})})};a.a.render(Object(o.jsx)(r,{}),document.getElementById("root"))},8:function(e,t,n){},9:function(e,t,n){}},[[11,1,2]]]);
-//# sourceMappingURL=main.c336439f.chunk.js.map
