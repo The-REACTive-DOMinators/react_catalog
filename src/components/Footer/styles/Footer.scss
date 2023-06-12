@@ -40,7 +40,7 @@
   &__before {
     font-family: "Mont", sans-serif;
     flex-wrap: nowrap;
-    color: $link-color;
+    color: $secondaryTextColor;
     font-size: 12px;
     font-weight: 700;
   }
@@ -52,7 +52,7 @@
   align-items: center;
   width: 145px;
   text-decoration: none;
-  color: $link-color;
+  color: $secondaryTextColor;
   background-color: transparent;
   border-color: transparent;
   cursor: pointer;
