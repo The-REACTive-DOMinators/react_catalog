@@ -90,7 +90,9 @@ export const Card: FC<Props> = ({ phone }) => {
 
           <button
             type="button"
-            className={cn('card__favorite_button', isFavorite)}
+            className={cn('card__favorite_button', {
+              'card__favorite_button--selected': isFavorite,
+            })}
             onClick={onHandleClick}
           >
             {isFavorite
