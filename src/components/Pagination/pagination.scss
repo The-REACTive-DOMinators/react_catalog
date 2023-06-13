@@ -11,7 +11,7 @@
     cursor: pointer;
     border: 1px solid #161827;
     background-color: #161827;
-    color: #F1F2F9;
+    color: #f1f2f9;
     transition: all 0.3s;
 
     &--switch {
@@ -19,7 +19,7 @@
     }
 
     &:hover {
-      background-color: #905BFF;
+      background-color: #905bff;
     }
   }
 }
@@ -45,11 +45,11 @@
     font-weight: 600;
     font-size: 14px;
     line-height: 21px;
-    font-family: 'Mont';
+    font-family: "Mont", sans-serif;
 
     cursor: pointer;
     background-color: #323542;
-    color: #F1F2F9;
+    color: #f1f2f9;
     border-color: #323542;
   }
 }
