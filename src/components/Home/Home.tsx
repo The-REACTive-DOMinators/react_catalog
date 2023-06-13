@@ -1,12 +1,7 @@
 import { FC } from 'react';
-import { Header } from '../Header/Header';
-import { Footer } from '../Footer/Footer';
 
 export const Home: FC = () => {
   return (
-    <>
-      <Header />
-      <Footer />
-    </>
+    <h1>lorem1000</h1>
   );
 };
