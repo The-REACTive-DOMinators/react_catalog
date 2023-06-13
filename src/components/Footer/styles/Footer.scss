@@ -1,8 +1,9 @@
 .footer {
   height: 250px;
-  padding: 30px 16px 0;
+  padding: 0 $gap;
   background-color: $mainBackground;
   box-shadow: 0 1px 0 0 $shadow-color;
+  border-top: 1px solid $shadow-color;
 
   @include onTablet {
     display: flex;
@@ -20,8 +21,7 @@
   }
 
   &__logo {
-    min-height: 50px;
-    padding-bottom: 40px;
+    min-height: 120px;
     cursor: pointer;
 
     @include onTablet {

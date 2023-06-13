@@ -7,6 +7,7 @@
   box-shadow: 0 1px 0 0 $shadow-color;
   font-size: 12px;
   height: $header-tablet-height;
+  border-bottom: 1px solid $shadow-color;
 
   @include onDesktop {
     height: $header-desktop-height;
