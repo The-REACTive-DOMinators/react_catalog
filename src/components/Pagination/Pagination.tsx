@@ -1,4 +1,5 @@
-// import { useState } from 'react';
+import classNames from 'classnames';
+import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 export const Pagination = () => {
@@ -6,6 +7,7 @@ export const Pagination = () => {
   const numberOfPages = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   const [searchParams, setSearchParams] = useSearchParams();
+  const [currentPage, setCurrentPage] = useState(1);
 
   return (
     <>
@@ -62,7 +64,12 @@ export const Pagination = () => {
           type="button"
           className="pagination__button pagination__button--switch"
           data-cy="paginationLeft"
-          // onClick={() => {}}
+          onClick={() => {
+            setCurrentPage(currentPage - 1);
+            searchParams.set('page', (currentPage - 1).toString());
+            setSearchParams(searchParams);
+          }}
+          disabled={currentPage === 1}
         >
           {'<'}
         </button>
@@ -70,10 +77,16 @@ export const Pagination = () => {
         {numberOfPages.map((item) => (
           <button
             type="button"
-            className="pagination__button"
+            className={classNames('pagination__button',
+              { 'pagination__button--active': item === currentPage })}
             data-cy="paginationItem"
             key={Math.random()}
-            // onClick={() => {}}
+            onClick={() => {
+              setCurrentPage(item);
+              searchParams.set('page', item.toString());
+              setSearchParams(searchParams);
+            }}
+            disabled={currentPage === numberOfPages.length}
           >
             {item}
           </button>
@@ -83,7 +96,11 @@ export const Pagination = () => {
           type="button"
           className="pagination__button pagination__button--switch"
           data-cy="paginationRight"
-          // onClick={() => {}}
+          onClick={() => {
+            setCurrentPage(currentPage + 1);
+            searchParams.set('page', (currentPage + 1).toString());
+            setSearchParams(searchParams);
+          }}
         >
           {'>'}
         </button>
