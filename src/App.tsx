@@ -7,10 +7,12 @@ import { AccessoriesPage } from './modules/AccessoriesPage/AccessoriesPage';
 import { ShoppingCartPage } from './modules/ShoppingCartPage/ShoppingCartPage';
 import { FavoritesPage } from './modules/FavoritesPage/FavoritesPage';
 import { PageNotFound } from './modules/PageNotFound/PageNotFound';
+import { Header } from './components/Header/Header';
+import { Footer } from './components/Footer/Footer';
 
 const App = () => (
   <div className="App">
-    <h1>React Phone Catalog</h1>
+    <Header />
     <Routes>
       <Route path="/" element={<HomePage />}>
         <Route path="/home" element={<Navigate to="/" />} />
@@ -22,6 +24,7 @@ const App = () => (
       <Route path="/favorites" element={<FavoritesPage />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
+    <Footer />
   </div>
 );
 
