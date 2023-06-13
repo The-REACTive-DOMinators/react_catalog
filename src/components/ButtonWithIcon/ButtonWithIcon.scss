@@ -1,0 +1,15 @@
+@import "../../styles/utils/mixins";
+
+.icon_button {
+  @include iconButton;
+  width: 40px;
+  height: 40px;
+
+  &:hover {
+    @include iconButtonHover;
+  }
+
+  &--selected {
+    @include iconButtonSelected;
+  }
+}

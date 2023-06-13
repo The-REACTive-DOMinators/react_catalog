@@ -1,14 +1,5 @@
 @import "./styles/main.scss";
 
-body {
-  box-sizing: border-box;
-
-  background: $mainBackground;
-  color: $textColor;
-  font-family: "Mont", sans-serif;
-  font-style: normal;
-}
-
 iframe {
   overflow: hidden;
   pointer-events: none;
