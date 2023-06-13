@@ -1,0 +1,42 @@
+@mixin icoStyles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border-left: 1px solid $separatLineColor;
+}
+
+@mixin transition {
+  transition: all 0.5s ease-in-out;
+}
+
+@mixin link {
+  font-family: "Mont", sans-serif;
+  font-weight: 800;
+  color: $textColor;
+  text-decoration: none;
+  text-transform: uppercase;
+  @include transition;
+}
+
+@mixin afterLink {
+  position: relative;
+  top: 20px;
+  content: "";
+  display: block;
+  opacity: 0;
+  border-radius: 2px;
+  @include transition;
+
+  @include onTablet {
+    top: 12px;
+  }
+
+  @include onDesktop {
+    top: 20px;
+  }
+}
+
+@mixin hoveredLink {
+  color: $link-color-footer-hovered;
+}

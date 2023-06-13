@@ -1,0 +1,62 @@
+.footer {
+  height: 250px;
+  padding: 30px 16px 0;
+  background-color: $mainBackground;
+  box-shadow: 0 1px 0 0 $shadow-color;
+
+  @include onTablet {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 96px;
+
+    @include onTablet {
+      padding: 0 30px;
+    }
+
+    @include onDesktop {
+      padding: 0 152px;
+    }
+  }
+
+  &__logo {
+    min-height: 50px;
+    padding-bottom: 40px;
+    cursor: pointer;
+
+    @include onTablet {
+      padding-bottom: 0;
+    }
+  }
+
+  &__arrow {
+    width: $arrow-size;
+    height: $arrow-size;
+    margin-left: $gap;
+    padding: 10px;
+    background-color: #323542;
+  }
+
+  &__before {
+    font-family: "Mont", sans-serif;
+    flex-wrap: nowrap;
+    color: $secondaryTextColor;
+    font-size: 12px;
+    font-weight: 700;
+  }
+}
+
+.back-top {
+  padding-left: 40%;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: $secondaryTextColor;
+  background-color: transparent;
+  border-color: transparent;
+  cursor: pointer;
+
+  @include onTablet {
+    padding-left: 0;
+  }
+}

@@ -1,0 +1,55 @@
+@mixin onTablet {
+  @media screen and (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media screen and (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin icoStyles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border-left: 1px solid $ico-border-color;
+}
+
+@mixin transition {
+  transition: all 0.5s ease-in-out;
+}
+
+@mixin link {
+  font-family: "Mont", sans-serif;
+  font-weight: 800;
+  color: $secondaryTextColor;
+  text-decoration: none;
+  text-transform: uppercase;
+  @include transition;
+}
+
+@mixin afterLink {
+  position: relative;
+  top: 20px;
+  content: "";
+  display: block;
+  opacity: 0;
+  border-bottom: 4px solid $textColor;
+  border-radius: 2px;
+  @include transition;
+
+  @include onTablet {
+    top: 12px;
+  }
+
+  @include onDesktop {
+    top: 20px;
+  }
+}
+
+@mixin hoveredLink {
+  color: $textColor;
+}

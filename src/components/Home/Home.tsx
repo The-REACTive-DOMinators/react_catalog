@@ -1,5 +1,12 @@
 import { FC } from 'react';
+import { Header } from '../Header/Header';
+import { Footer } from '../Footer/Footer';
 
 export const Home: FC = () => {
-  return <h1>Hello</h1>;
+  return (
+    <>
+      <Header />
+      <Footer />
+    </>
+  );
 };
