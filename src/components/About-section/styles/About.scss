@@ -1,0 +1,30 @@
+.container {
+  margin: 0 16px;
+
+  @include onTablet {
+    margin: 0 24px;
+  }
+
+  @include onTablet {
+    margin: 0 32px;
+  }
+}
+
+.main-title {
+  font-size: 20px;
+  padding-bottom: $gap;
+  border-bottom: 1px solid $separatLineColor;
+}
+
+.about-section {
+  margin-top: 32px;
+}
+
+.section-title {
+  font-size: 16px;
+  margin-bottom: $gap;
+}
+
+.section-text {
+  color: $secondaryTextColor;
+}
