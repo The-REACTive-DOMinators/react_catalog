@@ -1,6 +1,5 @@
 import './App.scss';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { Pagination } from './components/Pagination/Pagination';
 import { HomePage } from './modules/HomePage';
 import { PhonesPage } from './modules/PhonePage/PhonePage';
 import { TabletsPage } from './modules/TabletsPage/TabletsPage';
@@ -23,8 +22,6 @@ const App = () => (
       <Route path="/favorites" element={<FavoritesPage />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
-
-    <Pagination />
   </div>
 );
 

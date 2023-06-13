@@ -5,13 +5,13 @@ export const Pagination = () => {
   const products = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
   const numberOfPages = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-  // const [sortBy, setSortBy] = useState('newest');
-  // const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
 
   return (
     <>
-      <div>{window.location.pathname}</div>
+      <h1 className="title">Mobile phones</h1>
+
+      <div className="counter">{`${products.length} models`}</div>
 
       <div className="product-filter">
         <label className="product-filter__sortBy" htmlFor="#">
