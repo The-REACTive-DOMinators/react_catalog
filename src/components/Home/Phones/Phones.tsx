@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
 import { useEffect, FC, useState } from 'react';
-import { Phone } from '../../../types/Phone';
+import { Device } from '../../../types/Device';
 import { getPhones } from '../../../api/phones';
 
 export const Phones: FC = () => {
-  const [phoneData, setPhoneData] = useState<Phone[]>([]);
+  const [phoneData, setPhoneData] = useState<Device[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
 
