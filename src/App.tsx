@@ -11,7 +11,6 @@ import { PageNotFound } from './modules/PageNotFound/PageNotFound';
 const App = () => (
   <div className="App">
     <h1>React Phone Catalog</h1>
-
     <Routes>
       <Route path="/" element={<HomePage />}>
         <Route path="/home" element={<Navigate to="/" />} />
