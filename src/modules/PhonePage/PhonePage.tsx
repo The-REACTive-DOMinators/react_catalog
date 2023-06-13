@@ -1,7 +1,5 @@
-export const PhonesPage = () => {
-  return (
-    <div>
-      <h2>Phones Page</h2>
-    </div>
-  );
-};
+import { Phones } from '../../components/Phones';
+
+export const PhonesPage = () => (
+  <Phones />
+);
