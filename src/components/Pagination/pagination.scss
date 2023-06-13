@@ -1,0 +1,73 @@
+.pagination {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  padding-top: 40px;
+  gap: 8px;
+
+  &__button {
+    display: block;
+    padding: 7px 12px;
+    cursor: pointer;
+    border: 1px solid #161827;
+    background-color: #161827;
+    color: #F1F2F9;
+    transition: all 0.3s;
+
+    &--switch {
+      background-color: #323542;
+    }
+
+    &:hover {
+      background-color: #905BFF;
+    }
+  }
+}
+
+.product-filter {
+  display: flex;
+  gap: 16px;
+  padding-bottom: 24px;
+
+  &__sortBy {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+    color: #89939a;
+  }
+
+  &__itemsOnPage {
+    padding: 5px 10px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    font-family: 'Mont';
+
+    cursor: pointer;
+    background-color: #323542;
+    color: #F1F2F9;
+    border-color: #323542;
+  }
+}
+
+.product {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 16px;
+  justify-items: center;
+
+  &__card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 272px;
+    height: 506px;
+
+    border: 1px solid #161827;
+  }
+}
