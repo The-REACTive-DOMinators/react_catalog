@@ -7,10 +7,12 @@ export const Pagination = () => {
 
   // const [sortBy, setSortBy] = useState('newest');
   // const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   return (
     <>
+      <div>{window.location.pathname}</div>
+
       <div className="product-filter">
         <label className="product-filter__sortBy" htmlFor="#">
           Sort By
@@ -18,6 +20,7 @@ export const Pagination = () => {
             className="product-filter__itemsOnPage"
             onChange={(event) => {
               searchParams.set('sortBy', event.target.value);
+              setSearchParams(searchParams);
             }}
           >
             <option value="newest">Newest</option>
@@ -31,6 +34,7 @@ export const Pagination = () => {
             className="product-filter__itemsOnPage"
             onChange={(event) => {
               searchParams.set('perPage', event.target.value);
+              setSearchParams(searchParams);
             }}
           >
             <option value="100">all</option>
