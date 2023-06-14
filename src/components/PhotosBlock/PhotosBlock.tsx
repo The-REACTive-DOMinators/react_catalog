@@ -7,7 +7,7 @@ export const PhotosBlock = () => {
   // const [phones, setPhones] = useState<Device[] | null>(null);
   const [selectedItem, setSelectedItem] = useState('');
 
-  // const API = 1;
+  // const API = 'https://server-store-p1t7.onrender.com';
 
   const plug = [{
     id: 1,
