@@ -2,7 +2,6 @@
   height: 250px;
   padding: 0 $gap;
   background-color: $mainBackground;
-  box-shadow: 0 1px 0 0 $shadow-color;
   border-top: 1px solid $shadow-color;
 
   @include onTablet {
@@ -55,6 +54,7 @@
   background-color: transparent;
   border-color: transparent;
   cursor: pointer;
+  padding-bottom: 32px;
 
   @include onTablet {
     padding-left: 0;

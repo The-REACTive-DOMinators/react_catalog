@@ -34,21 +34,17 @@ export const Header: FC = () => (
 
     <div className="header__icons">
       <NavLink to="/Favourite" className="header__fav icon">
-        <FavoriteIcon
-          className="header__icon"
-        />
+        <FavoriteIcon />
       </NavLink>
 
       <NavLink to="/Cart" className="header__cart icon">
-        <ShoppingCartIcon
-          className="header__icon"
-        />
+        <ShoppingCartIcon />
       </NavLink>
     </div>
 
     <div className="header__burger-menu">
-      <NavLink to="/menu" className="header__cart icon">
-        <MenuIcon className="header__icon" />
+      <NavLink to="/menu" className="header__cart">
+        <MenuIcon />
       </NavLink>
     </div>
   </header>
