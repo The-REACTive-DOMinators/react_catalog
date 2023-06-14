@@ -1,25 +1,24 @@
+/* eslint-disable no-console */
 /* eslint-disable max-len */
 import { useState } from 'react';
-// import { getPhones } from '../../api/phones';
 // import { Device } from '../../types/Device';
 
 export const PhotosBlock = () => {
   // const [phones, setPhones] = useState<Device[] | null>(null);
   const [selectedItem, setSelectedItem] = useState('');
 
+  // const API = 1;
+
   const plug = [{
     id: 1,
-    // url: 'https://fakeimg.pl/80x80/5ec950/909090?text=1',
     url: 'https://fakeimg.pl/120x120/014d16/909090?text=test',
   },
   {
     id: 2,
-    // url: 'https://fakeimg.pl/80x80/2441a3/909090?text=2',
     url: 'https://fakeimg.pl/400x400/00108c/909090?text=test+2',
   },
   {
     id: 3,
-    // url: 'https://fakeimg.pl/80x80/fa1212/909090?text=3',
     url: 'https://fakeimg.pl/600x600/6cf57e/909090?text=test+3',
   },
   {
@@ -31,16 +30,6 @@ export const PhotosBlock = () => {
     url: 'https://fakeimg.pl/80x80/fa9d12/909090?text=5',
   },
   ];
-
-  // const loadPhones = async () => {
-  //   const data = await getPhones();
-
-  //   setPhones(data);
-  // };
-
-  // useEffect(() => {
-  //   loadPhones();
-  // }, []);
 
   return (
     <>
