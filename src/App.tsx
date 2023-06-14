@@ -9,6 +9,7 @@ import { FavoritesPage } from './modules/FavoritesPage/FavoritesPage';
 import { PageNotFound } from './modules/PageNotFound/PageNotFound';
 import { Header } from './components/Header/Header';
 import { Footer } from './components/Footer/Footer';
+import { BurgerMenu } from './components/BurgerMenu';
 
 const App = () => (
   <div className="App">
@@ -22,6 +23,7 @@ const App = () => (
       <Route path="/accessories" element={<AccessoriesPage />} />
       <Route path="/cart" element={<ShoppingCartPage />} />
       <Route path="/favorites" element={<FavoritesPage />} />
+      <Route path="/menu" element={<BurgerMenu />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
     <Footer />
