@@ -13,12 +13,10 @@ import { BurgerMenu } from './components/BurgerMenu';
 
 const App = () => (
   <div className="App">
-    <h1>React Phone Catalog</h1>
     <Header />
     <Routes>
-      <Route path="/" element={<HomePage />}>
-        <Route path="/home" element={<Navigate to="/" />} />
-      </Route>
+      <Route path="/" element={<HomePage />} />
+      <Route path="home" element={<Navigate to="/" replace />} />
       <Route path="/phones" element={<PhonesPage />} />
       <Route path="/tablets" element={<TabletsPage />} />
       <Route path="/accessories" element={<AccessoriesPage />} />
