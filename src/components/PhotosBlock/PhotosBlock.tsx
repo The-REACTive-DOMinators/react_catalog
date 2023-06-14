@@ -1,35 +1,13 @@
-/* eslint-disable no-console */
-/* eslint-disable max-len */
 import { useState } from 'react';
-// import { Device } from '../../types/Device';
 
-export const PhotosBlock = () => {
-  // const [phones, setPhones] = useState<Device[] | null>(null);
+interface Props {
+  images: string[];
+}
+
+export const PhotosBlock: React.FC<Props> = ({ images }) => {
   const [selectedItem, setSelectedItem] = useState('');
 
-  // const API = 'https://server-store-p1t7.onrender.com';
-
-  const plug = [{
-    id: 1,
-    url: 'https://fakeimg.pl/120x120/014d16/909090?text=test',
-  },
-  {
-    id: 2,
-    url: 'https://fakeimg.pl/400x400/00108c/909090?text=test+2',
-  },
-  {
-    id: 3,
-    url: 'https://fakeimg.pl/600x600/6cf57e/909090?text=test+3',
-  },
-  {
-    id: 4,
-    url: 'https://fakeimg.pl/80x80/fafa12/909090?text=4',
-  },
-  {
-    id: 5,
-    url: 'https://fakeimg.pl/80x80/fa9d12/909090?text=5',
-  },
-  ];
+  const BASE_URL = 'https://server-store-p1t7.onrender.com';
 
   return (
     <>
@@ -37,15 +15,15 @@ export const PhotosBlock = () => {
 
       <div className="photo-block">
         <div className="photo-block__list">
-          {plug.map((item) => (
+          {images.map((image) => (
             <button
               className="photo-block__list__item"
               type="button"
-              onClick={() => setSelectedItem(item.url)}
+              onClick={() => setSelectedItem(image)}
             >
               <img
-                src={item.url}
-                alt={(item.id).toString()}
+                src={`${BASE_URL}${image}`}
+                alt="phone"
                 className="photo-block__list__item__img"
               />
             </button>
