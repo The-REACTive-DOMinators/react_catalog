@@ -80,37 +80,42 @@
   }
 }
 
-@mixin buttons {
+@mixin addButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   font-weight: 700;
   font-size: 14px;
   line-height: 1.5;
 
-  width: 176px;
-  height: 40px;
-
   background-color: $accentColor;
 }
 
-@mixin buttonHover {
+@mixin addButtonHover {
   background-color: #a378ff;
   // flex-grow: 1;
 }
 
-@mixin buttonSelected {
+@mixin addButtonSelected {
   background-color: #323542;
 }
 
-@mixin likeButton {
-  width: 40px;
-  height: 40px;
+@mixin iconButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+
   background-color: $likeButtonBcg;
 }
 
-@mixin likeButtonHover {
+@mixin iconButtonHover {
   background-color: $likeButtonHoverBcg;
 }
 
-@mixin likeButtonSelected {
+@mixin iconButtonSelected {
+  border: 1px solid $borderColor;
   background: none;
 }
 
