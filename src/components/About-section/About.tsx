@@ -1,21 +1,21 @@
 import { FC } from 'react';
 import './styles/main.scss';
-import { Phone } from './types/Phone';
+import { Description } from './types/Phone';
 
 interface Props {
-  phones: Phone[];
+  description: Description[];
 }
 
-export const About: FC<Props> = ({ phones }) => {
+export const About: FC<Props> = ({ description }) => {
   return (
     <div className="container">
       <h2 className="main-title">About</h2>
 
-      {phones.map((phone) => (
+      {description.map(({ title, text }) => (
         <section className="about-section">
-          <h4 className="section-title">{phone.title}</h4>
+          <h4 className="section-title">{title}</h4>
 
-          <p className="section-text">{phone.text}</p>
+          <p className="section-text">{text}</p>
         </section>
       ))}
     </div>
