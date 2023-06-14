@@ -1,50 +1,23 @@
+/* eslint-disable quote-props */
 import { FC } from 'react';
 import './styles/main.scss';
+import { Chars } from './Chars';
 
-export const TechSpecs: FC = () => {
-  const chars = [
-    {
-      name: 'Screen',
-      value: '6.5” OLED',
-    },
-    {
-      name: 'Resolution',
-      value: '2688x1242',
-    },
-    {
-      name: 'Processor',
-      value: 'Apple A12 Bionic',
-    },
-    {
-      name: 'RAM',
-      value: '3 GB',
-    },
-    {
-      name: 'Built in memory',
-      value: '64 GB',
-    },
-    {
-      name: 'Camera',
-      value: '12 Mp + 12 Mp + 12 Mp (Triple)',
-    },
-    {
-      name: 'Zoom',
-      value: 'Optical, 2x',
-    },
-    {
-      name: 'Cell',
-      value: 'GSM, LTE, UMTS',
-    },
-  ];
+interface Props {
+  chars: Chars
+}
+
+export const TechSpecs: FC<Props> = ({ chars }) => {
+  const specNames = Object.keys(chars);
 
   return (
     <div className="container">
       <h2 className="main-title">Tech specs</h2>
 
-      {chars.map(({ name, value }) => (
-        <section className="char">
-          <p className="name">{name}</p>
-          <p className="value">{value}</p>
+      {specNames.map((key) => (
+        <section className="char" key={key}>
+          <p className="name">{key}</p>
+          <p className="value">{chars[key as keyof Chars]}</p>
         </section>
       ))}
     </div>
