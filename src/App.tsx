@@ -9,7 +9,6 @@ import { FavoritesPage } from './modules/FavoritesPage/FavoritesPage';
 import { PageNotFound } from './modules/PageNotFound/PageNotFound';
 import { Header } from './components/Header/Header';
 import { Footer } from './components/Footer/Footer';
-import { ProductInfo } from './ProductInfo/ProductInfo';
 
 const App = () => (
   <div className="App">
@@ -26,8 +25,6 @@ const App = () => (
       <Route path="*" element={<PageNotFound />} />
     </Routes>
     <Footer />
-
-    <ProductInfo />
   </div>
 );
 
