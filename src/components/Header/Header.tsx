@@ -47,8 +47,8 @@ export const Header: FC = () => (
     </div>
 
     <div className="header__burger-menu">
-      <NavLink to="/menu" className="header__cart icon">
-        <MenuIcon className="header__icon" />
+      <NavLink to="/menu" className="header__cart">
+        <MenuIcon />
       </NavLink>
     </div>
   </header>
