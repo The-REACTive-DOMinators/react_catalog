@@ -1,12 +1,13 @@
 import { FC, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Description } from './Description/Description';
 import { PhotosBlock } from './PhotosBlock/PhotosBlock';
 import { getPhoneDescription } from '../../api/phones';
 import { Summary } from '../../types/Summary';
+import { Description } from './Description/Description';
 
 export const Product: FC = () => {
   const [images, setImages] = useState(['']);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [summary, setSummary] = useState<Summary['description']>([
     {
       title: '',
@@ -40,7 +41,7 @@ export const Product: FC = () => {
   return (
     <>
       <PhotosBlock images={images} />
-      <Description descriptionObj={summary} />
+      <Description />
     </>
   );
 };
