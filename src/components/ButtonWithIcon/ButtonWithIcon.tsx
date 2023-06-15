@@ -12,16 +12,14 @@ export const ButtonWithIcon: FC<Props> = ({
   children,
   onHandleClick,
   isSelected,
-}) => {
-  return (
-    <button
-      type="button"
-      onClick={onHandleClick}
-      className={cn('icon_button', {
-        'icon_button--selected': isSelected,
-      })}
-    >
-      { children }
-    </button>
-  );
-};
+}) => (
+  <button
+    type="button"
+    onClick={onHandleClick}
+    className={cn('icon_button', {
+      'icon_button--selected': isSelected,
+    })}
+  >
+    { children }
+  </button>
+);
