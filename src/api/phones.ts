@@ -16,6 +16,7 @@ export const getPhone = (phoneId: string) => {
 
 export const getPhoneDescription = (phoneId: string) => {
   return client.get<PhoneDescription>(`/products/phones/${phoneId}`);
+};
 
 export const getLength = () => {
   return client.get<number>('/products/phones/count');
