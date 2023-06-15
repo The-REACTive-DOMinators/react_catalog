@@ -1,22 +1,23 @@
 @import "../../styles/utils/mixins";
-@import "../../styles/utils/variables";
 
 .card {
   &__container {
     width: 212px;
-    height: 439px;
     background-color: $cardBackground;
-    border-radius: 5%;
     padding: 32px;
+    border: 1px solid transparent;
 
     @include onTablet {
       width: 237px;
-      height: 512px;
     }
 
     @include onDesktop {
       width: 272px;
-      height: 506px;
+    }
+
+    &:hover {
+      border: 1px solid #323542;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
     }
   }
 
@@ -98,46 +99,5 @@
 
   &__buttons {
     display: flex;
-  }
-}
-
-.add_button {
-  @include buttons;
-
-  width: 100px;
-  height: 40px;
-
-  @include onTablet {
-    width: 125px;
-  }
-
-  @include onDesktop {
-    width: 160px;
-  }
-
-  margin-right: 8px;
-
-  &--selected {
-    @include buttonSelected;
-  }
-
-  &:hover {
-    @include buttonHover;
-  }
-}
-
-.favorite_button {
-  @include likeButton;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  &:hover {
-    @include likeButtonHover;
-  }
-
-  &--selected {
-    @include likeButtonSelected;
   }
 }

@@ -23,6 +23,7 @@ export const BurgerMenu: FC = () => {
             <LogoIcon className="logo-image-img" />
           </NavLink>
         </div>
+
         <div
           className="close-icon"
         >
@@ -31,10 +32,14 @@ export const BurgerMenu: FC = () => {
           </NavLink>
         </div>
       </div>
+
       <div className="nav">
         <NavLink to="/home" className="nav-link">Home</NavLink>
+
         <NavLink to="/phones" className="nav-link">Phones</NavLink>
+
         <NavLink to="/tablets" className="nav-link">Tablets</NavLink>
+
         <NavLink to="/accessories" className="nav-link">Accessories</NavLink>
       </div>
       <div className="footer">
@@ -43,6 +48,7 @@ export const BurgerMenu: FC = () => {
             <FavoriteIcon className="footer-container_icon" />
           </NavLink>
         </div>
+
         <div className="footer-container">
           <NavLink to="/bucket">
             <ShoppingCartIcon className="footer-container_icon" />

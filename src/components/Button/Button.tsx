@@ -3,7 +3,6 @@ import {
   ReactElement,
 } from 'react';
 import './Button.scss';
-// import cn from 'classnames';
 
 interface Props {
   content: string | ReactElement;
@@ -13,14 +12,12 @@ interface Props {
 export const Button: FC<Props> = ({
   content,
   onHandleClick,
-}) => {
-  return (
-    <button
-      type="button"
-      onClick={onHandleClick}
-      className="button"
-    >
-      { content }
-    </button>
-  );
-};
+}) => (
+  <button
+    type="button"
+    onClick={onHandleClick}
+    className="button"
+  >
+    { content }
+  </button>
+);
