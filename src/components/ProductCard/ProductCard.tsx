@@ -1,28 +1,31 @@
 import {
-  FC, memo, useCallback, useState,
+  FC,
+  memo,
+  useCallback,
+  useState,
 } from 'react';
-import cn from 'classnames';
 import { Link } from 'react-router-dom';
 import { Device } from '../../types/Device';
 import './Card.scss';
-import { Button } from '../Button';
+import { AddButton } from '../AddButton';
 import { FavoriteIcon } from '../../icons/FavoriteIcon';
 import { FavoriteFullIcon } from '../../icons/FavouriteFullIcon';
+import { ButtonWithIcon } from '../ButtonWithIcon';
 
 interface Props {
   phone: Device;
 }
 
-export const Card: FC<Props> = memo(({ phone }) => {
+export const ProductCard: FC<Props> = memo(({ phone }) => {
+  const [isFavorite, setisFavorite] = useState(false);
   const [isAdd, setIsAdd] = useState(false);
-  const [isFavorite, setIsFavorite] = useState(false);
 
   const handleAdd = useCallback(() => {
     setIsAdd(!isAdd);
   }, [isAdd]);
 
   const handleFavorite = useCallback(() => {
-    setIsFavorite(!isFavorite);
+    setisFavorite(!isFavorite);
   }, [isFavorite]);
 
   const {
@@ -88,29 +91,24 @@ export const Card: FC<Props> = memo(({ phone }) => {
         </div>
 
         <div className="card__buttons">
-          <div className={cn('add_button', {
-            'add_button--selected': isAdd,
-          })}
+          <AddButton
+            onHandleClick={handleAdd}
+            isAdd={isAdd}
           >
-            <Button
-              onHandleClick={handleAdd}
-              content={isAdd
-                ? 'Added to cart'
-                : 'Add to cart'}
-            />
-          </div>
+            {isAdd
+              ? 'Added to cart'
+              : 'Add to cart'}
 
-          <div className={cn('favorite_button', {
-            'favorite_button--selected': isFavorite,
-          })}
+          </AddButton>
+
+          <ButtonWithIcon
+            onHandleClick={handleFavorite}
+            isSelected={isFavorite}
           >
-            <Button
-              onHandleClick={handleFavorite}
-              content={isFavorite
-                ? <FavoriteFullIcon />
-                : <FavoriteIcon />}
-            />
-          </div>
+            {isFavorite
+              ? <FavoriteFullIcon />
+              : <FavoriteIcon />}
+          </ButtonWithIcon>
         </div>
       </div>
     </div>

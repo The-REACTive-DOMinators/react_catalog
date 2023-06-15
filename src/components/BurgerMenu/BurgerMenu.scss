@@ -25,7 +25,7 @@
   }
   .logo {
     width: 100%;
-    border-bottom: $menuBorders;
+    // border-bottom: $menuBorders;
     height: 100%;
     display: flex;
     align-items: center;
@@ -44,8 +44,8 @@
     justify-content: center;
     width: 48px;
     height: 48px;
-    border-left: $menuBorders;
-    border-bottom: $menuBorders;
+    // border-left: $menuBorders;
+    // border-bottom: $menuBorders;
     right: 0;
 
     &-img {
@@ -112,7 +112,7 @@
       justify-content: center;
       align-items: center;
       height: 100%;
-      border-top: $menuBorders;
+      // border-top: $menuBorders;
 
       &-fav {
         border-right: $menuBorders;

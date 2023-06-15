@@ -15,31 +15,31 @@ export const Header: FC = () => (
       <nav className="header__nav">
         <ul className="nav-header">
           <li className="nav-header__item">
-            <PageNavLink to="/Home" text="Home" />
+            <PageNavLink to="/" text="Home" />
           </li>
 
           <li className="nav-header__item">
-            <PageNavLink to="/Phones" text="Phones" />
+            <PageNavLink to="/phones" text="Phones" />
           </li>
 
           <li className="nav-header__item">
-            <PageNavLink to="/Tablets" text="Tablets" />
+            <PageNavLink to="/tablets" text="Tablets" />
           </li>
           <li className="nav-header__item">
-            <PageNavLink to="/Accessories" text="Accessories" />
+            <PageNavLink to="/accessories" text="Accessories" />
           </li>
         </ul>
       </nav>
     </div>
 
     <div className="header__icons">
-      <NavLink to="/Favourite" className="header__fav icon">
+      <NavLink to="/favorites" className="header__fav icon">
         <FavoriteIcon
           className="header__icon"
         />
       </NavLink>
 
-      <NavLink to="/Cart" className="header__cart icon">
+      <NavLink to="/cart" className="header__cart icon">
         <ShoppingCartIcon
           className="header__icon"
         />
@@ -47,8 +47,8 @@ export const Header: FC = () => (
     </div>
 
     <div className="header__burger-menu">
-      <NavLink to="/menu" className="header__cart icon">
-        <MenuIcon className="header__icon" />
+      <NavLink to="/menu" className="header__cart">
+        <MenuIcon />
       </NavLink>
     </div>
   </header>
