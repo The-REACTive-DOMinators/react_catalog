@@ -19,8 +19,9 @@ const ph = {
 };
 
 export const Cart = () => {
-  // const savedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-  const savedCartItems: Device[] = [ph, ph];
+  // const cartItems: Device[] | [] = JSON
+  // .parse(localStorage.getItem('cartItems')) || [];
+  const cartItems: Device[] = [ph, ph];
 
   return (
     <>
@@ -32,7 +33,7 @@ export const Cart = () => {
 
       <div className="cart__container">
         <div className="cart__cart-item">
-          {savedCartItems.map((phone) => (
+          {cartItems.map((phone) => (
             <CartItem
               key={phone.id}
               phone={phone}
@@ -50,7 +51,6 @@ export const Cart = () => {
           <button type="button">Checkout</button>
         </div>
       </div>
-
     </>
   );
 };
