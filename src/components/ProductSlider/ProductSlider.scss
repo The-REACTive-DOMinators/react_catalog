@@ -1,0 +1,30 @@
+.product-slider {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-bottom: 28px;
+
+  margin: 0 auto;
+  width: 1136px;
+
+  @media (max-width: 1136px) {
+    padding: 0 20px;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 16px;
+
+    &__button {
+      height: 32px;
+      width: 32px;
+
+      background-color: #323542;
+      color: #f1f2f9;
+
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+  }
+}

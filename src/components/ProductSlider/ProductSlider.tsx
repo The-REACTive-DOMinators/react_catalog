@@ -1,7 +1,120 @@
 import { useState } from 'react';
-import { Card } from '../Card/Card';
+import { Recomended } from '../Recomended/Recomended';
+import { Device } from '../../types/Device';
 
-const prodCardsPlug: never[] = [];
+const prodCardsPlug: Device[] = [{
+  id: '1',
+  category: 'string',
+  phoneId: 'string',
+  name: 'string',
+  fullPrice: 1499.99,
+  price: 1499,
+  screen: 'string',
+  capacity: 'string',
+  color: 'string',
+  ram: 'string',
+  year: 1984,
+  image: 'string',
+},
+{
+  id: '1',
+  category: 'string',
+  phoneId: 'string',
+  name: 'string',
+  fullPrice: 1499.99,
+  price: 1499,
+  screen: 'string',
+  capacity: 'string',
+  color: 'string',
+  ram: 'string',
+  year: 1984,
+  image: 'string',
+},
+{
+  id: '1',
+  category: 'string',
+  phoneId: 'string',
+  name: 'string',
+  fullPrice: 1499.99,
+  price: 1499,
+  screen: 'string',
+  capacity: 'string',
+  color: 'string',
+  ram: 'string',
+  year: 1984,
+  image: 'string',
+},
+{
+  id: '1',
+  category: 'string',
+  phoneId: 'string',
+  name: 'string',
+  fullPrice: 1499.99,
+  price: 1499,
+  screen: 'string',
+  capacity: 'string',
+  color: 'string',
+  ram: 'string',
+  year: 1984,
+  image: 'string',
+},
+// {
+//   id: '1',
+//   category: 'string',
+//   phoneId: 'string',
+//   name: 'string',
+//   fullPrice: 1499.99,
+//   price: 1499,
+//   screen: 'string',
+//   capacity: 'string',
+//   color: 'string',
+//   ram: 'string',
+//   year: 1984,
+//   image: 'string',
+// },
+// {
+//   id: '1',
+//   category: 'string',
+//   phoneId: 'string',
+//   name: 'string',
+//   fullPrice: 1499.99,
+//   price: 1499,
+//   screen: 'string',
+//   capacity: 'string',
+//   color: 'string',
+//   ram: 'string',
+//   year: 1984,
+//   image: 'string',
+// },
+// {
+//   id: '1',
+//   category: 'string',
+//   phoneId: 'string',
+//   name: 'string',
+//   fullPrice: 1499.99,
+//   price: 1499,
+//   screen: 'string',
+//   capacity: 'string',
+//   color: 'string',
+//   ram: 'string',
+//   year: 1984,
+//   image: 'string',
+// },
+// {
+//   id: '1',
+//   category: 'string',
+//   phoneId: 'string',
+//   name: 'string',
+//   fullPrice: 1499.99,
+//   price: 1499,
+//   screen: 'string',
+//   capacity: 'string',
+//   color: 'string',
+//   ram: 'string',
+//   year: 1984,
+//   image: 'string',
+// }
+];
 
 export const ProductSlider = () => {
   const [page, setPage] = useState(1);
@@ -30,7 +143,7 @@ export const ProductSlider = () => {
   };
 
   return (
-    <>
+    <div className="container">
       <div className="product-slider">
         <h2>You may also like</h2>
 
@@ -51,13 +164,9 @@ export const ProductSlider = () => {
             {'>'}
           </button>
         </div>
-
-        <div className="product-slider__cards">
-          {prodCardsPlug.map((card) => (
-            <Card phone={card} />
-          ))}
-        </div>
       </div>
-    </>
+
+      <Recomended products={prodCardsPlug} />
+    </div>
   );
 };
