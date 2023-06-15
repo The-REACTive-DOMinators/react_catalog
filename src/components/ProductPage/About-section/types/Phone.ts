@@ -1,4 +1,4 @@
-export interface Phone {
+export interface Description {
   title: string
   text: string
 }

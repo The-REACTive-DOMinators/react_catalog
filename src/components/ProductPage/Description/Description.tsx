@@ -12,7 +12,7 @@ export const Description: FC = () => {
   return (
     <div className="grid">
       <div className="grid__item--tablet-1-12">
-        <About phones={objs} />
+        <About description={objs} />
       </div>
     </div>
   );
