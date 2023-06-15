@@ -27,7 +27,9 @@ export const Cart = () => {
       <button type="button">
         Back
       </button>
+
       <h1>Cart</h1>
+
       <div className="cart__container">
         <div className="cart__cart-item">
           {savedCartItems.map((phone) => (
@@ -37,10 +39,14 @@ export const Cart = () => {
             />
           ))}
         </div>
+
         <div>
           <p>TotalSum</p>
+
           <p>Total for 3</p>
+
           <div className="separate-line" />
+
           <button type="button">Checkout</button>
         </div>
       </div>

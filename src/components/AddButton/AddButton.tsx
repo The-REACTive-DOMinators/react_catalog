@@ -8,16 +8,18 @@ interface Props {
   isAdd: boolean;
 }
 
-export const AddButton: FC<Props> = ({ onHandleClick, children, isAdd }) => {
-  return (
-    <button
-      type="button"
-      onClick={onHandleClick}
-      className={cn('add_button', {
-        'add_button--selected': isAdd,
-      })}
-    >
-      { children }
-    </button>
-  );
-};
+export const AddButton: FC<Props> = ({
+  onHandleClick,
+  children,
+  isAdd,
+}) => (
+  <button
+    type="button"
+    onClick={onHandleClick}
+    className={cn('add_button', {
+      'add_button--selected': isAdd,
+    })}
+  >
+    { children }
+  </button>
+);
