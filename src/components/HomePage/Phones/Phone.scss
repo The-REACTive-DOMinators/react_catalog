@@ -1,0 +1,72 @@
+@import "../../../styles/utils/mixins";
+@import "../../../components/Pagination/pagination.scss";
+
+.container {
+  width: 100vw;
+  max-width: 1200px;
+  margin: auto;
+  padding: 25px 16px 64px;
+
+  @include onDesktop {
+    padding: 25px 32px 80px;
+  }
+
+  &-title {
+    margin-bottom: 8px;
+  }
+
+  &-remaining {
+    @include bodyText;
+    color: #75767f;
+    margin-bottom: 32px;
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+  }
+}
+
+.phones_list {
+  display: grid;
+  justify-items: center;
+  grid-row-gap: 40px;
+  row-gap: 40px;
+  grid-template-columns: repeat(1,minmax(0,1fr));
+
+  @include onTablet {
+    grid-column-gap: 16px;
+    column-gap: 16px;
+    row-gap: 46px;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
+}
+
+@media (min-width: 848px) {
+  .phones_list {
+    grid-template-columns: repeat(3,minmax(0,1fr));
+  }
+}
+
+@media (min-width: 1200px) {
+  .phones_list {
+    grid-template-columns: repeat(4,minmax(0,1fr));
+  }
+}
+
+.route-links {
+  margin-bottom: 24px;
+
+  @include onDesktop {
+    margin-bottom: 40px;
+  }
+}
+
+.home-icon,
+.arrow-icon {
+  margin-right: 14px;
+}
+
+.phones-title {
+  @include smalltext;
+  color: #75767f;
+}
