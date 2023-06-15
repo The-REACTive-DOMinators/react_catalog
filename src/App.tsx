@@ -9,6 +9,7 @@ import { FavoritesPage } from './modules/FavoritesPage/FavoritesPage';
 import { PageNotFound } from './modules/PageNotFound/PageNotFound';
 import { Header } from './components/Header/Header';
 import { Footer } from './components/Footer/Footer';
+import { PhotosBlock } from './components/ProductPage/PhotosBlock/PhotosBlock';
 
 const App = () => (
   <div className="App">
@@ -25,6 +26,15 @@ const App = () => (
       <Route path="*" element={<PageNotFound />} />
     </Routes>
     <Footer />
+
+    <PhotosBlock images={[
+      'https://fakeimg.pl/600x400',
+      'https://fakeimg.pl/600x400',
+      'https://fakeimg.pl/600x400',
+      'https://fakeimg.pl/600x400',
+      'https://fakeimg.pl/600x400',
+    ]}
+    />
   </div>
 );
 
