@@ -25,7 +25,7 @@ export const Description: FC = () => {
   return (
     <div className="grid">
       <div className="grid__item--desktop-1-12">
-        <About phones={objs} />
+        <About description={objs} />
       </div>
       <div className="grid__item--desktop-13-24">
         <TechSpecs chars={chars} />

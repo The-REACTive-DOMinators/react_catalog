@@ -1,0 +1,43 @@
+.photo-block {
+  position: relative;
+  width: 559px;
+  height: 471px;
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 17px;
+
+    &__item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 80px;
+      height: 80px;
+
+      object-fit: cover;
+      cursor: pointer;
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: translateZ(0) scale(1.1);
+      }
+
+      &__img {
+        width: auto;
+        height: 100%;
+      }
+    }
+  }
+
+  &__selectedItem {
+    position: absolute;
+    top: 11px;
+    right: 11px;
+
+    width: 442px;
+    height: 442px;
+    object-fit: cover;
+  }
+}

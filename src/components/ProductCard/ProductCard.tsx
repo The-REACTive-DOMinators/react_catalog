@@ -16,7 +16,7 @@ interface Props {
   phone: Device;
 }
 
-export const Card: FC<Props> = memo(({ phone }) => {
+export const ProductCard: FC<Props> = memo(({ phone }) => {
   const [isFavorite, setisFavorite] = useState(false);
   const [isAdd, setIsAdd] = useState(false);
 
