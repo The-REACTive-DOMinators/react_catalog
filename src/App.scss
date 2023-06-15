@@ -1,14 +1,4 @@
 @import "./styles/main.scss";
-@import "./components/Pagination/pagination.scss";
-body {
-  box-sizing: border-box;
-
-  background: $mainBackground;
-  color: $textColor;
-  font-family: "Mont", sans-serif;
-  font-style: normal;
-}
-
 @import "./components/ProductPage/PhotosBlock/PhotosBlock.scss";
 
 iframe {
