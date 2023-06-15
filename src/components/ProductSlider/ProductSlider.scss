@@ -3,9 +3,14 @@
   align-items: center;
   flex-direction: column;
   position: relative;
+  flex-direction: column;
 
   margin: 0 auto;
   width: 1136px;
+
+  @media (max-width: 1136px) {
+    padding: 0 20px;
+  }
 
   &__header {
     display: flex;
@@ -20,6 +25,9 @@
     gap: 16px;
 
     &__button {
+      height: 32px;
+      width: 32px;
+
       background-color: #323542;
       color: #f1f2f9;
 
@@ -32,6 +40,14 @@
       height: 40px;
       width: 40px;
     }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 16px;
+    padding-bottom: 80px;
   }
 
   &__content {
