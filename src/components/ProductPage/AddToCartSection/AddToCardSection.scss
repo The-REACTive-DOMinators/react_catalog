@@ -1,0 +1,44 @@
+@import "../../../styles/main.scss";
+
+.price {
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.new-price {
+  font-size: 32px;
+  margin-right: 8px;
+}
+
+.old-price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $secondaryTextColor;
+  text-decoration: line-through;
+}
+
+.add-section {
+  display: flex;
+  margin-bottom: 32px;
+}
+
+.favourite {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: $likeButtonBcg;
+}
+
+.char {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px ;
+  font-size: 12px;
+}
+
+.name {
+  color: $secondaryTextColor;
+}
