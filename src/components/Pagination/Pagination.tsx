@@ -1,93 +1,52 @@
 // import { useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+// import { useSearchParams } from 'react-router-dom';
 
-export const Pagination = () => {
-  const products = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
-  const numberOfPages = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+import { FC } from 'react';
 
-  const [searchParams, setSearchParams] = useSearchParams();
+interface Props {
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  phones: number;
+}
+
+export const Pagination: FC<Props> = ({ onClick, phones }) => {
+  const length = [];
+  const end = Math.ceil(71 / phones);
+
+  for (let i = 1; i <= end; i += 1) {
+    length.push(i);
+  }
 
   return (
-    <>
-      <h1 className="title">Mobile phones</h1>
+    <div className="pagination" data-cy="pagination">
+      <button
+        type="button"
+        className="pagination__button pagination__button--switch"
+        data-cy="paginationLeft"
+      // onClick={() => {}}
+      >
+        {'<'}
+      </button>
 
-      <div className="counter">{`${products.length} models`}</div>
-
-      <div className="product-filter">
-        <label className="product-filter__sortBy" htmlFor="#">
-          Sort By
-          <select
-            className="product-filter__itemsOnPage"
-            onChange={(event) => {
-              searchParams.set('sortBy', event.target.value);
-              setSearchParams(searchParams);
-            }}
-          >
-            <option value="newest">Newest</option>
-            <option value="alphabetically">Alphabetically</option>
-            <option value="price">Price</option>
-          </select>
-        </label>
-        <label className="product-filter__sortBy" htmlFor="#">
-          Items on page
-          <select
-            className="product-filter__itemsOnPage"
-            onChange={(event) => {
-              searchParams.set('perPage', event.target.value);
-              setSearchParams(searchParams);
-            }}
-          >
-            <option value="100">all</option>
-            <option value="4">4</option>
-            <option value="8">8</option>
-            <option value="16">16</option>
-          </select>
-        </label>
-      </div>
-
-      <main>
-        <div className="product">
-          {products.map((item) => (
-            <div className="container">
-              <div className="product__card">
-                {item}
-              </div>
-            </div>
-          ))}
-        </div>
-      </main>
-
-      <div className="pagination" data-cy="pagination">
+      {length.map((item) => (
         <button
           type="button"
-          className="pagination__button pagination__button--switch"
-          data-cy="paginationLeft"
-          // onClick={() => {}}
+          className="pagination__button"
+          data-cy="paginationItem"
+          key={Math.random()}
+          onClick={onClick}
         >
-          {'<'}
+          {item}
         </button>
+      ))}
 
-        {numberOfPages.map((item) => (
-          <button
-            type="button"
-            className="pagination__button"
-            data-cy="paginationItem"
-            key={Math.random()}
-            // onClick={() => {}}
-          >
-            {item}
-          </button>
-        ))}
-
-        <button
-          type="button"
-          className="pagination__button pagination__button--switch"
-          data-cy="paginationRight"
-          // onClick={() => {}}
-        >
-          {'>'}
-        </button>
-      </div>
-    </>
+      <button
+        type="button"
+        className="pagination__button pagination__button--switch"
+        data-cy="paginationRight"
+      // onClick={() => {}}
+      >
+        {'>'}
+      </button>
+    </div>
   );
 };
