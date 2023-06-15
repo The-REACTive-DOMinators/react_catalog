@@ -1,0 +1,40 @@
+@import "../../styles/utils/mixins";
+
+.cart {
+  padding: 16px;
+
+  @include onTablet {
+    padding: 24px;
+  }
+
+  @include onDesktop {
+    padding: 32px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+
+    @include onTablet {
+      display: grid;
+
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: $gap;
+    }
+
+    @include onDesktop {
+      display: grid;
+
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: $gap;
+    }
+  }
+
+  // @include onTablet {
+  //   grid-column: 2 / 6;
+  // }
+
+  // @include onTablet {
+  //   grid-column: 2 / 6;
+  // }
+}

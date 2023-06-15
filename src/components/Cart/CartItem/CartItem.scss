@@ -1,0 +1,44 @@
+@import "../../../styles/utils/mixins";
+
+.cart-item {
+  @include bodyText;
+
+  padding: 24px;
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__title {
+    @include bodyText;
+  }
+
+  &__image_containner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 66px;
+    height: 66px;
+    margin-right: 31px;
+    margin-bottom: 23px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+
+    @include onDesktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__close-button {
+    margin-right: 31px;
+  }
+
+  &__price {
+    @include price;
+
+    display: block;
+  }
+}
