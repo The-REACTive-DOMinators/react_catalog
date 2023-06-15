@@ -35,5 +35,7 @@ export const App = () => (
       <Route path="*" element={<PageNotFound />} />
     </Routes>
     <Footer />
+
+    <ProductSlider recommendedProducts={[]} />
   </div>
 );
