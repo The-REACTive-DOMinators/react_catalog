@@ -1,10 +1,9 @@
-/* eslint-disable quote-props */
 import { FC } from 'react';
 import './styles/main.scss';
-import { Chars } from './Chars';
+import { DeviceSpecs } from '../../../types/DeviceSpecs';
 
 interface Props {
-  chars: Chars
+  chars: DeviceSpecs;
 }
 
 export const TechSpecs: FC<Props> = ({ chars }) => {
@@ -17,7 +16,7 @@ export const TechSpecs: FC<Props> = ({ chars }) => {
         <section className="char" key={key}>
           <p className="name">{key}</p>
 
-          <p className="value">{chars[key as keyof Chars]}</p>
+          <p className="value">{chars[key as keyof DeviceSpecs]}</p>
         </section>
       ))}
     </div>

@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import './styles/main.scss';
-import { Description } from './types/Phone';
+import { Summary } from '../../../types/Summary';
 
 interface Props {
-  description: Description[];
+  description: Summary['description'];
 }
 
 export const About: FC<Props> = ({ description }) => {

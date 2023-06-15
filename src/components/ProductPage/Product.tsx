@@ -4,10 +4,14 @@ import { PhotosBlock } from './PhotosBlock/PhotosBlock';
 import { getPhoneDescription } from '../../api/phones';
 import { Summary } from '../../types/Summary';
 import { Description } from './Description/Description';
+import { DeviceSpecs } from '../../types/DeviceSpecs';
 
 export const Product: FC = () => {
+  const [
+    deviceSpecs,
+    setDeviceSpecs,
+  ] = useState<DeviceSpecs>({} as DeviceSpecs);
   const [images, setImages] = useState(['']);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [summary, setSummary] = useState<Summary['description']>([
     {
       title: '',
@@ -21,6 +25,7 @@ export const Product: FC = () => {
       const phoneDescription = await getPhoneDescription(id);
 
       window.console.log(phoneDescription);
+      setDeviceSpecs(phoneDescription);
       setImages(phoneDescription.images);
       setSummary(phoneDescription.description);
 
@@ -32,6 +37,25 @@ export const Product: FC = () => {
     }
   }
 
+  const startKey = 'screen';
+  const endKey = 'cell';
+  const slicedDeviceSpecs: DeviceSpecs = Object.entries(deviceSpecs)
+    .reduce((acc, [key, value]) => {
+      const updatedAcc: DeviceSpecs = { ...acc };
+
+      if (Object.prototype.hasOwnProperty.call(acc, startKey)) {
+        if (key !== endKey && key !== startKey) {
+          updatedAcc[key as keyof DeviceSpecs] = value;
+        }
+      } else if (key === startKey || key === endKey) {
+        updatedAcc[key as keyof DeviceSpecs] = value;
+      }
+
+      return updatedAcc;
+    }, {} as DeviceSpecs);
+
+  window.console.log(slicedDeviceSpecs);
+
   useEffect(() => {
     if (phoneId) {
       getPhoneById(phoneId);
@@ -41,7 +65,10 @@ export const Product: FC = () => {
   return (
     <>
       <PhotosBlock images={images} />
-      <Description />
+      <Description
+        loadedDescription={summary}
+        phoneSpecs={slicedDeviceSpecs}
+      />
     </>
   );
 };
