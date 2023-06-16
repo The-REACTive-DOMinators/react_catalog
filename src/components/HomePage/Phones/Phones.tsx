@@ -21,8 +21,6 @@ export const Phones: FC = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
 
   const loadingSortedPhones = async (page: string) => {
-    setIsLoading(true);
-
     const phoneList = await getSortedPhones(page);
 
     setPhoneData(phoneList);
@@ -117,6 +115,7 @@ export const Phones: FC = () => {
               <ArrowRight className="arrow-icon" />
               <span className="phones-title">Phones</span>
             </div>
+
             <h1 className="title">Mobile phones</h1>
 
             <div className="counter">{`${phoneData.length} models`}</div>
@@ -133,6 +132,7 @@ export const Phones: FC = () => {
                   <option value="price">Price</option>
                 </select>
               </label>
+
               <label className="product-filter__sortBy" htmlFor="#">
                 Order
                 <select
@@ -143,6 +143,7 @@ export const Phones: FC = () => {
                   <option value="DESC">Desc</option>
                 </select>
               </label>
+
               <label className="product-filter__sortBy" htmlFor="#">
                 Items on page
                 <select
@@ -157,6 +158,7 @@ export const Phones: FC = () => {
                 </select>
               </label>
             </div>
+
             <div className="phones_list">
               {!isLoading && phoneData.map((phone) => (
                 <div className="phone">

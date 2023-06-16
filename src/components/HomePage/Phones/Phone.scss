@@ -1,10 +1,10 @@
 @import "../../../styles/utils/mixins";
 @import "../../../components/Pagination/pagination.scss";
 
-.container {
+.container1 {
   width: 100vw;
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
   padding: 25px 16px 64px;
 
   @include onDesktop {
@@ -55,6 +55,8 @@
 
 .route-links {
   margin-bottom: 24px;
+  display: flex;
+  align-items: center;
 
   @include onDesktop {
     margin-bottom: 40px;

@@ -13,6 +13,16 @@ interface Props {
   onBack: () => void;
 }
 
+const paginationRange = (lastPageNumber: number) => {
+  const length = [];
+
+  for (let i = 1; i <= lastPageNumber; i += 1) {
+    length.push(i);
+  }
+
+  return length;
+};
+
 export const Pagination: FC<Props> = ({
   onClick,
   phones,
@@ -21,24 +31,19 @@ export const Pagination: FC<Props> = ({
   onBack,
 }) => {
   const [phoneDataLength, setPhoneDataLength] = useState<number>(0);
-  const length = [];
   const end = Math.ceil(phoneDataLength / phones);
+  const length = paginationRange(end);
+  const fetchPhoneDataLength = async () => {
+    try {
+      const dataLength = await getLength();
 
-  for (let i = 1; i <= end; i += 1) {
-    length.push(i);
-  }
+      setPhoneDataLength(dataLength);
+    } catch (error) {
+      throw new Error();
+    }
+  };
 
   useEffect(() => {
-    const fetchPhoneDataLength = async () => {
-      try {
-        const dataLength = await getLength();
-
-        setPhoneDataLength(dataLength);
-      } catch (error) {
-        throw new Error();
-      }
-    };
-
     fetchPhoneDataLength();
   }, []);
 
