@@ -2,28 +2,14 @@ import { Device } from '../../types/Device';
 import './Cart.scss';
 import { CartItem } from './CartItem';
 
-const ph = {
-  id: '1',
-  category: 'phones',
-  phoneId: 'apple-iphone-7-32gb-black',
-  itemId: 'apple-iphone-7-32gb-black',
-  name: 'Apple iPhone 7 32GB Black',
-  fullPrice: 400,
-  price: 375,
-  screen: '4.7 IPS',
-  capacity: '32GB',
-  color: 'black',
-  ram: '2GB',
-  year: 2016,
-  image: 'img/phones/apple-iphone-7/black/00.jpg',
-};
-
 export const Cart = () => {
-  // const savedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-  const savedCartItems: Device[] = [ph, ph];
+  // const cartItems: Device[] | [] = JSON
+  //   .parse(localStorage.getItem('cartItems')) || [];
+
+  const cartItems: Device[] = [];
 
   return (
-    <>
+    <div className="cart">
       <button type="button">
         Back
       </button>
@@ -32,7 +18,7 @@ export const Cart = () => {
 
       <div className="cart__container">
         <div className="cart__cart-item">
-          {savedCartItems.map((phone) => (
+          {cartItems.map((phone) => (
             <CartItem
               key={phone.id}
               phone={phone}
@@ -40,17 +26,21 @@ export const Cart = () => {
           ))}
         </div>
 
-        <div>
-          <p>TotalSum</p>
+        <div className="cart__total-info">
+          <p className="cart__total-sum">TotalSum</p>
 
-          <p>Total for 3</p>
+          <p className="cart__total-text">Total for 3</p>
 
-          <div className="separate-line" />
+          <div className="cart__separate-line" />
 
-          <button type="button">Checkout</button>
+          <button
+            type="button"
+            className="cart__checkout"
+          >
+            Checkout
+          </button>
         </div>
       </div>
-
-    </>
+    </div>
   );
 };
