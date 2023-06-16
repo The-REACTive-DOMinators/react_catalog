@@ -10,11 +10,7 @@
     transition: border-color 0.3s, box-shadow 0.3s;
 
     @include onTablet {
-      width: 270px;
-    }
-
-    @include onDesktop {
-      width: 272px;
+      width: 260px;
     }
 
     &:hover {
