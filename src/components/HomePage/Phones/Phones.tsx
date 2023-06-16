@@ -123,7 +123,7 @@ export const Phones: FC = () => {
               <label className="product-filter__sortBy" htmlFor="#">
                 Sort By
                 <select
-                  className="product-filter__itemsOnPage"
+                  className="product-filter__itemsOnPage sortBy"
                   onChange={handleSortByChange}
                 >
                   <option value="" disabled selected>Select</option>
@@ -134,14 +134,14 @@ export const Phones: FC = () => {
               <label className="product-filter__sortBy" htmlFor="#">
                 Order
                 <select
-                  className="product-filter__itemsOnPage"
+                  className="product-filter__itemsOnPage order"
                   onChange={handleSortByOrder}
                 >
                   <option value="ASC">Asc</option>
                   <option value="DESC">Desc</option>
                 </select>
               </label>
-              <label className="product-filter__sortBy" htmlFor="#">
+              <label className="product-filter__sortBy pages" htmlFor="#">
                 Items on page
                 <select
                   className="product-filter__itemsOnPage"
