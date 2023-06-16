@@ -6,7 +6,7 @@ import {
 } from 'react';
 import { Link } from 'react-router-dom';
 import { Device } from '../../types/Device';
-import './Card.scss';
+import './ProductCard.scss';
 import { AddButton } from '../AddButton';
 import { FavoriteIcon } from '../../icons/FavoriteIcon';
 import { FavoriteFullIcon } from '../../icons/FavouriteFullIcon';
@@ -44,7 +44,7 @@ export const ProductCard: FC<Props> = memo(({ phone }) => {
   return (
     <div className="card__container">
       <div className="card__content">
-        <Link to="/" className="card__link">
+        <Link to={`/phones/${phoneId}`} className="card__link">
           <div className="card__photo_container">
             <img
               src={`${BASE_URL}/${image}`}

@@ -6,6 +6,8 @@
     background-color: $cardBackground;
     padding: 32px;
     border: 1px solid transparent;
+    border-radius: 5px;
+    transition: border-color 0.3s, box-shadow 0.3s;
 
     @include onTablet {
       width: 237px;
@@ -16,7 +18,7 @@
     }
 
     &:hover {
-      border: 1px solid #323542;
+      border-color: #a378ff;
       box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
     }
   }
@@ -27,6 +29,12 @@
     object-fit: contain;
     margin: auto;
     border-radius: 10%;
+
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 
   &__content {
