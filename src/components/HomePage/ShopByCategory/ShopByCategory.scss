@@ -1,0 +1,62 @@
+@import "../../../styles/main.scss";
+
+.section {
+  margin: 0 16px;
+
+  @include onTablet {
+    margin: 0 24px;
+  }
+
+  @include onDesktop {
+    width: 1136px;
+    margin: 0 auto;
+  }
+}
+
+.section-title {
+  font-size: 32px;
+  margin-bottom: 24px;
+}
+
+.categories {
+  display: block;
+
+  @include onTablet {
+    display: flex;
+  }
+
+  @include onDesktop {
+    justify-content: center;
+  }
+}
+
+.category {
+  width: 400px;
+
+  &-picture {
+    object-fit: cover;
+    object-position: left top;
+    border-radius: 3%;
+
+    height: 288px;
+    width: 100%;
+
+    @include onTablet {
+      height: 187px;
+    }
+
+    @include onDesktop {
+      height: 368px;
+    }
+  }
+
+  &-title {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  &-subtitle {
+    font-size: 14px;
+    color: $secondaryTextColor;
+  }
+}
