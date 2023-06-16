@@ -12,6 +12,7 @@ import { Footer } from './components/Footer/Footer';
 import { BurgerMenu } from './components/BurgerMenu';
 // eslint-disable-next-line max-len
 import { ProductDetailsPage } from './modules/ProductDetailsPage/ProductDetailsPage';
+import { Recomended } from './components/Recomended/Recomended';
 
 const App = () => (
   <div className="App">
@@ -32,6 +33,8 @@ const App = () => (
       <Route path="*" element={<PageNotFound />} />
     </Routes>
     <Footer />
+
+    <Recomended />
   </div>
 );
 

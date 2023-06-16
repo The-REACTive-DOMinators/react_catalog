@@ -1,5 +1,9 @@
 import { FC, useState } from 'react';
 import { Device } from '../../types/Device';
+import { ArrowLeft } from '../../icons/ArrowLeft';
+import { ButtonWithIcon } from '../ButtonWithIcon';
+import { ProductCard } from '../ProductCard';
+import { ArrowRight } from '../../icons/ArrowRight';
 import { ProductCard } from '../ProductCard';
 
 type Props = {
@@ -36,24 +40,26 @@ export const ProductSlider: FC<Props> = ({ recommendedProducts }) => {
     <div className="container">
       <div className="product-slider">
         <div className="product-slider__header">
-          <h2>You may also like</h2>
+          <h2 className="product-slider__header__title">You may also like</h2>
 
           <div className="product-slider__buttons">
-            <button
-              type="button"
-              className="product-slider__buttons__button"
-              onClick={leftButton}
-            >
-              {'<'}
-            </button>
+            <div className="product-slider__buttons__button">
+              <ButtonWithIcon
+                onHandleClick={() => leftButton()}
+                isSelected={false}
+              >
+                <ArrowLeft />
+              </ButtonWithIcon>
+            </div>
 
-            <button
-              type="button"
-              className="product-slider__buttons__button"
-              onClick={rightButton}
-            >
-              {'>'}
-            </button>
+            <div className="product-slider__buttons__button">
+              <ButtonWithIcon
+                onHandleClick={() => rightButton()}
+                isSelected={false}
+              >
+                <ArrowRight />
+              </ButtonWithIcon>
+            </div>
           </div>
         </div>
 
