@@ -6,7 +6,7 @@ import {
 } from 'react';
 import { Link } from 'react-router-dom';
 import { Device } from '../../types/Device';
-import './Card.scss';
+import './ProductCard.scss';
 import { AddButton } from '../AddButton';
 import { FavoriteIcon } from '../../icons/FavoriteIcon';
 import { FavoriteFullIcon } from '../../icons/FavouriteFullIcon';

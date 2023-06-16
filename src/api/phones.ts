@@ -13,3 +13,7 @@ export const getPhone = (phoneId: string) => {
 export const getPhoneDescription = (phoneId: string) => {
   return client.get<PhoneDescription>(`/products/phones/${phoneId}`);
 };
+
+export const getRecomendedPhones = (phoneId: string) => {
+  return client.get<Device[]>(`/products/phones/${phoneId}/recommended `);
+};
