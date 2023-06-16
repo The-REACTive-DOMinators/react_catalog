@@ -4,14 +4,15 @@ import { DeviceSpecs } from '../../../types/DeviceSpecs';
 import { SpecMap } from '../SpecMap/SpecMap';
 
 interface Props {
-  chars: DeviceSpecs;
+  phoneSpecs: DeviceSpecs;
 }
 
-export const TechSpecs: FC<Props> = ({ chars }) => {
+export const TechSpecs: FC<Props> = ({ phoneSpecs }) => {
   return (
     <div className="container">
       <h2 className="main-title">Tech specs</h2>
-      <SpecMap chars={chars} />
+
+      <SpecMap phoneSpecs={phoneSpecs} />
     </div>
   );
 };

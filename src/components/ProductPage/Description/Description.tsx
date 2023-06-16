@@ -15,8 +15,9 @@ export const Description: FC<Props> = ({ loadedDescription, phoneSpecs }) => {
       <div className="grid__item--desktop-1-12">
         <About description={loadedDescription} />
       </div>
+
       <div className="grid__item--desktop-13-24">
-        <TechSpecs chars={phoneSpecs} />
+        <TechSpecs phoneSpecs={phoneSpecs} />
       </div>
     </div>
   );
