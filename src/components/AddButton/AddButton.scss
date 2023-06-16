@@ -13,12 +13,12 @@
 
   &:hover {
     @include addButtonHover;
-    box-shadow: 0 0 4px 4px rgba(163, 120, 255, 0.3); /* Adjust the box shadow properties for the hover effect */
+    box-shadow: 0 0 4px 4px rgba(163, 120, 255, 0.3);
   }
 
   &:active {
-    box-shadow: 0 0 2px 2px #a378ff; /* Adjust the box shadow properties for the active state */
-    transition: box-shadow 0.1s; /* Add a shorter transition duration for the active state */
+    box-shadow: 0 0 2px 2px #a378ff;
+    transition: box-shadow 0.1s;
   }
 
   &--selected {
