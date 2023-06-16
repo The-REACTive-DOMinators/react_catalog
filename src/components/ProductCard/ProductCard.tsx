@@ -2,6 +2,7 @@ import {
   FC,
   memo,
   useCallback,
+  // useEffect,
   useState,
 } from 'react';
 import { Link } from 'react-router-dom';
@@ -20,7 +21,18 @@ export const ProductCard: FC<Props> = memo(({ phone }) => {
   const [isFavorite, setisFavorite] = useState(false);
   const [isAdd, setIsAdd] = useState(false);
 
-  const handleAdd = useCallback(() => {
+  // useEffect(() => {
+  //   const existingCartItems = JSON
+  //     .parse(localStorage.getItem('cartItems')) || [];
+
+  //   if (isAdd) {
+  //     const updatedCartItems = [...existingCartItems, phone];
+
+  //     localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+  //   }
+  // }, [isAdd]);
+
+  const handleAddToCart = useCallback(() => {
     setIsAdd(!isAdd);
   }, [isAdd]);
 
@@ -94,7 +106,7 @@ export const ProductCard: FC<Props> = memo(({ phone }) => {
 
         <div className="card__buttons">
           <AddButton
-            onHandleClick={handleAdd}
+            handleAddToCart={handleAddToCart}
             isAdd={isAdd}
           >
             {isAdd
