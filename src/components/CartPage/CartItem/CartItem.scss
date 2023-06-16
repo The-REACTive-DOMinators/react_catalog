@@ -1,30 +1,47 @@
 @import "../../../styles/utils/mixins";
 
 .cart-item {
-  @include bodyText;
 
-  padding: 24px;
+  @include bodyText;
+  background-color: $cardBackground;
+  height: 160px;
+  width: 100%;
+
+  padding: 16px;
+  margin-bottom: 16px;
+
+  @include onTablet {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   &__info {
     display: flex;
-    justify-content: space-between;
+
+    @include onTablet {
+      margin-right: 24px;
+    }
+  }
+
+  &__close {
+    fill: $secondaryTextColor;
   }
 
   &__title {
     @include bodyText;
   }
 
-  &__image_containner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 66px;
-    height: 66px;
-    margin-right: 31px;
-    margin-bottom: 23px;
+  &__image {
+    width: 80px;
+    height: 80px;
+    object-position: center;
+    object-fit: contain;
+    margin-right: 23px;
 
     @include onTablet {
       margin-bottom: 0;
+      margin-right: 31px;
     }
 
     @include onDesktop {
@@ -33,12 +50,14 @@
   }
 
   &__close-button {
-    margin-right: 31px;
+    margin-right: 23px;
+
+    @include onTablet {
+      margin-right: 31px;
+    }
   }
 
-  &__price {
-    @include price;
-
-    display: block;
+  &__counter {
+    width: 100%;
   }
 }

@@ -1,22 +1,23 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import { Device } from '../../types/Device';
 import { ArrowLeft } from '../../icons/ArrowLeft';
 import { ButtonWithIcon } from '../ButtonWithIcon';
 import { ProductCard } from '../ProductCard';
 import { ArrowRight } from '../../icons/ArrowRight';
+import { ProductCard } from '../ProductCard';
 
 type Props = {
-  products: Device[]
+  recommendedProducts: Device[]
 };
 
-export const ProductSlider: React.FC<Props> = ({ products }) => {
+export const ProductSlider: FC<Props> = ({ recommendedProducts }) => {
   const [page, setPage] = useState(1);
 
   const rightButton = () => {
     let point = page + 1;
 
-    if (point > products.length - 4) {
-      point = products.length - 4;
+    if (point > recommendedProducts.length - 4) {
+      point = recommendedProducts.length - 4;
       if (point < 0) {
         point = 0;
       }
@@ -63,7 +64,7 @@ export const ProductSlider: React.FC<Props> = ({ products }) => {
         </div>
 
         <div className="product-slider__content">
-          {products.slice(page, page + 4).map(product => (
+          {recommendedProducts.slice(page, page + 4).map(product => (
             <ProductCard phone={product} />
           ))}
         </div>
