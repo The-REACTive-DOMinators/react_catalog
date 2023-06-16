@@ -5,6 +5,7 @@ import { getPhoneDescription } from '../../api/phones';
 import { Summary } from '../../types/Summary';
 import { Description } from './Description/Description';
 import { DeviceSpecs } from '../../types/DeviceSpecs';
+import { Recomended } from './RecomendedBlock/Recomended';
 
 export const Product: FC = () => {
   const [
@@ -71,6 +72,7 @@ export const Product: FC = () => {
         loadedDescription={summary}
         phoneSpecs={techSpecDescription}
       />
+      <Recomended phoneId={phoneId} />
     </>
   );
 };
