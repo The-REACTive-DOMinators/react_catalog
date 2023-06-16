@@ -2,16 +2,6 @@
 @import "./components/Pagination/pagination.scss";
 @import "./components/ProductPage/RecomendedBlock/Recomended.scss";
 @import "./components/ProductSlider/ProductSlider.scss";
-
-body {
-  box-sizing: border-box;
-
-  background: $mainBackground;
-  color: $textColor;
-  font-family: "Mont", sans-serif;
-  font-style: normal;
-}
-
 @import "./components/ProductPage/PhotosBlock/PhotosBlock.scss";
 
 iframe {
