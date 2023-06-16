@@ -12,7 +12,7 @@ interface Props {
 }
 
 export const Counter: FC<Props> = ({ phone }) => {
-  const [isActive, setIsActive] = useState(false);
+  const [isActive] = useState(false);
   const [count, setCount] = useState(1);
 
   const decrementCount = () => {

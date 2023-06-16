@@ -4,7 +4,6 @@ import { ArrowLeft } from '../../icons/ArrowLeft';
 import { ButtonWithIcon } from '../ButtonWithIcon';
 import { ProductCard } from '../ProductCard';
 import { ArrowRight } from '../../icons/ArrowRight';
-import { ProductCard } from '../ProductCard';
 
 type Props = {
   recommendedProducts: Device[]
