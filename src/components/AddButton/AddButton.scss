@@ -8,11 +8,25 @@
 
   margin-right: 8px;
 
+  border-radius: 5px;
+  transition: box-shadow 0.3s;
+
   &:hover {
     @include addButtonHover;
+    box-shadow: 0 0 4px 4px rgba(163, 120, 255, 0.3); /* Adjust the box shadow properties for the hover effect */
+  }
+
+  &:active {
+    box-shadow: 0 0 2px 2px #a378ff; /* Adjust the box shadow properties for the active state */
+    transition: box-shadow 0.1s; /* Add a shorter transition duration for the active state */
   }
 
   &--selected {
-    @include addButtonSelected;
+    background-color: transparent;
+    @include iconButtonSelected;
+
+    &:hover {
+      @include iconButtonSelected;
+    }
   }
 }

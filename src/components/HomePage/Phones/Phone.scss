@@ -1,10 +1,10 @@
 @import "../../../styles/utils/mixins";
 @import "../../../components/Pagination/pagination.scss";
 
-.container {
+.container1 {
   width: 100vw;
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
   padding: 25px 16px 64px;
 
   @include onDesktop {
@@ -55,6 +55,8 @@
 
 .route-links {
   margin-bottom: 24px;
+  display: flex;
+  align-items: center;
 
   @include onDesktop {
     margin-bottom: 40px;
@@ -63,10 +65,24 @@
 
 .home-icon,
 .arrow-icon {
+  display: flex;
+  align-items: center;
   margin-right: 14px;
 }
 
 .phones-title {
   @include smalltext;
   color: #75767f;
+}
+
+.loader {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

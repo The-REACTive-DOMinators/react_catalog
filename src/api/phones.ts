@@ -12,3 +12,7 @@ export const getSortedPhones = (sortParams: string) => {
 export const getPhone = (phoneId: string) => {
   return client.get<Device[]>(`/products/phones/${phoneId}`);
 };
+
+export const getLength = () => {
+  return client.get<number>('/products/phones/count');
+};
