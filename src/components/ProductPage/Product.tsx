@@ -8,8 +8,8 @@ import { DeviceSpecs } from '../../types/DeviceSpecs';
 
 export const Product: FC = () => {
   const [
-    deviceSpecs,
-    setDeviceSpecs,
+    phoneDescription,
+    setPhoneDescription,
   ] = useState<DeviceSpecs>({} as DeviceSpecs);
   const [images, setImages] = useState(['']);
   const [summary, setSummary] = useState<Summary['description']>([
@@ -22,12 +22,12 @@ export const Product: FC = () => {
 
   async function getPhoneById(id: string) {
     try {
-      const phoneDescription = await getPhoneDescription(id);
+      const phoneDescript = await getPhoneDescription(id);
 
       window.console.log(phoneDescription);
-      setDeviceSpecs(phoneDescription);
-      setImages(phoneDescription.images);
-      setSummary(phoneDescription.description);
+      setPhoneDescription(phoneDescript);
+      setImages(phoneDescript.images);
+      setSummary(phoneDescript.description);
 
       return phoneDescription;
     } catch (error) {
@@ -37,24 +37,26 @@ export const Product: FC = () => {
     }
   }
 
-  const startKey = 'screen';
-  const endKey = 'cell';
-  const slicedDeviceSpecs: DeviceSpecs = Object.entries(deviceSpecs)
-    .reduce((acc, [key, value]) => {
-      const updatedAcc: DeviceSpecs = { ...acc };
+  const {
+    screen,
+    resolution,
+    processor,
+    ram,
+    camera,
+    zoom,
+    cell,
+  } = phoneDescription;
+  const techSpecDescription = {
+    screen,
+    resolution,
+    processor,
+    ram,
+    camera,
+    zoom,
+    cell,
+  };
 
-      if (Object.prototype.hasOwnProperty.call(acc, startKey)) {
-        if (key !== endKey && key !== startKey) {
-          updatedAcc[key as keyof DeviceSpecs] = value;
-        }
-      } else if (key === startKey || key === endKey) {
-        updatedAcc[key as keyof DeviceSpecs] = value;
-      }
-
-      return updatedAcc;
-    }, {} as DeviceSpecs);
-
-  window.console.log(slicedDeviceSpecs);
+  window.console.log(techSpecDescription);
 
   useEffect(() => {
     if (phoneId) {
@@ -67,7 +69,7 @@ export const Product: FC = () => {
       <PhotosBlock images={images} />
       <Description
         loadedDescription={summary}
-        phoneSpecs={slicedDeviceSpecs}
+        phoneSpecs={techSpecDescription}
       />
     </>
   );
