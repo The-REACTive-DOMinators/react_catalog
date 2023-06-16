@@ -1,93 +1,87 @@
 // import { useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+// import { useSearchParams } from 'react-router-dom';
 
-export const Pagination = () => {
-  const products = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
-  const numberOfPages = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+import { FC, useEffect, useState } from 'react';
+import cn from 'classnames';
+import { getLength } from '../../api/phones';
 
-  const [searchParams, setSearchParams] = useSearchParams();
+interface Props {
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  phones: number;
+  currentPage: number | null;
+  onForward: () => void;
+  onBack: () => void;
+}
+
+const paginationRange = (lastPageNumber: number) => {
+  const length = [];
+
+  for (let i = 1; i <= lastPageNumber; i += 1) {
+    length.push(i);
+  }
+
+  return length;
+};
+
+export const Pagination: FC<Props> = ({
+  onClick,
+  phones,
+  currentPage,
+  onForward,
+  onBack,
+}) => {
+  const [phoneDataLength, setPhoneDataLength] = useState<number>(0);
+  const end = Math.ceil(phoneDataLength / phones);
+  const length = paginationRange(end);
+  const fetchPhoneDataLength = async () => {
+    try {
+      const dataLength = await getLength();
+
+      setPhoneDataLength(dataLength);
+    } catch (error) {
+      throw new Error();
+    }
+  };
+
+  useEffect(() => {
+    fetchPhoneDataLength();
+  }, []);
 
   return (
-    <>
-      <h1 className="title">Mobile phones</h1>
+    <div className="pagination" data-cy="pagination">
+      <button
+        disabled={currentPage === 1}
+        type="button"
+        className="pagination__button pagination__button--switch"
+        data-cy="paginationLeft"
+        onClick={onBack}
+      >
+        {'<'}
+      </button>
 
-      <div className="counter">{`${products.length} models`}</div>
-
-      <div className="product-filter">
-        <label className="product-filter__sortBy" htmlFor="#">
-          Sort By
-          <select
-            className="product-filter__itemsOnPage"
-            onChange={(event) => {
-              searchParams.set('sortBy', event.target.value);
-              setSearchParams(searchParams);
-            }}
-          >
-            <option value="newest">Newest</option>
-            <option value="alphabetically">Alphabetically</option>
-            <option value="price">Price</option>
-          </select>
-        </label>
-        <label className="product-filter__sortBy" htmlFor="#">
-          Items on page
-          <select
-            className="product-filter__itemsOnPage"
-            onChange={(event) => {
-              searchParams.set('perPage', event.target.value);
-              setSearchParams(searchParams);
-            }}
-          >
-            <option value="100">all</option>
-            <option value="4">4</option>
-            <option value="8">8</option>
-            <option value="16">16</option>
-          </select>
-        </label>
-      </div>
-
-      <main>
-        <div className="product">
-          {products.map((item) => (
-            <div className="container">
-              <div className="product__card">
-                {item}
-              </div>
-            </div>
-          ))}
-        </div>
-      </main>
-
-      <div className="pagination" data-cy="pagination">
+      {length.map((item) => (
         <button
           type="button"
-          className="pagination__button pagination__button--switch"
-          data-cy="paginationLeft"
-          // onClick={() => {}}
+          // className="pagination__button"
+          className={cn('pagination__button',
+            { 'pagination__button--pressed': item === currentPage })}
+          data-cy="paginationItem"
+          key={Math.random()}
+          onClick={onClick}
         >
-          {'<'}
+          {item}
         </button>
+      ))}
 
-        {numberOfPages.map((item) => (
-          <button
-            type="button"
-            className="pagination__button"
-            data-cy="paginationItem"
-            key={Math.random()}
-            // onClick={() => {}}
-          >
-            {item}
-          </button>
-        ))}
-
-        <button
-          type="button"
-          className="pagination__button pagination__button--switch"
-          data-cy="paginationRight"
-          // onClick={() => {}}
-        >
-          {'>'}
-        </button>
-      </div>
-    </>
+      <button
+        disabled={currentPage === end}
+        type="button"
+        className="pagination__button pagination__button--switch"
+        data-cy="paginationRight"
+        onClick={onForward}
+      >
+        {'>'}
+      </button>
+    </div>
   );
 };

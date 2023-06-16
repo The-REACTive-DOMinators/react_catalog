@@ -1,19 +1,22 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import { Device } from '../../types/Device';
-import { ProductCard } from '../ProductCard/ProductCard';
+import { ArrowLeft } from '../../icons/ArrowLeft';
+import { ButtonWithIcon } from '../ButtonWithIcon';
+import { ProductCard } from '../ProductCard';
+import { ArrowRight } from '../../icons/ArrowRight';
 
 type Props = {
-  products: Device[]
+  recommendedProducts: Device[]
 };
 
-export const ProductSlider: React.FC<Props> = ({ products }) => {
+export const ProductSlider: FC<Props> = ({ recommendedProducts }) => {
   const [page, setPage] = useState(1);
 
   const rightButton = () => {
     let point = page + 1;
 
-    if (point > products.length - 4) {
-      point = products.length - 4;
+    if (point > recommendedProducts.length - 4) {
+      point = recommendedProducts.length - 4;
       if (point < 0) {
         point = 0;
       }
@@ -36,29 +39,31 @@ export const ProductSlider: React.FC<Props> = ({ products }) => {
     <div className="container">
       <div className="product-slider">
         <div className="product-slider__header">
-          <h2>You may also like</h2>
+          <h2 className="product-slider__header__title">You may also like</h2>
 
           <div className="product-slider__buttons">
-            <button
-              type="button"
-              className="product-slider__buttons__button"
-              onClick={leftButton}
-            >
-              {'<'}
-            </button>
+            <div className="product-slider__buttons__button">
+              <ButtonWithIcon
+                onHandleClick={() => leftButton()}
+                isSelected={false}
+              >
+                <ArrowLeft />
+              </ButtonWithIcon>
+            </div>
 
-            <button
-              type="button"
-              className="product-slider__buttons__button"
-              onClick={rightButton}
-            >
-              {'>'}
-            </button>
+            <div className="product-slider__buttons__button">
+              <ButtonWithIcon
+                onHandleClick={() => rightButton()}
+                isSelected={false}
+              >
+                <ArrowRight />
+              </ButtonWithIcon>
+            </div>
           </div>
         </div>
 
         <div className="product-slider__content">
-          {products.slice(page, page + 4).map(product => (
+          {recommendedProducts.slice(page, page + 4).map(product => (
             <ProductCard phone={product} />
           ))}
         </div>

@@ -4,18 +4,18 @@ import cn from 'classnames';
 
 interface Props {
   children: React.ReactNode;
-  onHandleClick: () => void;
   isAdd: boolean;
+  handleAddToCart: () => void;
 }
 
 export const AddButton: FC<Props> = ({
-  onHandleClick,
+  handleAddToCart,
   children,
   isAdd,
 }) => (
   <button
     type="button"
-    onClick={onHandleClick}
+    onClick={handleAddToCart}
     className={cn('add_button', {
       'add_button--selected': isAdd,
     })}

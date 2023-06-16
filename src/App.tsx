@@ -13,7 +13,7 @@ import { BurgerMenu } from './components/BurgerMenu';
 // eslint-disable-next-line max-len
 import { ProductDetailsPage } from './modules/ProductDetailsPage/ProductDetailsPage';
 
-const App = () => (
+export const App = () => (
   <div className="App">
     <Header />
     <Routes>
@@ -34,5 +34,3 @@ const App = () => (
     <Footer />
   </div>
 );
-
-export default App;

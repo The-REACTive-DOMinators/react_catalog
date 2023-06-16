@@ -2,11 +2,12 @@ import {
   FC,
   memo,
   useCallback,
+  // useEffect,
   useState,
 } from 'react';
 import { Link } from 'react-router-dom';
 import { Device } from '../../types/Device';
-import './Card.scss';
+import './ProductCard.scss';
 import { AddButton } from '../AddButton';
 import { FavoriteIcon } from '../../icons/FavoriteIcon';
 import { FavoriteFullIcon } from '../../icons/FavouriteFullIcon';
@@ -20,7 +21,18 @@ export const ProductCard: FC<Props> = memo(({ phone }) => {
   const [isFavorite, setisFavorite] = useState(false);
   const [isAdd, setIsAdd] = useState(false);
 
-  const handleAdd = useCallback(() => {
+  // useEffect(() => {
+  //   const existingCartItems = JSON
+  //     .parse(localStorage.getItem('cartItems')) || [];
+
+  //   if (isAdd) {
+  //     const updatedCartItems = [...existingCartItems, phone];
+
+  //     localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+  //   }
+  // }, [isAdd]);
+
+  const handleAddToCart = useCallback(() => {
     setIsAdd(!isAdd);
   }, [isAdd]);
 
@@ -39,13 +51,15 @@ export const ProductCard: FC<Props> = memo(({ phone }) => {
     image,
   } = phone;
 
+  const BASE_URL = 'https://server-store-p1t7.onrender.com';
+
   return (
     <div className="card__container">
       <div className="card__content">
-        <Link to="/" className="card__link">
+        <Link to={`/phones/${phoneId}`} className="card__link">
           <div className="card__photo_container">
             <img
-              src={image}
+              src={`${BASE_URL}/${image}`}
               alt={phoneId}
               className="card__image"
             />
@@ -92,7 +106,7 @@ export const ProductCard: FC<Props> = memo(({ phone }) => {
 
         <div className="card__buttons">
           <AddButton
-            onHandleClick={handleAdd}
+            handleAddToCart={handleAddToCart}
             isAdd={isAdd}
           >
             {isAdd

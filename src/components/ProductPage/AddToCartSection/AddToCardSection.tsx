@@ -24,7 +24,7 @@ export const AddToCardSection: FC<Props> = ({ chars, newPrice, oldPrice }) => {
 
       <div className="add-section">
         <div className="add-to-cart">
-          <AddButton onHandleClick={() => { }} isAdd={false}>
+          <AddButton handleAddToCart={() => { }} isAdd={false}>
             Add to cart
           </AddButton>
         </div>
