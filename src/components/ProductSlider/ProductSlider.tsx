@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Device } from '../../types/Device';
-import { Card } from '../Card';
+import { ProductCard } from '../ProductCard';
 
 type Props = {
   products: Device[]
@@ -59,7 +59,7 @@ export const ProductSlider: React.FC<Props> = ({ products }) => {
 
         <div className="product-slider__content">
           {products.slice(page, page + 4).map(product => (
-            <Card phone={product} />
+            <ProductCard phone={product} />
           ))}
         </div>
       </div>
