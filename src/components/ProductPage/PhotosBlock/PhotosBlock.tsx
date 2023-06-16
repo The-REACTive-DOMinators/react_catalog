@@ -1,4 +1,5 @@
-import { useState } from 'react';
+/* eslint-disable max-len */
+import React, { useState } from 'react';
 
 interface Props {
   images: string[];
@@ -31,7 +32,7 @@ export const PhotosBlock: React.FC<Props> = ({ images }) => {
         <img
           src={`${BASE_URL}/${selectedItem}`}
           alt="phone"
-          className="photo-block__list__item__img"
+          className="photo-block__list__item__img photo-block__list__item__img--active"
         />
       </div>
     </div>
