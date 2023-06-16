@@ -1,0 +1,13 @@
+@import "../../../styles/main.scss";
+
+.char {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px ;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+.name {
+  color: $secondaryTextColor;
+}
