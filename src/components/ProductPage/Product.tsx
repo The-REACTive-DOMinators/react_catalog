@@ -4,10 +4,14 @@ import { PhotosBlock } from './PhotosBlock/PhotosBlock';
 import { getPhoneDescription } from '../../api/phones';
 import { Summary } from '../../types/Summary';
 import { Description } from './Description/Description';
+import { DeviceSpecs } from '../../types/DeviceSpecs';
 
 export const Product: FC = () => {
+  const [
+    phoneDescription,
+    setPhoneDescription,
+  ] = useState<DeviceSpecs>({} as DeviceSpecs);
   const [images, setImages] = useState(['']);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [summary, setSummary] = useState<Summary['description']>([
     {
       title: '',
@@ -18,11 +22,12 @@ export const Product: FC = () => {
 
   async function getPhoneById(id: string) {
     try {
-      const phoneDescription = await getPhoneDescription(id);
+      const phoneDescript = await getPhoneDescription(id);
 
       window.console.log(phoneDescription);
-      setImages(phoneDescription.images);
-      setSummary(phoneDescription.description);
+      setPhoneDescription(phoneDescript);
+      setImages(phoneDescript.images);
+      setSummary(phoneDescript.description);
 
       return phoneDescription;
     } catch (error) {
@@ -31,6 +36,27 @@ export const Product: FC = () => {
       return null;
     }
   }
+
+  const {
+    screen,
+    resolution,
+    processor,
+    ram,
+    camera,
+    zoom,
+    cell,
+  } = phoneDescription;
+  const techSpecDescription = {
+    screen,
+    resolution,
+    processor,
+    ram,
+    camera,
+    zoom,
+    cell,
+  };
+
+  window.console.log(techSpecDescription);
 
   useEffect(() => {
     if (phoneId) {
@@ -41,7 +67,10 @@ export const Product: FC = () => {
   return (
     <>
       <PhotosBlock images={images} />
-      <Description />
+      <Description
+        loadedDescription={summary}
+        phoneSpecs={techSpecDescription}
+      />
     </>
   );
 };
