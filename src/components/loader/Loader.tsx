@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { MutatingDots } from 'react-loader-spinner';
 
 export const Loader: FC = () => {
