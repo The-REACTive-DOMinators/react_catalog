@@ -25,10 +25,10 @@ export const Product: FC = () => {
   ]);
   const [selectedColor, setSelectedColor] = useState('');
   const [selectedCapacity, setSelectedCapacity] = useState('');
-  const { phoneId } = useParams();
+  const { phoneId = '' } = useParams();
 
   function getSelectedColor() {
-    const color = phoneId?.split('-')[3];
+    const color = phoneId?.split('-')[phoneId.split('-').length - 1];
 
     if (color) {
       setSelectedColor(color);
@@ -105,11 +105,12 @@ export const Product: FC = () => {
         capacities={phoneDescription.capacityAvailable}
         SelectedColor={selectedColor}
         SelectedCapacity={selectedCapacity}
+        phoneId={phoneId}
       />
       <AddToCardSection
         chars={chars}
-        newPrice={price}
-        oldPrice={fullPrice}
+        newPrice={fullPrice}
+        oldPrice={price}
       />
       <Description
         loadedDescription={summary}
