@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import './SpecMap.scss';
-import { DeviceSpecs } from '../../../types/DeviceSpecs';
+import { DeviceSpecsShort } from '../AddToCartSection/DeviceSpecsShort';
 
 interface Props {
-  phoneSpecs: DeviceSpecs;
+  phoneSpecs: DeviceSpecsShort;
 }
 
 export const SpecMap: FC<Props> = ({ phoneSpecs }) => {
@@ -17,9 +17,10 @@ export const SpecMap: FC<Props> = ({ phoneSpecs }) => {
 
           <p className="value">
             {
-              Array.isArray(phoneSpecs[key as keyof DeviceSpecs])
-                ? (phoneSpecs[key as keyof DeviceSpecs] as string[]).join(', ')
-                : phoneSpecs[key as keyof DeviceSpecs]
+              Array.isArray(phoneSpecs[key as keyof DeviceSpecsShort])
+                ? (phoneSpecs[key as keyof DeviceSpecsShort] as string[])
+                  .join(', ')
+                : phoneSpecs[key as keyof DeviceSpecsShort]
             }
           </p>
         </section>

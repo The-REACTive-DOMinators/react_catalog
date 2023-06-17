@@ -4,10 +4,10 @@ import './AddToCardSection.scss';
 import { AddButton } from '../../AddButton';
 import { FavoriteIcon } from '../../../icons/FavoriteIcon';
 import { SpecMap } from '../SpecMap/SpecMap';
-import { DeviceSpecs } from '../../../types/DeviceSpecs';
+import { DeviceSpecsShort } from './DeviceSpecsShort';
 
 interface Props {
-  phoneSpecs: DeviceSpecs;
+  phoneSpecs: DeviceSpecsShort;
   newPrice: number;
   oldPrice: number;
 }
