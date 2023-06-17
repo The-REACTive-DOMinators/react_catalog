@@ -10,6 +10,7 @@ import { PageNotFound } from './modules/PageNotFound/PageNotFound';
 import { Header } from './components/Header/Header';
 import { Footer } from './components/Footer/Footer';
 import { BurgerMenu } from './components/BurgerMenu';
+import { Recomended } from './components/Recomended/Recomended';
 
 const App = () => (
   <div className="App">
@@ -28,6 +29,8 @@ const App = () => (
       <Route path="*" element={<PageNotFound />} />
     </Routes>
     <Footer />
+
+    <Recomended />
   </div>
 );
 
