@@ -1,3 +1,8 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
 .section {
   margin: 0 16px;
 
@@ -6,12 +11,11 @@
   }
 
   @include onDesktop {
-    width: 1136px;
-    margin: 0 auto;
+    margin: 0 36px;
   }
 }
 
-.section-title {
+.title {
   font-size: 32px;
   margin-bottom: 24px;
 }
@@ -22,34 +26,25 @@
   @include onTablet {
     display: flex;
   }
+}
 
-  @include onDesktop {
-    justify-content: center;
-  }
+.picture-container {
+  margin-bottom: 14px;
 }
 
 .category {
-  width: 400px;
+  margin-bottom: 32px;
 
   &-picture {
     object-fit: cover;
     object-position: left top;
     border-radius: 3%;
 
-    height: 288px;
-    width: 95%;
-
-    @include onPhone {
-      width: 95vw;
-    }
+    width: 100%;
 
     @include onTablet {
       width: 100%;
-      height: 187px;
-    }
-
-    @include onDesktop {
-      height: 368px;
+      height: 100%;
     }
   }
 
