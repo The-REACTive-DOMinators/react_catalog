@@ -1,5 +1,3 @@
-@import '../../styles/utils/mixins';
-
 .product-slider {
   display: flex;
   align-items: center;
@@ -44,11 +42,6 @@
     padding-bottom: 80px;
 
     overflow: hidden;
-    overflow-x: scroll;
     overflow-x: hidden;
-
-    @media (max-width: 1200px) {
-
-    }
   }
 }
