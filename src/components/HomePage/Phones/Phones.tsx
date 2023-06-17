@@ -1,7 +1,10 @@
-/* eslint-disable max-len */
-/* eslint-disable no-console */
 import { NavLink, useSearchParams } from 'react-router-dom';
-import { useEffect, FC, useState } from 'react';
+import {
+  useEffect,
+  FC, useState,
+  ChangeEvent,
+  MouseEvent,
+} from 'react';
 import { Device } from '../../../types/Device';
 import { getSortedPhones } from '../../../api/phones';
 import { ProductCard } from '../../ProductCard';
@@ -45,12 +48,12 @@ export const Phones: FC = () => {
       setOrder(storedSortByOrderValue);
     }
 
-    loadingSortedPhones(`sortBy=${sortBy}&sortType=${order}&amount=${storedSortByPageValue}&currentPage=${currentPage}`);
+    loadingSortedPhones(`sortBy=${sortBy}&sortType=${order}&amount=${totalPhones}&currentPage=${currentPage}`);
   }, [sortBy, totalPhones, order, currentPage]);
 
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const handleSortByChange = async (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleSortByChange = async (event: ChangeEvent<HTMLSelectElement>) => {
     const sortByValue = event.target.value;
 
     searchParams.set('sortBy', sortByValue);
@@ -62,7 +65,7 @@ export const Phones: FC = () => {
     localStorage.setItem('sortByValue', sortByValue);
   };
 
-  const handleSortByPage = async (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleSortByPage = async (event: ChangeEvent<HTMLSelectElement>) => {
     const sortByValue = event.target.value;
 
     searchParams.set('amount', sortByValue);
@@ -74,7 +77,7 @@ export const Phones: FC = () => {
     localStorage.setItem('sortByPageValue', sortByValue);
   };
 
-  const handleSortByOrder = async (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleSortByOrder = async (event: ChangeEvent<HTMLSelectElement>) => {
     const sortByValue = event.target.value;
 
     searchParams.set('sortType', sortByValue);
@@ -86,7 +89,8 @@ export const Phones: FC = () => {
     localStorage.setItem('sortByOrderValue', sortByValue);
   };
 
-  const handleSortByPageNumber = async (event: React.MouseEvent<HTMLButtonElement>) => {
+  // eslint-disable-next-line max-len
+  const handleSortByPageNumber = async (event: MouseEvent<HTMLButtonElement>) => {
     const sortByValue = event.currentTarget.textContent;
 
     if (sortByValue !== null) {
@@ -159,7 +163,8 @@ export const Phones: FC = () => {
                 <select
                   className="product-filter__itemsOnPage order"
                   onChange={handleSortByOrder}
-                  defaultValue={localStorage.getItem('sortByOrderValue') ?? 'ASC'}
+                  defaultValue={localStorage.getItem('sortByOrderValue')
+                    ?? 'ASC'}
                 >
                   <option value="ASC">Asc</option>
                   <option value="DESC">Desc</option>
@@ -170,7 +175,8 @@ export const Phones: FC = () => {
                 <select
                   className="product-filter__itemsOnPage"
                   onChange={handleSortByPage}
-                  defaultValue={localStorage.getItem('sortByPageValue') ?? totalPhones}
+                  defaultValue={localStorage.getItem('sortByPageValue')
+                    ?? totalPhones}
                 >
                   <option value="71">all</option>
                   <option value="4">4</option>
