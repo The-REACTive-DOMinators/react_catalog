@@ -145,7 +145,7 @@ export const Phones: FC = () => {
               <label className="product-filter__sortBy" htmlFor="#">
                 Sort By
                 <select
-                  className="product-filter__itemsOnPage"
+                  className="product-filter__itemsOnPage sortBy"
                   onChange={handleSortByChange}
                   defaultValue={localStorage.getItem('sortByValue') ?? 'Select'}
                 >
@@ -157,7 +157,7 @@ export const Phones: FC = () => {
               <label className="product-filter__sortBy" htmlFor="#">
                 Order
                 <select
-                  className="product-filter__itemsOnPage"
+                  className="product-filter__itemsOnPage order"
                   onChange={handleSortByOrder}
                   defaultValue={localStorage.getItem('sortByOrderValue') ?? 'ASC'}
                 >
@@ -165,7 +165,7 @@ export const Phones: FC = () => {
                   <option value="DESC">Desc</option>
                 </select>
               </label>
-              <label className="product-filter__sortBy" htmlFor="#">
+              <label className="product-filter__sortBy pages" htmlFor="#">
                 Items on page
                 <select
                   className="product-filter__itemsOnPage"
