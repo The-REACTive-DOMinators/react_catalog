@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-const BASE_URL = 'https://server-store-p1t7.onrender.com';
 
 type RequestMethod = 'GET' | 'POST' | 'PATCH' | 'DELETE';
 
@@ -17,7 +16,7 @@ function request<T>(
     };
   }
 
-  return fetch(BASE_URL + url, options)
+  return fetch(process.env.REACT_APP_BASE_URL + url, options)
     .then(response => {
       if (!response.ok) {
         throw new Error();

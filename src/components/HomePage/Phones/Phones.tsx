@@ -29,7 +29,23 @@ export const Phones: FC = () => {
   };
 
   useEffect(() => {
-    loadingSortedPhones(`sortBy=${sortBy}&sortType=${order}&amount=${totalPhones}&currentPage=${currentPage}`);
+    const storedSortByValue = localStorage.getItem('sortByValue');
+    const storedSortByPageValue = localStorage.getItem('sortByPageValue');
+    const storedSortByOrderValue = localStorage.getItem('sortByOrderValue');
+
+    if (storedSortByValue) {
+      setSortBY(storedSortByValue);
+    }
+
+    if (storedSortByPageValue) {
+      setTotalPhones(+storedSortByPageValue);
+    }
+
+    if (storedSortByOrderValue) {
+      setOrder(storedSortByOrderValue);
+    }
+
+    loadingSortedPhones(`sortBy=${sortBy}&sortType=${order}&amount=${storedSortByPageValue}&currentPage=${currentPage}`);
   }, [sortBy, totalPhones, order, currentPage]);
 
   const [searchParams, setSearchParams] = useSearchParams();
@@ -42,6 +58,8 @@ export const Phones: FC = () => {
     setSortBY(sortByValue);
     setCurrentPage(1);
     setSearchParams(searchParams);
+
+    localStorage.setItem('sortByValue', sortByValue);
   };
 
   const handleSortByPage = async (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -52,6 +70,8 @@ export const Phones: FC = () => {
     setTotalPhones(+sortByValue);
     setCurrentPage(1);
     setSearchParams(searchParams);
+
+    localStorage.setItem('sortByPageValue', sortByValue);
   };
 
   const handleSortByOrder = async (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -62,6 +82,8 @@ export const Phones: FC = () => {
     setOrder(sortByValue);
     setCurrentPage(1);
     setSearchParams(searchParams);
+
+    localStorage.setItem('sortByOrderValue', sortByValue);
   };
 
   const handleSortByPageNumber = async (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -123,8 +145,9 @@ export const Phones: FC = () => {
               <label className="product-filter__sortBy" htmlFor="#">
                 Sort By
                 <select
-                  className="product-filter__itemsOnPage"
+                  className="product-filter__itemsOnPage sortBy"
                   onChange={handleSortByChange}
+                  defaultValue={localStorage.getItem('sortByValue') ?? 'Select'}
                 >
                   <option value="" disabled selected>Select</option>
                   <option value="year">Newest</option>
@@ -134,19 +157,20 @@ export const Phones: FC = () => {
               <label className="product-filter__sortBy" htmlFor="#">
                 Order
                 <select
-                  className="product-filter__itemsOnPage"
+                  className="product-filter__itemsOnPage order"
                   onChange={handleSortByOrder}
+                  defaultValue={localStorage.getItem('sortByOrderValue') ?? 'ASC'}
                 >
                   <option value="ASC">Asc</option>
                   <option value="DESC">Desc</option>
                 </select>
               </label>
-              <label className="product-filter__sortBy" htmlFor="#">
+              <label className="product-filter__sortBy pages" htmlFor="#">
                 Items on page
                 <select
                   className="product-filter__itemsOnPage"
                   onChange={handleSortByPage}
-                  defaultValue={8}
+                  defaultValue={localStorage.getItem('sortByPageValue') ?? totalPhones}
                 >
                   <option value="71">all</option>
                   <option value="4">4</option>
