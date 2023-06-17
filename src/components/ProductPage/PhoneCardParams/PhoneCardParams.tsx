@@ -2,7 +2,7 @@ import { FC } from 'react';
 import './PhoneCardParams.scss';
 import { Link, useSearchParams } from 'react-router-dom';
 import cn from 'classnames';
-import { getSearchWith } from '../../utils/searchHelper';
+import { getSearchWith } from '../../../utils/searchHelper';
 
 interface Props {
   colors: string[];
@@ -12,8 +12,8 @@ interface Props {
 }
 
 export const PhoneCardParams: FC<Props> = ({
-  colors,
-  capacities,
+  colors = [],
+  capacities = [],
   SelectedColor,
   SelectedCapacity,
 }) => {
@@ -57,7 +57,7 @@ export const PhoneCardParams: FC<Props> = ({
                 })}
               key={capacity}
             >
-              {`${capacity} GB`}
+              {capacity}
             </Link>
           ))}
         </div>

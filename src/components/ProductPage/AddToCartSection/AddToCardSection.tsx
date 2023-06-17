@@ -7,8 +7,8 @@ import { Chars } from './Chars';
 
 interface Props {
   chars: Chars;
-  newPrice: string;
-  oldPrice: string;
+  newPrice: number;
+  oldPrice: number;
 }
 
 export const AddToCardSection: FC<Props> = ({ chars, newPrice, oldPrice }) => {
@@ -17,9 +17,9 @@ export const AddToCardSection: FC<Props> = ({ chars, newPrice, oldPrice }) => {
   return (
     <div className="container">
       <div className="price">
-        <h3 className="new-price">{newPrice}</h3>
+        <h3 className="new-price">{`$${newPrice}`}</h3>
 
-        <p className="old-price">{oldPrice}</p>
+        <p className="old-price">{`$${oldPrice}`}</p>
       </div>
 
       <div className="add-section">
