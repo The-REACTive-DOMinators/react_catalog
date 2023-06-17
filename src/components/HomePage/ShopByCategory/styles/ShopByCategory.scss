@@ -1,5 +1,3 @@
-@import "../../../styles/main.scss";
-
 .section {
   margin: 0 16px;
 
@@ -39,9 +37,14 @@
     border-radius: 3%;
 
     height: 288px;
-    width: 100%;
+    width: 95%;
+
+    @include onPhone {
+      width: 95vw;
+    }
 
     @include onTablet {
+      width: 100%;
       height: 187px;
     }
 

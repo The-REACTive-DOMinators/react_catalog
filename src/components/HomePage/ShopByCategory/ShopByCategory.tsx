@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import './ShopByCategory.scss';
+import './styles/main.scss';
 import Phones from './pictures/Phones.png';
 import Tablets from './pictures/Phones (1).png';
 import Accessories from './pictures/Phones (2).png';
