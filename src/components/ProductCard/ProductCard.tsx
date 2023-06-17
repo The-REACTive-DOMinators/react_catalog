@@ -51,15 +51,13 @@ export const ProductCard: FC<Props> = memo(({ phone }) => {
     image,
   } = phone;
 
-  const BASE_URL = 'https://server-store-p1t7.onrender.com';
-
   return (
     <div className="card__container">
       <div className="card__content">
         <Link to={`/phones/${phoneId}`} className="card__link">
           <div className="card__photo_container">
             <img
-              src={`${BASE_URL}/${image}`}
+              src={`${process.env.REACT_APP_BASE_URL}/${image}`}
               alt={phoneId}
               className="card__image"
             />
