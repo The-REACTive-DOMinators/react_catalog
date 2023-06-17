@@ -1,21 +1,22 @@
 {
   "files": {
-    "main.css": "./static/css/main.99fc29e2.chunk.css",
-    "main.js": "./static/js/main.4222a94c.chunk.js",
-    "main.js.map": "./static/js/main.4222a94c.chunk.js.map",
+    "main.css": "./static/css/main.06306ac2.chunk.css",
+    "main.js": "./static/js/main.1d596813.chunk.js",
+    "main.js.map": "./static/js/main.1d596813.chunk.js.map",
     "runtime-main.js": "./static/js/runtime-main.330dba63.js",
     "runtime-main.js.map": "./static/js/runtime-main.330dba63.js.map",
-    "static/js/2.0a410d12.chunk.js": "./static/js/2.0a410d12.chunk.js",
-    "static/js/2.0a410d12.chunk.js.map": "./static/js/2.0a410d12.chunk.js.map",
+    "static/js/2.ae0de915.chunk.js": "./static/js/2.ae0de915.chunk.js",
+    "static/js/2.ae0de915.chunk.js.map": "./static/js/2.ae0de915.chunk.js.map",
     "index.html": "./index.html",
-    "static/css/main.99fc29e2.chunk.css.map": "./static/css/main.99fc29e2.chunk.css.map",
-    "static/js/2.0a410d12.chunk.js.LICENSE.txt": "./static/js/2.0a410d12.chunk.js.LICENSE.txt",
-    "static/media/AddToCardSection.scss": "./static/media/Mont-Regular.1d26d89f.otf"
+    "static/css/main.06306ac2.chunk.css.map": "./static/css/main.06306ac2.chunk.css.map",
+    "static/js/2.ae0de915.chunk.js.LICENSE.txt": "./static/js/2.ae0de915.chunk.js.LICENSE.txt",
+    "static/media/CaveManIcon.5be138bf.svg": "./static/media/CaveManIcon.5be138bf.svg",
+    "static/media/main.scss": "./static/media/Mont-Regular.1d26d89f.otf"
   },
   "entrypoints": [
     "static/js/runtime-main.330dba63.js",
-    "static/js/2.0a410d12.chunk.js",
-    "static/css/main.99fc29e2.chunk.css",
-    "static/js/main.4222a94c.chunk.js"
+    "static/js/2.ae0de915.chunk.js",
+    "static/css/main.06306ac2.chunk.css",
+    "static/js/main.1d596813.chunk.js"
   ]
 }
