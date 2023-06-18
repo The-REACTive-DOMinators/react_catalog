@@ -5,21 +5,20 @@ interface Props {
 }
 
 export const PhotosBlock: React.FC<Props> = ({ images }) => {
-  const [selectedItem, setSelectedItem] = useState(images[0]);
-
-  const BASE_URL = 'https://server-store-p1t7.onrender.com';
+  const [selectedItemIndex, setSelectedItemIndex] = useState(0);
+  const URL = process.env.REACT_APP_BASE_URL;
 
   return (
     <div className="photo-block">
       <div className="photo-block__list">
-        {images.map((image) => (
+        {images.map((image, index) => (
           <button
             className="photo-block__list__item"
             type="button"
-            onClick={() => setSelectedItem(image)}
+            onClick={() => setSelectedItemIndex(index)}
           >
             <img
-              src={`${BASE_URL}/${image}`}
+              src={`${URL}/${image}`}
               alt="phone"
               className="photo-block__list__item__img"
             />
@@ -29,9 +28,10 @@ export const PhotosBlock: React.FC<Props> = ({ images }) => {
 
       <div className="photo-block__selectedItem">
         <img
-          src={`${BASE_URL}/${selectedItem}`}
+          src={`${URL}/${images[selectedItemIndex]}`}
           alt="phone"
-          className="photo-block__list__item__img"
+          className="photo-block__list__item__img
+          photo-block__list__item__img--active"
         />
       </div>
     </div>

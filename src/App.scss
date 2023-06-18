@@ -8,3 +8,20 @@ iframe {
   overflow: hidden;
   pointer-events: none;
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  margin-right: 20px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #5c448f;
+  box-shadow: 0 0 20px #5c448f;
+  border-radius: 7px;
+  animation: neon-glow 1s infinite;
+}
