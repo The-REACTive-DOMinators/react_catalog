@@ -3,23 +3,40 @@ import { FC } from 'react';
 import './AddToCardSection.scss';
 import { AddButton } from '../../AddButton';
 import { FavoriteIcon } from '../../../icons/FavoriteIcon';
-import { Chars } from './Chars';
+import { SpecMap } from '../SpecMap/SpecMap';
+import { DeviceSpecsShort } from './DeviceSpecsShort';
 
 interface Props {
-  chars: Chars;
+  phoneSpecs: DeviceSpecsShort;
   newPrice: number;
   oldPrice: number;
 }
 
-export const AddToCardSection: FC<Props> = ({ chars, newPrice, oldPrice }) => {
-  const specNames = Object.keys(chars);
+export const AddToCardSection: FC<Props> = ({
+  phoneSpecs,
+  newPrice,
+  oldPrice,
+}) => {
+  const {
+    screen,
+    resolution,
+    processor,
+    ram,
+  } = phoneSpecs;
+
+  const newPhoneSpecs = {
+    screen,
+    resolution,
+    processor,
+    ram,
+  };
 
   return (
     <div className="container">
       <div className="price">
-        <h3 className="new-price">{`$${newPrice}`}</h3>
+        <h3 className="new-price">{`$ ${newPrice}`}</h3>
 
-        <p className="old-price">{`$${oldPrice}`}</p>
+        <p className="old-price">{`$ ${oldPrice}`}</p>
       </div>
 
       <div className="add-section">
@@ -34,12 +51,7 @@ export const AddToCardSection: FC<Props> = ({ chars, newPrice, oldPrice }) => {
         </div>
       </div>
 
-      {specNames.map((key) => (
-        <section className="char" key={key}>
-          <p className="name">{key}</p>
-          <p className="value">{chars[key as keyof Chars]}</p>
-        </section>
-      ))}
+      <SpecMap phoneSpecs={newPhoneSpecs} />
     </div>
   );
 };
