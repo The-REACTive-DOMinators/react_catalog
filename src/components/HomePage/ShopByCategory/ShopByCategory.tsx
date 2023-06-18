@@ -1,31 +1,23 @@
 import { FC } from 'react';
 import './styles/main.scss';
 import { Link } from 'react-router-dom';
-import Phones from './pictures/Phones.png';
-import Tablets from './pictures/Phones (1).png';
-import Accessories from './pictures/Phones (2).png';
 
 export const ShopByCategory: FC = () => {
-  // const BASE_URL = 'https://server-store-p1t7.onrender.com';
-
   const categories = [
     {
       title: 'mobile phones',
       subtitle: '95 models',
-      img: Phones,
-      // img: `${BASE_URL}/img/category-phones.png`,
+      img: `${process.env.REACT_APP_BASE_URL}/img/category-phones.png`,
     },
     {
       title: 'tablets',
       subtitle: '24 models',
-      img: Tablets,
-      // img: `${BASE_URL}/img/category-tablets.png`,
+      img: `${process.env.REACT_APP_BASE_URL}/img/category-tablets.png`,
     },
     {
       title: 'accessories',
       subtitle: '100 models',
-      img: Accessories,
-      // img: `${BASE_URL}/img/category-accessories.png`,
+      img: `${process.env.REACT_APP_BASE_URL}/img/category-accessories.png`,
     },
   ];
 
