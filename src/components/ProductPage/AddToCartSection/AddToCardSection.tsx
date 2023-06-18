@@ -6,14 +6,34 @@ import { FavoriteIcon } from '../../../icons/FavoriteIcon';
 import { Chars } from './Chars';
 import { ButtonWithIcon } from '../../ButtonWithIcon';
 import { FavoriteFullIcon } from '../../../icons/FavouriteFullIcon';
+import { SpecMap } from '../SpecMap/SpecMap';
+import { DeviceSpecsShort } from './DeviceSpecsShort';
 
 interface Props {
-  chars: Chars;
+  phoneSpecs: DeviceSpecsShort;
   newPrice: number;
   oldPrice: number;
 }
+  
+export const AddToCardSection: FC<Props> = ({
+  phoneSpecs,
+  newPrice,
+  oldPrice,
+}) => {
+  const {
+    screen,
+    resolution,
+    processor,
+    ram,
+  } = phoneSpecs;
 
-export const AddToCardSection: FC<Props> = ({ chars, newPrice, oldPrice }) => {
+  const newPhoneSpecs = {
+    screen,
+    resolution,
+    processor,
+    ram,
+  };
+    
   const [isFavorite, setisFavorite] = useState(false);
   const [isAdd, setIsAdd] = useState(false);
 
@@ -30,9 +50,9 @@ export const AddToCardSection: FC<Props> = ({ chars, newPrice, oldPrice }) => {
   return (
     <div className="container">
       <div className="price">
-        <h3 className="new-price">{`$${newPrice}`}</h3>
+        <h3 className="new-price">{`$ ${newPrice}`}</h3>
 
-        <p className="old-price">{`$${oldPrice}`}</p>
+        <p className="old-price">{`$ ${oldPrice}`}</p>
       </div>
 
       <div className="add-section">
@@ -56,12 +76,7 @@ export const AddToCardSection: FC<Props> = ({ chars, newPrice, oldPrice }) => {
         </ButtonWithIcon>
       </div>
 
-      {specNames.map((key) => (
-        <section className="char" key={key}>
-          <p className="name">{key}</p>
-          <p className="value">{chars[key as keyof Chars]}</p>
-        </section>
-      ))}
+      <SpecMap phoneSpecs={newPhoneSpecs} />
     </div>
   );
 };
