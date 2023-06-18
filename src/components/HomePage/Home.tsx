@@ -1,7 +1,8 @@
 import { FC } from 'react';
+import { ShopByCategory } from './ShopByCategory/ShopByCategory';
 
 export const Home: FC = () => {
   return (
-    <h1>Home</h1>
+    <ShopByCategory />
   );
 };
