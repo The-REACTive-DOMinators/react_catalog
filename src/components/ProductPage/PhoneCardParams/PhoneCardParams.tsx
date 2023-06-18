@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import './PhoneCardParams.scss';
 import { Link } from 'react-router-dom';
 import cn from 'classnames';
@@ -18,6 +18,8 @@ export const PhoneCardParams: FC<Props> = ({
   SelectedCapacity,
   phoneId,
 }) => {
+  const [selectedCap, setSelectedCap] = useState(SelectedCapacity);
+
   function getPhoneColor(id: string, color: string) {
     const splittedId = id.split('-');
     const withoutColor = splittedId.slice(0, splittedId.length - 1).join('-');
@@ -63,11 +65,12 @@ export const PhoneCardParams: FC<Props> = ({
           {capacities.map((capacity) => (
             <Link
               to={getPhoneCapacity(phoneId, capacity)}
+              onClick={() => setSelectedCap(capacity)}
               relative="path"
               className={cn('capacity',
                 {
                   'active-capacity':
-                  SelectedCapacity === capacity,
+                  selectedCap === capacity,
                 })}
               key={capacity}
             >

@@ -1,4 +1,4 @@
-.container {
+.container-tech-Spec {
   margin: 0 16px;
 
   @include onTablet {
@@ -10,11 +10,16 @@
   }
 }
 
-.main-title {
+.main-title-tech-spec {
+  margin-top: 56px;
   font-size: 20px;
   padding-bottom: $gap;
   margin-bottom: 25px;
   border-bottom: 1px solid $separatLineColor;
+
+  @include onTablet {
+    margin-top: 0;
+  }
 }
 
 .char {

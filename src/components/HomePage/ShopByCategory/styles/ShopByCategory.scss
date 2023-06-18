@@ -1,9 +1,9 @@
-.container {
+.container-categories {
   display: flex;
   justify-content: center;
 }
 
-.section {
+.section-categories {
   margin: 0 16px;
 
   @include onTablet {
@@ -15,7 +15,7 @@
   }
 }
 
-.title {
+.title-categories {
   font-size: 32px;
   margin-bottom: 24px;
 }
@@ -28,11 +28,11 @@
   }
 }
 
-.picture-container {
+.picture-container-categories {
   margin-bottom: 14px;
 }
 
-.category {
+.category-categories_section {
   margin-bottom: 32px;
 
   &-picture {

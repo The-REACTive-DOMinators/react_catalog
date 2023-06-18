@@ -1,5 +1,6 @@
-.container {
-  margin: 0 16px;
+.container-about-section {
+  width: 100%;
+  margin: 56px;
 
   @include onTablet {
     margin: 0 24px;
@@ -20,11 +21,11 @@
   margin-top: 32px;
 }
 
-.section-title {
+.about-section-title {
   font-size: 16px;
   margin-bottom: $gap;
 }
 
-.section-text {
+.about-section-text {
   color: $secondaryTextColor;
 }

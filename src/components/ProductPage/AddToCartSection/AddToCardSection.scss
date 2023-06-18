@@ -1,5 +1,15 @@
 @import "../../../styles/main.scss";
 
+.container {
+  @include onTablet {
+    width: $section-width-onTablet;
+  }
+
+  @include onDesktop {
+    width: $section-width-onDesktop;
+  }
+}
+
 .price {
   display: flex;
   margin-bottom: 16px;
