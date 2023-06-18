@@ -15,12 +15,12 @@ export const ShopByCategory: FC = () => {
                 category-categories_section
                 grid__item--desktop-1-8
                 grid__item--tablet-1-4
+                grid__item-1-4
               "
             >
               <div className="picture-container-categories">
                 <img
                   className="category-categories_section-picture"
-                  src={Phones}
                   alt="tablets"
                 />
               </div>
@@ -36,12 +36,12 @@ export const ShopByCategory: FC = () => {
                 category-categories_section
                 grid__item--desktop-9-16
                 grid__item--tablet-5-8
+                grid__item-1-4
               "
             >
               <div className="picture-container-categories">
                 <img
                   className="category-categories_section-picture"
-                  src={Tablets}
                   alt="mobile phones"
                 />
               </div>
@@ -59,12 +59,12 @@ export const ShopByCategory: FC = () => {
                 category-categories_section
                 grid__item--desktop-17-24
                 grid__item--tablet-9-12
+                grid__item-1-4
               "
             >
               <div className="picture-container-categories">
                 <img
                   className="category-categories_section-picture"
-                  src={Accessories}
                   alt="accessories"
                 />
               </div>
