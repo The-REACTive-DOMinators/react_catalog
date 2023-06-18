@@ -1,9 +1,6 @@
 import { FC } from 'react';
 import './styles/main.scss';
 import { Link } from 'react-router-dom';
-import Phones from './pictures/Phones.png';
-import Tablets from './pictures/Phones (1).png';
-import Accessories from './pictures/Phones (2).png';
 
 export const ShopByCategory: FC = () => {
   return (

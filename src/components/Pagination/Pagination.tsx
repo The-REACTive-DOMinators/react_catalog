@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 // import { useState } from 'react';
 // import { useSearchParams } from 'react-router-dom';
 
@@ -13,16 +14,6 @@ interface Props {
   onBack: () => void;
 }
 
-const paginationRange = (lastPageNumber: number) => {
-  const length = [];
-
-  for (let i = 1; i <= lastPageNumber; i += 1) {
-    length.push(i);
-  }
-
-  return length;
-};
-
 export const Pagination: FC<Props> = ({
   onClick,
   phones,
@@ -31,8 +22,9 @@ export const Pagination: FC<Props> = ({
   onBack,
 }) => {
   const [phoneDataLength, setPhoneDataLength] = useState<number>(0);
-  const end = Math.ceil(phoneDataLength / phones);
-  const length = paginationRange(end);
+  const [start, setStart] = useState(1);
+  const [end, setEnd] = useState(1);
+
   const fetchPhoneDataLength = async () => {
     try {
       const dataLength = await getLength();
@@ -47,6 +39,23 @@ export const Pagination: FC<Props> = ({
     fetchPhoneDataLength();
   }, []);
 
+  useEffect(() => {
+    if (currentPage !== null && phoneDataLength > 0) {
+      const totalPages = Math.ceil(phoneDataLength / phones);
+      const newStart = Math.max(1, currentPage - 2);
+      const newEnd = Math.min(newStart + 4, totalPages);
+
+      setStart(newStart);
+      setEnd(newEnd);
+    }
+  }, [currentPage, phones, phoneDataLength]);
+
+  if (currentPage === null) {
+    return null;
+  }
+
+  const range = Array.from({ length: end - start + 1 }, (_, index) => start + index);
+
   return (
     <div className="pagination" data-cy="pagination">
       <button
@@ -59,14 +68,14 @@ export const Pagination: FC<Props> = ({
         {'<'}
       </button>
 
-      {length.map((item) => (
+      {range.map((item) => (
         <button
           type="button"
-          // className="pagination__button"
-          className={cn('pagination__button',
-            { 'pagination__button--pressed': item === currentPage })}
+          className={cn('pagination__button', {
+            'pagination__button--pressed': item === currentPage,
+          })}
           data-cy="paginationItem"
-          key={Math.random()}
+          key={item}
           onClick={onClick}
         >
           {item}
