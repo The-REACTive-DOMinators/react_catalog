@@ -1,18 +1,37 @@
+@import "../../styles/utils/mixins";
+
 .product-slider {
   display: flex;
   align-items: center;
   flex-direction: column;
   position: relative;
+  gap: 16px;
 
   margin: 0 auto;
-  width: 1136px;
+  width: 100%;
+
+  @include onTablet {
+    gap: 16px;
+  }
+
+  @include onDesktop {
+    width: 1136px;
+  }
 
   &__header {
     display: flex;
     justify-content: space-between;
-    width: 1136px;
+    width: 100%;
 
     padding-bottom: 28px;
+
+    padding-left: 10px;
+    padding-right: 10px;
+
+    @include onTablet {
+      padding-right: 24px;
+      padding-left: 24px;
+    }
   }
 
   &__buttons {
@@ -42,5 +61,18 @@
 
     overflow: hidden;
     overflow-x: hidden;
+
+    min-width: 1020px;
+  }
+}
+
+.card__container {
+  margin: 0 auto;
+}
+
+@media (min-width: 1200px) {
+  .product-slider__header {
+    padding-left: 0;
+    padding-right: 0;
   }
 }

@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { Swiper, SwiperSlide } from 'swiper/react';
 import './ProductSlider.scss';
 import 'swiper/swiper.scss';
@@ -69,6 +68,27 @@ export const ProductSlider: FC<Props> = ({ recommendedProducts }) => {
         }}
         onSwiper={(swiper) => {
           swiperRef.current = swiper;
+        }}
+        breakpoints={{
+          1199: {
+            slidesPerView: 4,
+            initialSlide: 0,
+          },
+          1050: {
+            slidesPerView: 4,
+          },
+          778: {
+            slidesPerView: 3,
+          },
+          600: {
+            slidesPerView: 2,
+          },
+          422: {
+            slidesPerView: 2,
+          },
+          0: {
+            slidesPerView: 1,
+          },
         }}
       >
         <div className="product-slider__content">
