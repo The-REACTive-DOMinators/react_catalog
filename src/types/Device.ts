@@ -1,5 +1,5 @@
 export interface Device {
-  id: string;
+  id: string | number;
   category: string;
   phoneId: string;
   itemId:string;
