@@ -8,14 +8,14 @@ interface Props {
 
 export const About: FC<Props> = ({ description }) => {
   return (
-    <div className="container">
+    <div className="container-about-section">
       <h2 className="main-title">About</h2>
 
       {description.map(({ title, text }) => (
         <section className="about-section">
-          <h4 className="section-title">{title}</h4>
+          <h4 className="about-section-title">{title}</h4>
 
-          <p className="section-text">{text}</p>
+          <p className="about-section-text">{text}</p>
         </section>
       ))}
     </div>

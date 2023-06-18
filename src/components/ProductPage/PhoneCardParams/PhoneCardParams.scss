@@ -3,6 +3,14 @@
 .params-section {
   border-bottom: 1px solid $borderColor;
 
+  @include onTablet {
+    width: $section-width-onTablet;
+  }
+
+  @include onDesktop {
+    width: $section-width-onDesktop;
+  }
+
   &__title {
     color: $secondaryTextColor;
     font-size: 12px;

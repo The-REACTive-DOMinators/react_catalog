@@ -1,8 +1,11 @@
 /* eslint-disable quote-props */
-import { FC } from 'react';
+import { FC, useCallback, useState } from 'react';
 import './AddToCardSection.scss';
 import { AddButton } from '../../AddButton';
 import { FavoriteIcon } from '../../../icons/FavoriteIcon';
+import { Chars } from './Chars';
+import { ButtonWithIcon } from '../../ButtonWithIcon';
+import { FavoriteFullIcon } from '../../../icons/FavouriteFullIcon';
 import { SpecMap } from '../SpecMap/SpecMap';
 import { DeviceSpecsShort } from './DeviceSpecsShort';
 
@@ -11,7 +14,7 @@ interface Props {
   newPrice: number;
   oldPrice: number;
 }
-
+  
 export const AddToCardSection: FC<Props> = ({
   phoneSpecs,
   newPrice,
@@ -30,6 +33,19 @@ export const AddToCardSection: FC<Props> = ({
     processor,
     ram,
   };
+    
+  const [isFavorite, setisFavorite] = useState(false);
+  const [isAdd, setIsAdd] = useState(false);
+
+  const specNames = Object.keys(chars);
+
+  const handleAddToCart = useCallback(() => {
+    setIsAdd(!isAdd);
+  }, [isAdd]);
+
+  const handleFavorite = useCallback(() => {
+    setisFavorite(!isFavorite);
+  }, [isFavorite]);
 
   return (
     <div className="container">
@@ -40,15 +56,24 @@ export const AddToCardSection: FC<Props> = ({
       </div>
 
       <div className="add-section">
-        <div className="add-to-cart">
-          <AddButton handleAddToCart={() => { }} isAdd={false}>
-            Add to cart
-          </AddButton>
-        </div>
+        <AddButton
+          handleAddToCart={handleAddToCart}
+          isAdd={isAdd}
+        >
+          {isAdd
+            ? 'Added to cart'
+            : 'Add to cart'}
 
-        <div className="favourite">
-          <FavoriteIcon />
-        </div>
+        </AddButton>
+
+        <ButtonWithIcon
+          onHandleClick={handleFavorite}
+          isSelected={isFavorite}
+        >
+          {isFavorite
+            ? <FavoriteFullIcon />
+            : <FavoriteIcon />}
+        </ButtonWithIcon>
       </div>
 
       <SpecMap phoneSpecs={newPhoneSpecs} />

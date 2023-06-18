@@ -9,9 +9,11 @@ interface Props {
 
 export const TechSpecs: FC<Props> = ({ phoneSpecs }) => {
   return (
-    <div className="container">
-      <h2 className="main-title">Tech specs</h2>
-
+    <div className="container-tech-Spec">
+      <h2 className="main-title-tech-spec">Tech specs</h2>
+      {specNames.map((key) => (
+        <section className="char" key={key}>
+          <p className="name">{key}</p>
       <SpecMap phoneSpecs={phoneSpecs} />
     </div>
   );
