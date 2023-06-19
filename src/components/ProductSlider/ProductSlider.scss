@@ -1,22 +1,37 @@
+@import "../../styles/utils/mixins";
+
 .product-slider {
   display: flex;
   align-items: center;
   flex-direction: column;
+  position: relative;
+  gap: 16px;
 
   margin: 0 auto;
-  width: 1136px;
+  width: 100%;
 
-  @media (max-width: 1136px) {
-    padding: 0 20px;
+  @include onTablet {
+    gap: 16px;
+  }
+
+  @include onDesktop {
+    width: 1136px;
   }
 
   &__header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    width: 1136px;
+    width: 100%;
 
     padding-bottom: 28px;
+
+    padding-left: 10px;
+    padding-right: 10px;
+
+    @include onTablet {
+      padding-right: 24px;
+      padding-left: 24px;
+    }
   }
 
   &__buttons {
@@ -24,6 +39,15 @@
     gap: 16px;
 
     &__button {
+      background-color: #323542;
+      color: #f1f2f9;
+
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &--active {
+        background-color: aqua;
+      }
       height: 40px;
       width: 40px;
     }
@@ -33,7 +57,22 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 16px;
     padding-bottom: 80px;
+
+    overflow: hidden;
+    overflow-x: hidden;
+
+    min-width: 1020px;
+  }
+}
+
+.card__container {
+  margin: 0 auto;
+}
+
+@media (min-width: 1200px) {
+  .product-slider__header {
+    padding-left: 0;
+    padding-right: 0;
   }
 }

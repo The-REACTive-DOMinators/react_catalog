@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import './App.scss';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { HomePage } from './modules/HomePage';
@@ -10,7 +11,6 @@ import { PageNotFound } from './modules/PageNotFound/PageNotFound';
 import { Header } from './components/Header/Header';
 import { Footer } from './components/Footer/Footer';
 import { BurgerMenu } from './components/BurgerMenu';
-// eslint-disable-next-line max-len
 import { ProductDetailsPage } from './modules/ProductDetailsPage/ProductDetailsPage';
 
 export const App = () => (
