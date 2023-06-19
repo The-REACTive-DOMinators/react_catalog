@@ -94,11 +94,12 @@ export const ProductSlider: FC<Props> = ({ products, title }) => {
         }}
       >
         <div className="product-slider__content">
-          {recommendedProducts.map(product => (
+          {products.length ? products.map(product => (
             <SwiperSlide className="product-slider__content__card">
               <ProductCard phone={product} />
             </SwiperSlide>
-          ))}
+          ))
+            : <Loader />}
         </div>
       </Swiper>
     </div>
