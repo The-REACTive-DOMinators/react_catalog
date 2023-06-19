@@ -8,6 +8,9 @@ import { Recomended } from './RecomendedBlock/Recomended';
 import { PhoneCardParams } from './PhoneCardParams/PhoneCardParams';
 import { PhoneDescription } from '../../types/PhoneDescription';
 import { AddToCardSection } from './AddToCartSection/AddToCardSection';
+import './Product.scss';
+import { BreadCrumbs } from './BreadCrumbs/BreadCrumbs';
+import { GoBack } from '../GoBack/GoBack';
 
 export const Product: FC = () => {
   const [
@@ -98,7 +101,9 @@ export const Product: FC = () => {
   }, [phoneId]);
 
   return (
-    <>
+    <div className="global-container">
+      <BreadCrumbs />
+      <GoBack />
       <PhotosBlock images={images} />
       <PhoneCardParams
         colors={phoneDescription.colorsAvailable}
@@ -117,6 +122,6 @@ export const Product: FC = () => {
         phoneSpecs={techSpecDescription}
       />
       <Recomended phoneId={phoneId} />
-    </>
+    </div>
   );
 };

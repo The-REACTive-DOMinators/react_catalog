@@ -1,0 +1,17 @@
+@import "../../styles/utils/mixins";
+
+.global-container {
+  margin: 0 auto;
+  max-width: 1152px;
+  padding: 0 16px;
+
+  @include onTablet {
+    min-width: 640px;
+    padding: 0 24px;
+  }
+
+  @include onDesktop {
+    max-width: 1200px;
+    padding: 0 24px;
+  }
+}

@@ -1,13 +1,12 @@
 .container-about-section {
-  width: 100%;
-  margin: 56px;
+  margin-bottom: 56px;
 
   @include onTablet {
-    margin: 0 24px;
+    margin-bottom: 64px;
   }
 
-  @include onTablet {
-    margin: 0 32px;
+  @include onDesktop {
+    margin-bottom: 80px;
   }
 }
 
