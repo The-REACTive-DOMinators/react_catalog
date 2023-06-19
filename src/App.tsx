@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import './App.scss';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { HomePage } from './modules/HomePage';
