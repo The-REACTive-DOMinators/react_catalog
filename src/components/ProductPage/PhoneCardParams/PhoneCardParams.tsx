@@ -35,6 +35,22 @@ export const PhoneCardParams: FC<Props> = ({
     return `/phones/${newUrl}`;
   }
 
+  function getProperColor(color: string) {
+    if (color === 'midnightgreen') {
+      return '#004953';
+    }
+
+    if (color === 'spacegray') {
+      return '#3c3c43';
+    }
+
+    if (color === 'rosegold') {
+      return '#b76e79';
+    }
+
+    return color;
+  }
+
   return (
     <div className="params-sections">
       <div className="params-section">
@@ -49,7 +65,7 @@ export const PhoneCardParams: FC<Props> = ({
               <Link
                 to={getPhoneColor(phoneId, color)}
                 relative="path"
-                style={{ background: color }}
+                style={{ background: getProperColor(color) }}
                 className="button"
               />
             </div>
