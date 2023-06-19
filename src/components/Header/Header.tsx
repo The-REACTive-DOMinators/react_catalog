@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import './styles/main.scss';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { LogoIcon } from '../../icons/Logo';
 import { FavoriteIcon } from '../../icons/FavoriteIcon';
 import { ShoppingCartIcon } from '../../icons/ShoppingCartIcon';
@@ -10,7 +10,9 @@ import { PageNavLink } from './PageNavLink/PageNavLink';
 export const Header: FC = () => (
   <header className="header">
     <div className="header__menu">
-      <LogoIcon className="header__logo" />
+      <Link to="/">
+        <LogoIcon className="header__logo" />
+      </Link>
 
       <nav className="header__nav">
         <ul className="nav-header">

@@ -12,7 +12,7 @@ export const About: FC<Props> = ({ description }) => {
       <h2 className="main-title">About</h2>
 
       {description.map(({ title, text }) => (
-        <section className="about-section">
+        <section className="about-section" key={title}>
           <h4 className="about-section-title">{title}</h4>
 
           <p className="about-section-text">{text}</p>
