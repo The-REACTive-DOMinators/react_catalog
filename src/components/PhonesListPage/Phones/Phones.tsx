@@ -12,7 +12,7 @@ import './Phone.scss';
 import { HomeIcon } from '../../../icons/HomeIcon';
 import { ArrowRight } from '../../../icons/ArrowRight';
 import { Loader } from '../../loader/Loader';
-import { Pagination } from '../../Pagination/Pagination';
+import { Pagination } from './Pagination/Pagination';
 
 export const Phones: FC = () => {
   const [phoneData, setPhoneData] = useState<Device[]>([]);

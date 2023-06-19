@@ -4,7 +4,7 @@
 
 import { FC, useEffect, useState } from 'react';
 import cn from 'classnames';
-import { getLength } from '../../api/phones';
+import { getLength } from '../../../../api/phones';
 
 interface Props {
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;

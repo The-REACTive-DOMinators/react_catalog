@@ -66,7 +66,7 @@ export const ProductCard: FC<Props> = memo(({ phone }) => {
           </div>
         </Link>
 
-        <Link to="/" className="card__phone_link">
+        <Link to={`/phones/${phoneId}`} className="card__phone_link">
           {name}
         </Link>
 
