@@ -30,18 +30,26 @@
 
 .product-filter {
   display: flex;
+  width: 100%;
   gap: 16px;
   padding-bottom: 24px;
+  box-sizing: border-box;
 
   &__sortBy {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     gap: 4px;
 
     font-weight: 600;
     font-size: 12px;
     line-height: 15px;
     color: #89939a;
+
+    @media (min-width: 848px) {
+      flex-grow: 0;
+
+    }
   }
 
   &__itemsOnPage {
@@ -50,6 +58,7 @@
     font-size: 14px;
     line-height: 21px;
     font-family: "Mont", sans-serif;
+    border-radius: 7px;
 
     cursor: pointer;
     background-color: #323542;
@@ -94,4 +103,12 @@
   color: #f1f2f9;
 
   padding-bottom: 8px;
+}
+
+.sortBy,
+.pages,
+.order {
+  @media (min-width: 848px) {
+    width: 200px;
+  }
 }

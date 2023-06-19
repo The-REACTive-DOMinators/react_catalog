@@ -10,12 +10,14 @@ import { ProductCard } from '../ProductCard';
 import { ButtonWithIcon } from '../ButtonWithIcon';
 import { ArrowLeft } from '../../icons/ArrowLeft';
 import { ArrowRight } from '../../icons/ArrowRight';
+import { Loader } from '../loader/Loader';
 
 type Props = {
-  recommendedProducts: Device[]
+  products: Device[]
+  title: string
 };
 
-export const ProductSlider: FC<Props> = ({ recommendedProducts }) => {
+export const ProductSlider: FC<Props> = ({ products, title }) => {
   const swiperRef = useRef<SwiperType | null>(null);
 
   const goToNextSlide = () => {
@@ -34,7 +36,7 @@ export const ProductSlider: FC<Props> = ({ recommendedProducts }) => {
     <div className="product-slider">
 
       <div className="product-slider__header">
-        <h2 className="product-slider__header__title">You may also like</h2>
+        <h2 className="product-slider__header__title">{title}</h2>
 
         <div className="product-slider__buttons">
           <div className="product-slider__buttons__button--prev">

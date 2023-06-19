@@ -1,23 +1,41 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import './PhoneCardParams.scss';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import cn from 'classnames';
-import { getSearchWith } from '../../utils/searchHelper';
 
 interface Props {
   colors: string[];
   capacities: string[];
   SelectedColor: string;
   SelectedCapacity: string;
+  phoneId: string;
 }
 
 export const PhoneCardParams: FC<Props> = ({
-  colors,
-  capacities,
+  colors = [],
+  capacities = [],
   SelectedColor,
   SelectedCapacity,
+  phoneId,
 }) => {
-  const [searchParams] = useSearchParams();
+  const [selectedCap, setSelectedCap] = useState(SelectedCapacity);
+
+  function getPhoneColor(id: string, color: string) {
+    const splittedId = id.split('-');
+    const withoutColor = splittedId.slice(0, splittedId.length - 1).join('-');
+    const newUrl = `${withoutColor}-${color}`;
+
+    return `/phones/${newUrl}`;
+  }
+
+  function getPhoneCapacity(id: string, capacity: string) {
+    const splittedId = id.split('-');
+    const withoutCapacity = splittedId
+      .slice(0, splittedId.length - 2).join('-');
+    const newUrl = `${withoutCapacity}-${capacity.toLowerCase()}-${SelectedColor}`;
+
+    return `/phones/${newUrl}`;
+  }
 
   return (
     <div className="params-sections">
@@ -31,9 +49,8 @@ export const PhoneCardParams: FC<Props> = ({
               key={color}
             >
               <Link
-                to={{
-                  search: getSearchWith(searchParams, { color }),
-                }}
+                to={getPhoneColor(phoneId, color)}
+                relative="path"
                 style={{ background: color }}
                 className="button"
               />
@@ -47,17 +64,17 @@ export const PhoneCardParams: FC<Props> = ({
         <div className="section">
           {capacities.map((capacity) => (
             <Link
-              to={{
-                search: getSearchWith(searchParams, { capacity }),
-              }}
+              to={getPhoneCapacity(phoneId, capacity)}
+              onClick={() => setSelectedCap(capacity)}
+              relative="path"
               className={cn('capacity',
                 {
                   'active-capacity':
-                  SelectedCapacity === capacity,
+                  selectedCap === capacity,
                 })}
               key={capacity}
             >
-              {`${capacity} GB`}
+              {capacity}
             </Link>
           ))}
         </div>
