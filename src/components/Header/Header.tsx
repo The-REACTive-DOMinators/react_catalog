@@ -5,7 +5,7 @@ import { LogoIcon } from '../../icons/Logo';
 import { FavoriteIcon } from '../../icons/FavoriteIcon';
 import { ShoppingCartIcon } from '../../icons/ShoppingCartIcon';
 import { MenuIcon } from '../../icons/MenuIcon';
-import { PageNavLink } from '../PageNavLink/PageNavLink';
+import { PageNavLink } from './PageNavLink/PageNavLink';
 
 export const Header: FC = () => (
   <header className="header">

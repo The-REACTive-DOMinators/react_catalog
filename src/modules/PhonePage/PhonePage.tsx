@@ -1,9 +1,9 @@
-import { Phones } from '../../components/HomePage/Phones';
+import { PhonesList } from '../../components/PhonesListPage/PhonesList';
 
 export const PhonesPage = () => {
   return (
     <div>
-      <Phones />
+      <PhonesList />
     </div>
   );
 };
