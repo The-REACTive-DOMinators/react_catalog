@@ -9,7 +9,7 @@ import { FavoritesPage } from './modules/FavoritesPage/FavoritesPage';
 import { PageNotFound } from './modules/PageNotFound/PageNotFound';
 import { Header } from './components/Header/Header';
 import { Footer } from './components/Footer/Footer';
-import { BurgerMenu } from './components/BurgerMenu';
+import { BurgerMenu } from './components/Header/BurgerMenu';
 // eslint-disable-next-line max-len
 import { ProductDetailsPage } from './modules/ProductDetailsPage/ProductDetailsPage';
 
