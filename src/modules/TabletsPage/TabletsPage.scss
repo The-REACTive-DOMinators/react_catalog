@@ -16,7 +16,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 80vh;
   background-color: #0f1121;
   max-width: 1200px;
   width: 100%;
@@ -38,11 +38,11 @@
       font-size: 6rem;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 780px) {
       font-size: 5rem;
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 645px) {
       font-size: 4rem;
     }
 
