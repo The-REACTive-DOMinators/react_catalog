@@ -24,6 +24,7 @@ export const Phones: FC = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
 
   const loadingSortedPhones = async (page: string) => {
+    setIsLoading(true);
     const phoneList = await getSortedPhones(page);
 
     setPhoneData(phoneList);
@@ -49,6 +50,8 @@ export const Phones: FC = () => {
     }
 
     loadingSortedPhones(`sortBy=${sortBy}&sortType=${order}&amount=${totalPhones}&currentPage=${currentPage}`);
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [sortBy, totalPhones, order, currentPage]);
 
   const [searchParams, setSearchParams] = useSearchParams();

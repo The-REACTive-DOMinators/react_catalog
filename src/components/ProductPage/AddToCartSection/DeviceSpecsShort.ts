@@ -1,4 +1,4 @@
-export interface DeviceSpecs {
+export interface DeviceSpecsShort {
   screen: string;
   resolution: string;
   processor: string;

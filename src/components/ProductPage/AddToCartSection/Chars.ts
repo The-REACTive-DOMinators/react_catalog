@@ -1,6 +1,6 @@
 export interface Chars {
-  'Screen': string,
-  'Resolution': string,
-  'Processor': string,
-  'RAM': string,
+  screen: string,
+  resolution: string,
+  processor: string,
+  ram: string,
 }

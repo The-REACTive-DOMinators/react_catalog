@@ -1,7 +1,15 @@
-@import "../../styles/main.scss";
+@import "../../../styles/main.scss";
 
 .params-section {
   border-bottom: 1px solid $borderColor;
+
+  @include onTablet {
+    width: $section-width-onTablet;
+  }
+
+  @include onDesktop {
+    width: $section-width-onDesktop;
+  }
 
   &__title {
     color: $secondaryTextColor;
