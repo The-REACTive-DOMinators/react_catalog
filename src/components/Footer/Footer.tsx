@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import './styles/main.scss';
+import { Link } from 'react-router-dom';
 import { Arrow } from '../../icons/Arrow';
 import { LogoIcon } from '../../icons/Logo';
 
@@ -13,7 +14,9 @@ export const Footer: FC = () => {
 
   return (
     <footer className="footer">
-      <LogoIcon className="footer__logo" />
+      <Link to="/home">
+        <LogoIcon className="footer__logo" />
+      </Link>
 
       <nav className="footer__nav nav-footer">
         <ul className="nav-footer__list">
