@@ -3,7 +3,6 @@ import { FC, useCallback, useState } from 'react';
 import './AddToCardSection.scss';
 import { AddButton } from '../../AddButton';
 import { FavoriteIcon } from '../../../icons/FavoriteIcon';
-import { Chars } from './Chars';
 import { ButtonWithIcon } from '../../ButtonWithIcon';
 import { FavoriteFullIcon } from '../../../icons/FavouriteFullIcon';
 import { SpecMap } from '../SpecMap/SpecMap';
@@ -14,7 +13,7 @@ interface Props {
   newPrice: number;
   oldPrice: number;
 }
-  
+
 export const AddToCardSection: FC<Props> = ({
   phoneSpecs,
   newPrice,
@@ -33,11 +32,9 @@ export const AddToCardSection: FC<Props> = ({
     processor,
     ram,
   };
-    
+
   const [isFavorite, setisFavorite] = useState(false);
   const [isAdd, setIsAdd] = useState(false);
-
-  const specNames = Object.keys(chars);
 
   const handleAddToCart = useCallback(() => {
     setIsAdd(!isAdd);

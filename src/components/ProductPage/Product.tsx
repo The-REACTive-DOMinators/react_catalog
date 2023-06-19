@@ -108,9 +108,9 @@ export const Product: FC = () => {
         phoneId={phoneId}
       />
       <AddToCardSection
-        chars={chars}
         newPrice={fullPrice}
         oldPrice={price}
+        phoneSpecs={chars}
       />
       <Description
         loadedDescription={summary}
