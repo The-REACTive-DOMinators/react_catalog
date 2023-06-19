@@ -51,12 +51,12 @@ export const CartPage = () => {
       (item: Device) => +item.id !== itemId,
     );
 
+    localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
     const updatedTotalPrice = getTotalPriceFromLS();
 
     setCartItemsState(updatedCartItems);
     setTotalPriceState(updatedTotalPrice);
 
-    localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
     localStorage.setItem('totalPrice', updatedTotalPrice.toString());
   };
 
@@ -66,11 +66,12 @@ export const CartPage = () => {
     if (updatedCartItem) {
       const updatedCartItems = [...cartItemsState, updatedCartItem];
 
+      localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+
       const updatedTotalPrice = getTotalPriceFromLS();
 
       setCartItemsState(updatedCartItems);
-      setTotalPriceState(updatedTotalPrice);
-      localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+
       localStorage.setItem('totalPrice', updatedTotalPrice.toString());
     }
   };
@@ -82,14 +83,18 @@ export const CartPage = () => {
       return;
     }
 
-    const updatedCartItems = cartItemsState.splice(indexToRemove, 1);
+    const updatedCartItems = cartItemsState
+      .reverse()
+      .filter((_, index) => index !== indexToRemove)
+      .reverse();
 
     if (updatedCartItems) {
+      localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+
       const updatedTotalPrice = getTotalPriceFromLS();
 
       setCartItemsState(updatedCartItems);
-      setTotalPriceState(updatedTotalPrice);
-      localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+
       localStorage.setItem('totalPrice', updatedTotalPrice.toString());
     }
   };

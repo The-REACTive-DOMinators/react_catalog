@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { CloseIcon } from '../../../icons/CloseIcon';
 import { MinusIcon } from '../../../icons/MinusIcon';
 import { PlusIcon } from '../../../icons/PlusIcon';
@@ -16,7 +16,20 @@ interface Props {
   handleCountMinus: (itemId: number | string) => void;
 }
 
-const BASE_URL = 'https://server-store-p1t7.onrender.com';
+const countItemFromLS = (itemId: number | string) => {
+  const cartItemsData = localStorage.getItem('cartItems');
+
+  if (cartItemsData) {
+    const cartItems = JSON.parse(cartItemsData);
+
+    const countItem: number = cartItems
+      .filter((item: { id: string | number; }) => +item.id === itemId).length;
+
+    return countItem;
+  }
+
+  return 0;
+};
 
 export const CartItem: FC<Props> = ({
   phone,
@@ -41,6 +54,10 @@ export const CartItem: FC<Props> = ({
     handleCountPlus(phone.id);
   };
 
+  useEffect(() => {
+    setCount(countItemFromLS(phone.id));
+  }, [count]);
+
   return (
     <div className="cart-item">
       <div className="cart-item__info">
@@ -52,7 +69,7 @@ export const CartItem: FC<Props> = ({
           <CloseIcon className="cart-item__close" />
         </button>
         <img
-          src={`${BASE_URL}/${phone.image}`}
+          src={`${process.env.REACT_APP_BASE_URL}/${phone.image}`}
           alt={phone.name}
           className="cart-item__image"
         />
