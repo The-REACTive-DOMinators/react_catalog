@@ -1,9 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Pagination } from 'swiper';
+import { Pagination } from 'swiper';
 import { useEffect, useState } from 'react';
 import { Loader } from '../../loader/Loader';
-
-SwiperCore.use([Pagination]);
 
 const URL = process.env.REACT_APP_BASE_URL;
 
@@ -15,7 +13,7 @@ export const PhotosBlock: React.FC<Props> = ({ images }) => {
   const [index, setindex] = useState(0);
 
   useEffect(() => {
-    setindex(previndex => previndex + 1);
+    setindex(prevndex => prevndex + 1);
   }, [images]);
 
   return (
@@ -28,7 +26,6 @@ export const PhotosBlock: React.FC<Props> = ({ images }) => {
           key={index}
           id="swiper"
           slidesPerView={1}
-          spaceBetween={30}
           pagination={{
             clickable: true,
             renderBullet: (slideIndex, className) => {
