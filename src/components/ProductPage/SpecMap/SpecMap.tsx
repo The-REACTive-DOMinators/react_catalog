@@ -10,7 +10,7 @@ export const SpecMap: FC<Props> = ({ phoneSpecs }) => {
   const specNames = Object.keys(phoneSpecs);
 
   return (
-    <div>
+    <div className="spec-container">
       {specNames.map((key) => (
         <section className="char" key={key}>
           <p className="name">{key}</p>

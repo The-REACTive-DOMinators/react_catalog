@@ -1,0 +1,35 @@
+@import "../../styles/utils/mixins";
+@import "../../styles/main.scss";
+
+.global-container {
+  margin: 0 auto;
+  max-width: 1152px;
+  padding: 0 16px;
+
+  @include onTablet {
+    min-width: 640px;
+    padding: 0 24px;
+  }
+
+  @include onDesktop {
+    max-width: 1200px;
+    padding: 0 24px;
+  }
+
+  &--title {
+    text-transform: capitalize;
+    margin-bottom: 32px;
+  }
+
+  @include onTablet {
+    margin-bottom: 40px;
+  }
+}
+
+.up-section {
+  margin-bottom: 56px;
+
+  @include onTablet {
+    margin-bottom: 81px;
+  }
+}

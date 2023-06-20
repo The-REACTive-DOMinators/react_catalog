@@ -10,6 +10,7 @@ export const PhotosBlock: React.FC<Props> = ({ images }) => {
 
   return (
     <div className="photo-block">
+      <h1>{}</h1>
       <div className="photo-block__list">
         {images.map((image, index) => (
           <button
