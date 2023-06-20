@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Device } from '../../types/Device';
 import './CartPage.scss';
 import { CartItem } from './CartItem';
-import { useLocalStorage } from '../../castomHooks/useLocalStorageTS';
+import { useLocalStorage } from '../../castomHooks/useLocalSrorage';
 
 export const CartPage = () => {
   const [cartItems, setCartItems] = useLocalStorage('cartItems', []);
@@ -23,56 +23,61 @@ export const CartPage = () => {
   };
 
   const handleRemove = (itemId: string) => {
-    const updatedCartItems = cartItems.filter(
-      (item: Device) => +item.id !== +itemId,
-    );
+    setCartItems((prevCartItems: Device[]) => {
+      const updatedCartItems = prevCartItems.filter(
+        (item: Device) => +item.id !== +itemId,
+      );
+      const updateTotalPrice = updatedCartItems
+        .reduce((sum: number, item: Device) => sum + item.price, 0);
 
-    setCartItems(updatedCartItems);
-    setCountItems(cartItems.length);
+      setTotalPrice(updateTotalPrice);
+      setCountItems(updatedCartItems.length);
 
-    const updatedTotalPrice = getTotalPrice();
-
-    setTotalPrice(updatedTotalPrice);
+      return updatedCartItems;
+    });
   };
 
   const handleCountPlus = (itemId: string): void => {
-    const updatedCartItem = cartItems
-      .find((item: Device) => +item.id === +itemId);
+    setCartItems((prevCartItems: Device[]) => {
+      const updatedCartItem = prevCartItems
+        .find((item: Device) => +item.id === +itemId);
 
-    if (updatedCartItem) {
-      const updatedCartItems = [...cartItems, updatedCartItem];
+      if (updatedCartItem) {
+        const updatedCartItems = [...prevCartItems, updatedCartItem];
+        const updatedTotalPrice = updatedCartItems
+          .reduce((sum: number, item: Device) => sum + item.price, 0);
 
-      setCartItems(updatedCartItems);
-      setCountItems(cartItems.length);
+        setTotalPrice(updatedTotalPrice);
+        setCountItems(updatedCartItems.length);
 
-      const updatedTotalPrice = getTotalPrice();
+        return updatedCartItems;
+      }
 
-      setCartItems(updatedCartItems);
-      setTotalPrice(updatedTotalPrice);
-    }
+      return prevCartItems;
+    });
   };
 
   const handleCountMinus = (itemId: string): void => {
-    const indexToRemove = cartItems
-      .reverse()
-      .findIndex((item: Device) => +item.id === +itemId);
+    setCartItems((prevCartItems: Device[]) => {
+      const indexToRemove = prevCartItems
+        .reverse()
+        .findIndex((item: Device) => +item.id === +itemId);
 
-    if (indexToRemove === -1) {
-      return;
-    }
+      if (indexToRemove === -1) {
+        return prevCartItems;
+      }
 
-    const updatedCartItems = cartItems
-      .filter((_: unknown, index: number) => index !== indexToRemove)
-      .reverse();
-
-    if (updatedCartItems) {
-      setCartItems(updatedCartItems);
-      setCountItems(cartItems.length);
-
-      const updatedTotalPrice = getTotalPrice();
+      const updatedCartItems = prevCartItems
+        .filter((_: unknown, index: number) => index !== indexToRemove)
+        .reverse();
+      const updatedTotalPrice = updatedCartItems
+        .reduce((sum: number, item: Device) => sum + item.price, 0);
 
       setTotalPrice(updatedTotalPrice);
-    }
+      setCountItems(updatedCartItems.length);
+
+      return updatedCartItems;
+    });
   };
 
   const handleClearCart = () => {
