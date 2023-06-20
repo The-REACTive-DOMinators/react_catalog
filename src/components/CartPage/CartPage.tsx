@@ -14,7 +14,7 @@ export const CartPage = () => {
       const updateTotalPrice = cartItems
         .reduce((sum: number, item: Device) => sum + item.price, 0);
 
-      setTotalPrice(updateTotalPrice);
+      setTotalPrice(() => updateTotalPrice);
 
       return totalPrice;
     }
@@ -82,6 +82,8 @@ export const CartPage = () => {
 
   const handleClearCart = () => {
     setCartItems([]);
+    setTotalPrice(0);
+    setCountItems(0);
   };
 
   useEffect(() => {
