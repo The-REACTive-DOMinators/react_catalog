@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-bottom: 56;
+  margin-bottom: 56px;
 
   @include onTablet {
     margin-bottom: 64px;
