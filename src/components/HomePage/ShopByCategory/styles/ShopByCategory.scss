@@ -25,7 +25,7 @@ $title-hover: rgb(166, 201, 230);
 }
 
 .title-categories {
-  font-size: 32px;
+  @include secondaryTitle;
   margin-bottom: 24px;
 }
 
