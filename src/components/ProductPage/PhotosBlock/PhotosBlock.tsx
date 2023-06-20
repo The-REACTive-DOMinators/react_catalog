@@ -1,40 +1,62 @@
-import { useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Pagination } from 'swiper';
+import { useEffect, useState } from 'react';
+import { Loader } from '../../loader/Loader';
+
+SwiperCore.use([Pagination]);
+
+const URL = process.env.REACT_APP_BASE_URL;
 
 interface Props {
   images: string[];
 }
 
 export const PhotosBlock: React.FC<Props> = ({ images }) => {
-  const [selectedItemIndex, setSelectedItemIndex] = useState(0);
-  const URL = process.env.REACT_APP_BASE_URL;
+  const [index, setindex] = useState(0);
+
+  useEffect(() => {
+    setindex(previndex => previndex + 1);
+  }, [images]);
 
   return (
-    <div className="photo-block">
-      <h1>{}</h1>
-      <div className="photo-block__list">
-        {images.map((image, index) => (
-          <button
-            className="photo-block__list__item"
-            type="button"
-            onClick={() => setSelectedItemIndex(index)}
-          >
-            <img
-              src={`${URL}/${image}`}
-              alt="phone"
-              className="photo-block__list__item__img"
-            />
-          </button>
-        ))}
+    <section className="photo-block">
+      <div className="photo-block-slider">
+        <Swiper
+          modules={[Pagination]}
+          className="photo-block__list"
+          observer
+          key={index}
+          id="swiper"
+          slidesPerView={1}
+          spaceBetween={30}
+          pagination={{
+            clickable: true,
+            renderBullet: (slideIndex, className) => {
+              return `<div class="${className}">
+                          <img class="bullet-image" src=${URL}/${images[slideIndex]} alt="phone" />
+                      </div>`;
+            },
+          }}
+        >
+          {images.length ? (
+            <Swiper>
+              {images.map((image) => (
+                <SwiperSlide key={image}>
+                  <div className="photo-block__selectedItem-container">
+                    <img
+                      src={`${URL}/${image}`}
+                      alt="phone-img"
+                      className="photo-block__selectedItem"
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          ) : (
+            <Loader />
+          )}
+        </Swiper>
       </div>
-
-      <div className="photo-block__selectedItem">
-        <img
-          src={`${URL}/${images[selectedItemIndex]}`}
-          alt="phone"
-          className="photo-block__list__item__img
-          photo-block__list__item__img--active"
-        />
-      </div>
-    </div>
+    </section>
   );
 };
