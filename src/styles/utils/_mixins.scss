@@ -6,6 +6,12 @@
   }
 }
 
+@mixin onPhoneTablet {
+  @media (min-width: 848px) {
+    @content;
+  }
+}
+
 @mixin onDesktop {
   @media (min-width: 1200px) {
     @content;
@@ -115,6 +121,11 @@
 }
 
 @mixin iconButtonSelected {
+  border: 1px solid $borderColor;
+  background: none;
+}
+
+@mixin iconButtonDisabled {
   border: 1px solid $borderColor;
   background: none;
 }

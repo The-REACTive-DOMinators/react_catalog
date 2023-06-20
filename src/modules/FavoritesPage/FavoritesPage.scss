@@ -1,0 +1,51 @@
+@import "../../styles/utils/mixins";
+
+.favorites {
+  &__count {
+    @include bodyText;
+    color: $secondaryTextColor;
+    margin-bottom: 32px;
+  }
+
+  &__title {
+    @include mainTitle;
+  }
+
+  &__container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 25px 16px 56px;
+
+    @include onTablet {
+      padding: 25px 24px 64px;
+    }
+
+    @include onDesktop {
+      padding: 25px 24px 80px;
+    }
+  }
+
+  &__list {
+    display: grid;
+    justify-items: center;
+    grid-row-gap: 40px;
+    row-gap: 40px;
+    grid-template-columns: repeat(1,minmax(0,1fr));
+
+    @include onTablet {
+      grid-column-gap: 16px;
+      column-gap: 16px;
+      row-gap: 46px;
+      grid-template-columns: repeat(2,minmax(0,1fr));
+    }
+
+    @include onPhoneTablet {
+      grid-template-columns: repeat(3,minmax(0,1fr));
+    }
+
+    @include onDesktop {
+      grid-template-columns: repeat(4,minmax(0,1fr));
+    }
+  }
+}
