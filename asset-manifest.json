@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "./static/css/main.7e5c655a.chunk.css",
-    "main.js": "./static/js/main.7334face.chunk.js",
-    "main.js.map": "./static/js/main.7334face.chunk.js.map",
+    "main.css": "./static/css/main.a80f8657.chunk.css",
+    "main.js": "./static/js/main.4b00dd8f.chunk.js",
+    "main.js.map": "./static/js/main.4b00dd8f.chunk.js.map",
     "runtime-main.js": "./static/js/runtime-main.330dba63.js",
     "runtime-main.js.map": "./static/js/runtime-main.330dba63.js.map",
     "static/css/2.f2fabd42.chunk.css": "./static/css/2.f2fabd42.chunk.css",
-    "static/js/2.cb0d637b.chunk.js": "./static/js/2.cb0d637b.chunk.js",
-    "static/js/2.cb0d637b.chunk.js.map": "./static/js/2.cb0d637b.chunk.js.map",
+    "static/js/2.0266a3bb.chunk.js": "./static/js/2.0266a3bb.chunk.js",
+    "static/js/2.0266a3bb.chunk.js.map": "./static/js/2.0266a3bb.chunk.js.map",
     "index.html": "./index.html",
     "static/css/2.f2fabd42.chunk.css.map": "./static/css/2.f2fabd42.chunk.css.map",
-    "static/css/main.7e5c655a.chunk.css.map": "./static/css/main.7e5c655a.chunk.css.map",
-    "static/js/2.cb0d637b.chunk.js.LICENSE.txt": "./static/js/2.cb0d637b.chunk.js.LICENSE.txt",
+    "static/css/main.a80f8657.chunk.css.map": "./static/css/main.a80f8657.chunk.css.map",
+    "static/js/2.0266a3bb.chunk.js.LICENSE.txt": "./static/js/2.0266a3bb.chunk.js.LICENSE.txt",
     "static/media/CaveManIcon.5be138bf.svg": "./static/media/CaveManIcon.5be138bf.svg",
-    "static/media/AddToCardSection.scss": "./static/media/Mont-Regular.1d26d89f.otf"
+    "static/media/Product.scss": "./static/media/Mont-Regular.1d26d89f.otf"
   },
   "entrypoints": [
     "static/js/runtime-main.330dba63.js",
     "static/css/2.f2fabd42.chunk.css",
-    "static/js/2.cb0d637b.chunk.js",
-    "static/css/main.7e5c655a.chunk.css",
-    "static/js/main.7334face.chunk.js"
+    "static/js/2.0266a3bb.chunk.js",
+    "static/css/main.a80f8657.chunk.css",
+    "static/js/main.4b00dd8f.chunk.js"
   ]
 }
