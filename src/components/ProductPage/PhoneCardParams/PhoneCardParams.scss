@@ -2,14 +2,7 @@
 
 .params-section {
   border-bottom: 1px solid $borderColor;
-
-  @include onTablet {
-    width: $section-width-onTablet;
-  }
-
-  @include onDesktop {
-    width: $section-width-onDesktop;
-  }
+  margin-bottom: 24px;
 
   &__title {
     color: $secondaryTextColor;
