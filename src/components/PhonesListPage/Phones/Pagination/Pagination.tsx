@@ -61,7 +61,8 @@ export const Pagination: FC<Props> = ({
       <button
         disabled={currentPage === 1}
         type="button"
-        className="pagination__button pagination__button--switch"
+        className={cn('pagination__button pagination__button--switch',
+          { disabled_button: currentPage === 1 })}
         data-cy="paginationLeft"
         onClick={onBack}
       >
@@ -85,7 +86,8 @@ export const Pagination: FC<Props> = ({
       <button
         disabled={currentPage === end}
         type="button"
-        className="pagination__button pagination__button--switch"
+        className={cn('pagination__button pagination__button--switch',
+          { disabled_button: currentPage === end })}
         data-cy="paginationRight"
         onClick={onForward}
       >
