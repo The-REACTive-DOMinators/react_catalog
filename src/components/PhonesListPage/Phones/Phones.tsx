@@ -5,6 +5,7 @@ import {
   ChangeEvent,
   MouseEvent,
 } from 'react';
+import classNames from 'classnames';
 import { Device } from '../../../types/Device';
 import { getSortedPhones } from '../../../api/phones';
 import { ProductCard } from '../../ProductCard';
@@ -134,82 +135,84 @@ export const Phones: FC = () => {
 
   return (
     <>
-      {!isLoading
-        ? (
-          <div className="container1">
-            <div className="route-links">
-              <NavLink to="/home" className="home-icon">
-                <HomeIcon />
-              </NavLink>
-              <ArrowRight className="arrow-icon" />
-              <span className="phones-title">Phones</span>
-            </div>
-            <h1 className="title">Mobile phones</h1>
+      <div className="container1">
+        <div className="route-links">
+          <NavLink to="/home" className="home-icon">
+            <HomeIcon />
+          </NavLink>
+          <ArrowRight className="arrow-icon" />
+          <span className="phones-title">Phones</span>
+        </div>
+        <h1 className="title">Mobile phones</h1>
 
-            <div className="counter">{`${phoneData.length} models`}</div>
+        <div className="counter">{`${phoneData.length} models`}</div>
 
-            <div className="product-filter">
-              <label className="product-filter__sortBy" htmlFor="#">
-                Sort By
-                <select
-                  className="product-filter__itemsOnPage sortBy"
-                  onChange={handleSortByChange}
-                  defaultValue={localStorage.getItem('sortByValue') ?? 'Select'}
-                >
-                  <option value="" disabled selected>Select</option>
-                  <option value="year">Newest</option>
-                  <option value="price">Price</option>
-                </select>
-              </label>
-              <label className="product-filter__sortBy" htmlFor="#">
-                Order
-                <select
-                  className="product-filter__itemsOnPage order"
-                  onChange={handleSortByOrder}
-                  defaultValue={localStorage.getItem('sortByOrderValue')
+        <div className="product-filter">
+          <label className="product-filter__sortBy" htmlFor="#">
+            Sort By
+            <select
+              className="product-filter__itemsOnPage sortBy"
+              onChange={handleSortByChange}
+              defaultValue={localStorage.getItem('sortByValue') ?? 'Select'}
+            >
+              <option value="" disabled selected>Select</option>
+              <option value="year">Newest</option>
+              <option value="price">Price</option>
+            </select>
+          </label>
+          <label className="product-filter__sortBy" htmlFor="#">
+            Order
+            <select
+              className="product-filter__itemsOnPage order"
+              onChange={handleSortByOrder}
+              defaultValue={localStorage.getItem('sortByOrderValue')
                     ?? 'ASC'}
-                >
-                  <option value="ASC">Asc</option>
-                  <option value="DESC">Desc</option>
-                </select>
-              </label>
-              <label className="product-filter__sortBy pages" htmlFor="#">
-                Items on page
-                <select
-                  className="product-filter__itemsOnPage"
-                  onChange={handleSortByPage}
-                  defaultValue={localStorage.getItem('sortByPageValue')
+            >
+              <option value="ASC">Asc</option>
+              <option value="DESC">Desc</option>
+            </select>
+          </label>
+          <label className="product-filter__sortBy pages" htmlFor="#">
+            Items on page
+            <select
+              className="product-filter__itemsOnPage"
+              onChange={handleSortByPage}
+              defaultValue={localStorage.getItem('sortByPageValue')
                     ?? totalPhones}
-                >
-                  <option value="71">all</option>
-                  <option value="4">4</option>
-                  <option value="8">8</option>
-                  <option value="16">16</option>
-                </select>
-              </label>
+            >
+              <option value="71">all</option>
+              <option value="4">4</option>
+              <option value="8">8</option>
+              <option value="16">16</option>
+            </select>
+          </label>
+        </div>
+        <div className={classNames('phones_list', {
+          'flex-loader': isLoading,
+        })}
+        >
+          {isLoading && (
+            <div className="loader">
+              <Loader />
             </div>
-            <div className="phones_list">
-              {!isLoading && phoneData.map((phone) => (
-                <div className="phone" key={phone.id}>
-                  <ProductCard phone={phone} />
-                </div>
-              ))}
-              {hasError && <div>Error occurred.</div>}
+          )}
+          {!isLoading && phoneData.map((phone) => (
+            <div className="phone" key={phone.id}>
+              <ProductCard phone={phone} />
             </div>
-            <Pagination
-              onClick={handleSortByPageNumber}
-              phones={totalPhones}
-              currentPage={currentPage}
-              onForward={handlePageForward}
-              onBack={handlePageBack}
-            />
-          </div>
-        )
-        : (
-          <div className="loader">
-            <Loader />
-          </div>
+          ))}
+          {hasError && <div>Error occurred.</div>}
+        </div>
+        {!isLoading && (
+          <Pagination
+            onClick={handleSortByPageNumber}
+            phones={totalPhones}
+            currentPage={currentPage}
+            onForward={handlePageForward}
+            onBack={handlePageBack}
+          />
         )}
+      </div>
     </>
   );
 };
