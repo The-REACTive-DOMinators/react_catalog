@@ -116,3 +116,20 @@ to links container.
 ### Other tasks
 1. Add `NotFoundPage` containing text `Page not found` for all the other URLs with the link to `HomePage`
 1. Implement `Phone was not found` state for the `PhoneDetailsPage` if there is no phone with a given `phoneId` on the server
+
+
+const ph = {
+  id: '1',
+  category: 'phones',
+  phoneId: 'apple-iphone-7-32gb-black',
+  itemId: 'apple-iphone-7-32gb-black',
+  name: 'Apple iPhone 7 32GB Black',
+  fullPrice: 400,
+  price: 375,
+  screen: '4.7 IPS',
+  capacity: '32GB',
+  color: 'black',
+  ram: '2GB',
+  year: 2016,
+  image: 'img/phones/apple-iphone-7/black/00.jpg',
+};

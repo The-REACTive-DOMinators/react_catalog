@@ -2,7 +2,7 @@ import {
   FC,
   memo,
   useCallback,
-  // useEffect,
+  useEffect,
   useState,
 } from 'react';
 import { Link } from 'react-router-dom';
@@ -17,20 +17,43 @@ interface Props {
   phone: Device;
 }
 
+const setCartItemsFromLS = () => {
+  const data = localStorage.getItem('cartItems');
+
+  return data
+    ? JSON.parse(data)
+    : [];
+};
+
+const setFavoriteItemsFromLS = () => {
+  const data = localStorage.getItem('favorite');
+
+  return data
+    ? JSON.parse(data)
+    : [];
+};
+
 export const ProductCard: FC<Props> = memo(({ phone }) => {
   const [isFavorite, setisFavorite] = useState(false);
   const [isAdd, setIsAdd] = useState(false);
 
-  // useEffect(() => {
-  //   const existingCartItems = JSON
-  //     .parse(localStorage.getItem('cartItems')) || [];
+  useEffect(() => {
+    const existingCartItems = setCartItemsFromLS() || [];
+    const existingFavoriteItems = setFavoriteItemsFromLS() || [];
 
-  //   if (isAdd) {
-  //     const updatedCartItems = [...existingCartItems, phone];
+    if (isAdd) {
+      const updatedCartItems = [...existingCartItems, phone];
 
-  //     localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
-  //   }
-  // }, [isAdd]);
+      localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+    }
+
+    if (isFavorite) {
+      const updatedFavoriteItems = [...existingFavoriteItems, phone];
+
+      localStorage
+        .setItem('favorite', JSON.stringify(updatedFavoriteItems));
+    }
+  }, [isAdd, isFavorite]);
 
   const handleAddToCart = useCallback(() => {
     setIsAdd(!isAdd);
@@ -115,14 +138,16 @@ export const ProductCard: FC<Props> = memo(({ phone }) => {
 
           </AddButton>
 
-          <ButtonWithIcon
-            onHandleClick={handleFavorite}
-            isSelected={isFavorite}
-          >
-            {isFavorite
-              ? <FavoriteFullIcon />
-              : <FavoriteIcon />}
-          </ButtonWithIcon>
+          <div className="card__button-container">
+            <ButtonWithIcon
+              onHandleClick={handleFavorite}
+              isSelected={isFavorite}
+            >
+              {isFavorite
+                ? <FavoriteFullIcon />
+                : <FavoriteIcon />}
+            </ButtonWithIcon>
+          </div>
         </div>
       </div>
     </div>

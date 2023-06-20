@@ -30,6 +30,14 @@
 
   &__title {
     @include bodyText;
+
+    @include onTablet {
+      width: 176px;
+    }
+
+    @include onDesktop {
+      width: 336px;
+    }
   }
 
   &__image {
@@ -59,5 +67,31 @@
 
   &__counter {
     width: 100%;
+  }
+}
+
+.counter {
+  display: flex;
+  justify-content: space-between;
+
+  &__icon {
+    width: 32px;
+    height: 32px;
+
+    flex-shrink: 0;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    width: 96px;
+  }
+
+  &__price {
+    @include price;
+
+    display: block;
   }
 }
