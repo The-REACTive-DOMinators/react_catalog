@@ -55,7 +55,6 @@ export const PhotosBlock: React.FC<Props> = ({ images }) => {
           ) : (
             <Loader />
           )}
-
         </Swiper>
       </div>
     </section>

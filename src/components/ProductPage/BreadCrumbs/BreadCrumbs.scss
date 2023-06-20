@@ -1,0 +1,41 @@
+@import "../../../styles/utils/mixins";
+
+.breadcrumbs {
+  max-width: 1200px;
+  margin: 25px auto;
+  margin-bottom: 28px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: inherit;
+
+  @include onTablet {
+    margin-bottom: 44px;
+  }
+}
+
+.breadcrumbs > * {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.breadcrumbs .crumb:last-child::after {
+  display: none;
+}
+
+.last-crumb .crumb-link {
+  cursor: default;
+  color: #89939a;
+}
+
+.breadcrumbs .home-icon {
+  align-self: center;
+}
+
+.link {
+  margin-right: 15px;
+}
+
+.crumb {
+  text-transform: capitalize;
+  font-size: 12px;
+}
