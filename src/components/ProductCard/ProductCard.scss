@@ -108,4 +108,10 @@
   &__buttons {
     display: flex;
   }
+
+  &__button-container {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+  }
 }

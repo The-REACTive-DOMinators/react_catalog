@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import { FC, useState } from 'react';
 import { MinusIcon } from '../../../icons/MinusIcon';
 import { PlusIcon } from '../../../icons/PlusIcon';
@@ -9,18 +7,26 @@ import './Counter.scss';
 
 interface Props {
   phone: Device;
+  totalPrice: number,
+  setTotalPrice: (diff: number) => void;
 }
 
-export const Counter: FC<Props> = ({ phone }) => {
+export const Counter: FC<Props> = ({
+  phone,
+  totalPrice,
+  setTotalPrice,
+}) => {
   const [isActive] = useState(false);
   const [count, setCount] = useState(1);
 
   const decrementCount = () => {
     setCount(count - 1);
+    setTotalPrice(totalPrice - phone.price);
   };
 
   const incrementCount = () => {
     setCount(count + 1);
+    setTotalPrice(totalPrice + phone.price);
   };
 
   return (
@@ -51,4 +57,3 @@ export const Counter: FC<Props> = ({ phone }) => {
     </div>
   );
 };
-

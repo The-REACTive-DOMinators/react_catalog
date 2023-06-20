@@ -55,8 +55,14 @@
   border-color: transparent;
   cursor: pointer;
   padding-bottom: 32px;
+  @include transition;
 
   @include onTablet {
     padding-left: 0;
+    padding-bottom: 0;
+  }
+
+  &:hover {
+    color: $textColor;
   }
 }

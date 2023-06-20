@@ -2,7 +2,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper';
 import { useEffect, useState } from 'react';
 import { Loader } from '../../loader/Loader';
-
 const URL = process.env.REACT_APP_BASE_URL;
 
 interface Props {
@@ -11,7 +10,7 @@ interface Props {
 
 export const PhotosBlock: React.FC<Props> = ({ images }) => {
   const [index, setindex] = useState(0);
-
+  
   useEffect(() => {
     setindex(prevndex => prevndex + 1);
   }, [images]);
@@ -52,7 +51,6 @@ export const PhotosBlock: React.FC<Props> = ({ images }) => {
           ) : (
             <Loader />
           )}
-
         </Swiper>
       </div>
     </section>

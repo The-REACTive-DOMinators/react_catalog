@@ -190,7 +190,7 @@ export const Phones: FC = () => {
             </div>
             <div className="phones_list">
               {!isLoading && phoneData.map((phone) => (
-                <div className="phone">
+                <div className="phone" key={phone.id}>
                   <ProductCard phone={phone} />
                 </div>
               ))}
