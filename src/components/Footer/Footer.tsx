@@ -22,9 +22,10 @@ export const Footer: FC = () => {
         <ul className="nav-footer__list">
           <li className="nav-footer__item">
             <a
-              href="!#"
+              href="https://github.com/The-REACTive-DOMinators"
               className="nav-footer__link"
               target="_blank"
+              rel="noreferrer"
             >
               Github
             </a>

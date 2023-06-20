@@ -1,9 +1,37 @@
 /* eslint-disable max-len */
-import { FC } from 'react';
+import {
+  FC,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react';
 import './styles/main.scss';
 import { Link } from 'react-router-dom';
+import { getLength } from '../../../api/phones';
 
 export const ShopByCategory: FC = () => {
+  const [phonesCount, setPhonesCount] = useState<null | number>(null);
+  const [isLoadingError, setIsLoadingError] = useState(false);
+
+  const PhoneModelsString = phonesCount !== null && phonesCount > 1 ? `${phonesCount} models` : `${phonesCount} model`;
+
+  const loadPhonesLength = useCallback(async () => {
+    try {
+      const phonesLength = await getLength();
+
+      setPhonesCount(phonesLength);
+    } catch (error) {
+      setIsLoadingError(true);
+    }
+  }, []);
+
+  useEffect(
+    () => {
+      loadPhonesLength();
+    },
+    [],
+  );
+
   return (
     <div className="container-categories">
       <div className="section-categories">
@@ -34,7 +62,7 @@ export const ShopByCategory: FC = () => {
 
             <p>
               <Link to="/phones" className="category-categories_section-subtitle">
-                95 models
+                {isLoadingError ? <p className="phone-counter-error">something went wrong</p> : PhoneModelsString}
               </Link>
             </p>
           </div>
@@ -64,7 +92,7 @@ export const ShopByCategory: FC = () => {
 
             <p>
               <Link to="/tablets" className="category-categories_section-subtitle">
-                24 models
+                Coming soon
               </Link>
             </p>
           </div>
@@ -93,7 +121,7 @@ export const ShopByCategory: FC = () => {
 
             <p>
               <Link to="/accessories" className="category-categories_section-subtitle">
-                100 models
+                Coming soon
               </Link>
             </p>
           </div>
