@@ -23,6 +23,7 @@ const countItemFromLS = (itemId: string) => {
     const cartItems = JSON.parse(cartItemsData);
 
     const countItem: number = cartItems
+
       .filter((item: { id: string }) => item.id === itemId).length;
 
     return countItem;

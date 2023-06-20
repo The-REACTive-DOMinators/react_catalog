@@ -14,6 +14,7 @@ export const FavoritesPage = () => {
         <NavLink to="/">
           <HomeIcon />
         </NavLink>
+
       </div>
       <h1 className="favorites__title">
         Favorites
@@ -23,6 +24,11 @@ export const FavoritesPage = () => {
       </p>
       <div className="favorites__list">
 
+        <p>Favorites</p>
+
+      </div>
+      <h1>Favorites</h1>
+      <div>
         {favoriteItems.map((phone: Device) => (
           <ProductCard phone={phone} key={phone.id} />
         ))}
