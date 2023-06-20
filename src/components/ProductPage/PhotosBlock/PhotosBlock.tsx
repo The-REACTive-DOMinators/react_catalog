@@ -10,7 +10,7 @@ interface Props {
 
 export const PhotosBlock: React.FC<Props> = ({ images }) => {
   const [index, setindex] = useState(0);
-  
+
   useEffect(() => {
     setindex(prevndex => prevndex + 1);
   }, [images]);
