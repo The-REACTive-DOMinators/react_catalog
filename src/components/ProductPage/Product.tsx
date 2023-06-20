@@ -30,6 +30,8 @@ export const Product: FC = () => {
   const [selectedCapacity, setSelectedCapacity] = useState('');
   const { phoneId = '' } = useParams();
 
+  const title = phoneId.split('-').join(' ');
+
   function getSelectedColor() {
     const color = phoneId?.split('-')[phoneId.split('-').length - 1];
 
@@ -104,19 +106,39 @@ export const Product: FC = () => {
     <div className="global-container">
       <BreadCrumbs />
       <GoBack />
-      <PhotosBlock images={images} />
-      <PhoneCardParams
-        colors={phoneDescription.colorsAvailable}
-        capacities={phoneDescription.capacityAvailable}
-        SelectedColor={selectedColor}
-        SelectedCapacity={selectedCapacity}
-        phoneId={phoneId}
-      />
-      <AddToCardSection
-        newPrice={fullPrice}
-        oldPrice={price}
-        phoneSpecs={chars}
-      />
+      <h1 className="global-container--title">{title}</h1>
+      <div className="grid up-section">
+        <div className="
+        grid__item--desktop-1-12
+        grid__item--tablet-1-7
+        grid__item-1-4
+        "
+        >
+          <PhotosBlock images={images} />
+
+        </div>
+
+        <div className="
+        grid__item-1-4
+        grid__item--desktop-14-20
+        grid__item--tablet-8-12
+        "
+        >
+          <PhoneCardParams
+            colors={phoneDescription.colorsAvailable}
+            capacities={phoneDescription.capacityAvailable}
+            SelectedColor={selectedColor}
+            SelectedCapacity={selectedCapacity}
+            phoneId={phoneId}
+          />
+          <AddToCardSection
+            newPrice={fullPrice}
+            oldPrice={price}
+            phoneSpecs={chars}
+          />
+
+        </div>
+      </div>
       <Description
         loadedDescription={summary}
         phoneSpecs={techSpecDescription}

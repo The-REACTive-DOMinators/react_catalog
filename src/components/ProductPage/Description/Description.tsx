@@ -15,7 +15,7 @@ export const Description: FC<Props> = ({ loadedDescription, phoneSpecs }) => {
       <div
         className="
         grid__item--desktop-1-12
-        grid__item--tablet-1-6
+        grid__item--tablet-1-12
         grid__item-1-4
         "
       >
@@ -23,8 +23,8 @@ export const Description: FC<Props> = ({ loadedDescription, phoneSpecs }) => {
       </div>
       <div
         className="
-        grid__item--desktop-13-24
-        grid__item--tablet-7-12
+        grid__item--desktop-14-24
+        grid__item--tablet-1-12
         grid__item-1-4
         "
       >
