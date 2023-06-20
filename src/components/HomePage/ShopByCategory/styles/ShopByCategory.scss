@@ -1,8 +1,15 @@
 $title-hover: rgb(166, 201, 230);
 
 .container-categories {
-  margin: 0 auto;
   max-width: 1136px;
+
+  @include onTablet {
+    margin: 0 auto 60px;
+  }
+
+  @include onDesktop {
+    margin: 0 auto 80px;
+  }
 }
 
 .section-categories {
@@ -33,6 +40,7 @@ $title-hover: rgb(166, 201, 230);
 .picture-container-categories {
   margin-bottom: 14px;
   overflow: hidden;
+  border-radius: 3%;
 
   @include onTablet {
     height: 0;
