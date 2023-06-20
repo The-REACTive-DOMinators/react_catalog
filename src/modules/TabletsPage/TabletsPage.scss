@@ -1,0 +1,57 @@
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  background-color: #0f1121;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+
+  &-title {
+    display: inline-block;
+    margin: 0 auto;
+    font-size: 9rem;
+    text-shadow: 8px 8px 12px #905bff;
+    color: #f1f2f9;
+    animation: fadeInOut 4s infinite;
+
+    @media (max-width: 1199px) {
+      font-size: 7rem;
+    }
+
+    @media (max-width: 920px) {
+      font-size: 6rem;
+    }
+
+    @media (max-width: 780px) {
+      font-size: 5rem;
+    }
+
+    @media (max-width: 645px) {
+      font-size: 4rem;
+    }
+
+    @media (max-width: 530px) {
+      font-size: 3rem;
+    }
+
+    @media (max-width: 390px) {
+      font-size: 2.5rem;
+    }
+  }
+}
