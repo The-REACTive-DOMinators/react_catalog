@@ -42,21 +42,24 @@ $title-hover: rgb(166, 201, 230);
 }
 
 .category-categories_section {
+  margin: 0 auto;
+  max-width: 368px;
   margin-bottom: 32px;
-  display: block;
+
+  @include onTablet {
+    max-width: none;
+    margin: 0;
+  }
 
   &-picture {
     object-fit: cover;
     object-position: left top;
     border-radius: 3%;
     @include transition;
-
-    height: 75%;
-    width: 75%;
+    width: 100%;
 
     @include onTablet {
       position: absolute;
-      width: 100%;
       height: 100%;
     }
 
@@ -84,6 +87,10 @@ $title-hover: rgb(166, 201, 230);
       color: $textColor;
     }
   }
+}
+
+.phone-counter-error {
+  color: red;
 }
 
 .grid-category {
