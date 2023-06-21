@@ -7,7 +7,7 @@ import {
 } from 'react';
 import classNames from 'classnames';
 import { Device } from '../../../types/Device';
-import { getSortedPhones } from '../../../api/phones';
+import { getLength, getSortedPhones } from '../../../api/phones';
 import { ProductCard } from '../../ProductCard';
 import './Phone.scss';
 import { HomeIcon } from '../../../icons/HomeIcon';
@@ -23,6 +23,7 @@ export const Phones: FC = () => {
   const [totalPhones, setTotalPhones] = useState(8);
   const [order, setOrder] = useState('ASC');
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const [phoneDataLength, setPhoneDataLength] = useState<number>(0);
 
   const loadingSortedPhones = async (page: string) => {
     setIsLoading(true);
@@ -31,6 +32,16 @@ export const Phones: FC = () => {
     setPhoneData(phoneList);
     setIsLoading(false);
     setHasError(false);
+  };
+
+  const fetchPhoneDataLength = async () => {
+    try {
+      const dataLength = await getLength();
+
+      setPhoneDataLength(dataLength);
+    } catch (error) {
+      throw new Error();
+    }
   };
 
   useEffect(() => {
@@ -51,6 +62,7 @@ export const Phones: FC = () => {
     }
 
     loadingSortedPhones(`sortBy=${sortBy}&sortType=${order}&amount=${totalPhones}&currentPage=${currentPage}`);
+    fetchPhoneDataLength();
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [sortBy, totalPhones, order, currentPage]);
@@ -145,7 +157,7 @@ export const Phones: FC = () => {
         </div>
         <h1 className="title">Mobile phones</h1>
 
-        <div className="counter">{`${phoneData.length} models`}</div>
+        <div className="counter">{`${phoneDataLength} models`}</div>
 
         <div className="product-filter">
           <label className="product-filter__sortBy" htmlFor="#">
@@ -155,7 +167,7 @@ export const Phones: FC = () => {
               onChange={handleSortByChange}
               defaultValue={localStorage.getItem('sortByValue') ?? 'Select'}
             >
-              <option value="" disabled selected>Select</option>
+              <option value="" disabled defaultValue="Select">Select</option>
               <option value="year">Newest</option>
               <option value="price">Price</option>
             </select>
