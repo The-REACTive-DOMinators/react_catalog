@@ -7,6 +7,7 @@ import { ButtonWithIcon } from '../../ButtonWithIcon';
 import { FavoriteFullIcon } from '../../../icons/FavouriteFullIcon';
 import { SpecMap } from '../SpecMap/SpecMap';
 import { DeviceSpecsShort } from './DeviceSpecsShort';
+import { Device } from '../../../types/Device';
 
 interface Props {
   phoneSpecs: DeviceSpecsShort;
@@ -22,7 +23,7 @@ function isItemInCart(id: string) {
     const cartItems = JSON.parse(data);
 
     return cartItems
-      .some((item: any) => item.phoneId === id);
+      .some((item: Device) => item.phoneId === id);
   }
 
   return false;
@@ -35,7 +36,7 @@ function isItemInFavorite(id: string) {
     const cartItems = JSON.parse(data);
 
     return cartItems
-      .some((item: any) => item.phoneId === id);
+      .some((item: Device) => item.phoneId === id);
   }
 
   return false;
