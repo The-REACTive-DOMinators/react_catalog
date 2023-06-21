@@ -1,11 +1,13 @@
-import { FC } from 'react';
 import './styles/main.scss';
 import { Link, NavLink } from 'react-router-dom';
+import { FC } from 'react';
 import { LogoIcon } from '../../icons/Logo';
-import { FavoriteIcon } from '../../icons/FavoriteIcon';
-import { ShoppingCartIcon } from '../../icons/ShoppingCartIcon';
 import { MenuIcon } from '../../icons/MenuIcon';
 import { PageNavLink } from './PageNavLink/PageNavLink';
+import { CartIconComponent } from './CartIconComponent/CartIconComponent';
+
+import { PageNavLinkIcon } from './PageNavLinkIcon/PageNavLinkIcon';
+import { FavIconComponent } from './FavIconComponent/FavIconComponent';
 
 export const Header: FC = () => (
   <header className="header">
@@ -35,17 +37,9 @@ export const Header: FC = () => (
     </div>
 
     <div className="header__icons">
-      <NavLink to="/favorites" className="header__fav icon">
-        <FavoriteIcon
-          className="header__icon"
-        />
-      </NavLink>
+      <PageNavLinkIcon to="/favorites" icon={<FavIconComponent />} />
 
-      <NavLink to="/cart" className="header__cart icon">
-        <ShoppingCartIcon
-          className="header__icon"
-        />
-      </NavLink>
+      <PageNavLinkIcon to="/cart" icon={<CartIconComponent />} />
     </div>
 
     <div className="header__burger-menu">
