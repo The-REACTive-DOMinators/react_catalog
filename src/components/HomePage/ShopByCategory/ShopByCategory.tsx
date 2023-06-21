@@ -48,7 +48,7 @@ export const ShopByCategory: FC = () => {
             <div className="picture-container-categories">
               <Link to="/phones">
                 <img
-                  src="https://server-store-p1t7.onrender.com/img/category-phones.png"
+                  src={`${process.env.REACT_APP_BASE_URL}/img/category-phones.png`}
                   className="category-categories_section-picture"
                   alt="mobile phones"
                 />
@@ -77,7 +77,7 @@ export const ShopByCategory: FC = () => {
             <div className="picture-container-categories">
               <Link to="/tablets">
                 <img
-                  src="https://server-store-p1t7.onrender.com/img/category-tablets.png"
+                  src={`${process.env.REACT_APP_BASE_URL}/img/category-tablets.png`}
                   className="category-categories_section-picture"
                   alt="tablets"
                 />
@@ -107,7 +107,7 @@ export const ShopByCategory: FC = () => {
             <div className="picture-container-categories">
               <Link to="/accessories">
                 <img
-                  src="https://server-store-p1t7.onrender.com/img/category-accessories.png"
+                  src={`${process.env.REACT_APP_BASE_URL}/img/category-accessories.png`}
                   className="category-categories_section-picture"
                   alt="accessories"
                 />
