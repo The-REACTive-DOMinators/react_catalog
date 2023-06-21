@@ -5,7 +5,8 @@ import './ButtonWithIcon.scss';
 interface Props {
   children: React.ReactNode;
   onHandleClick: () => void;
-  isSelected: boolean;
+  // eslint-disable-next-line react/require-default-props
+  isSelected?: boolean;
   // eslint-disable-next-line react/require-default-props
   disabled?: boolean;
 }
@@ -13,7 +14,7 @@ interface Props {
 export const ButtonWithIcon: FC<Props> = ({
   children,
   onHandleClick,
-  isSelected,
+  isSelected = false,
   disabled = false,
 }) => (
   <button

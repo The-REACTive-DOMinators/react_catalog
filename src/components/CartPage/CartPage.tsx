@@ -4,11 +4,13 @@ import './CartPage.scss';
 import { CartItem } from './CartItem';
 import { useLocalStorage } from '../../castomHooks/useLocalSrorage';
 import { GoBack } from '../GoBack/GoBack';
+import { CartModal } from '../CartModal';
 
 export const CartPage = () => {
   const [cartItems, setCartItems] = useLocalStorage('cartItems', []);
   const [totalPrice, setTotalPrice] = useLocalStorage('totalPrice', 0);
   const [countItems, setCountItems] = useState(cartItems.length);
+  const [isCheckout, setIsCheckout] = useState(false);
 
   const getTotalPrice = () => {
     if (cartItems.length > 0) {
@@ -79,7 +81,8 @@ export const CartPage = () => {
     });
   };
 
-  const handleClearCart = () => {
+  const handleCheckout = () => {
+    setIsCheckout(true);
     setCartItems([]);
     setTotalPrice(0);
     setCountItems(0);
@@ -140,11 +143,14 @@ export const CartPage = () => {
           <button
             type="button"
             className="cart__checkout"
-            onClick={handleClearCart}
+            onClick={handleCheckout}
           >
             Checkout
           </button>
         </div>
+
+        {isCheckout
+          && <CartModal setIsCheckout={setIsCheckout} />}
       </div>
     </div>
   );
