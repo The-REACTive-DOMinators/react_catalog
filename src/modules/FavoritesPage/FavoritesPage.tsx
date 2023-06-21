@@ -1,37 +1,23 @@
-import { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { useLocalStorage } from '../../castomHooks/useLocalStorageTS';
 import { ProductCard } from '../../components/ProductCard';
-import { ArrowRight } from '../../icons/ArrowRight';
-import { HomeIcon } from '../../icons/HomeIcon';
+// eslint-disable-next-line max-len
+import { BreadCrumbs } from '../../components/ProductPage/BreadCrumbs/BreadCrumbs';
 import { Device } from '../../types/Device';
-
-const getFavoriteItemsFromLS = (): Device[] => {
-  const favoriteData = localStorage.getItem('favorite');
-
-  return favoriteData ? JSON.parse(favoriteData) : [];
-};
+import './FavoritesPage.scss';
 
 export const FavoritesPage = () => {
-  const [favoriteItems, setFavoriteItems] = useState(getFavoriteItemsFromLS());
-
-  useEffect(() => {
-    setFavoriteItems(getFavoriteItemsFromLS());
-  }, [favoriteItems]);
+  const [favoriteItems] = useLocalStorage('favorite', []);
 
   return (
-    <div>
-      <div>
-        <NavLink to="/">
-          <HomeIcon />
-        </NavLink>
-
-        <ArrowRight />
-
-        <p>Favorites</p>
-
-      </div>
-      <h1>Favorites</h1>
-      <div>
+    <div className="favorites__container">
+      <BreadCrumbs />
+      <h1 className="favorites__title">
+        Favorites
+      </h1>
+      <p className="favorites__count">
+        {`${favoriteItems.length} items`}
+      </p>
+      <div className="favorites__list">
         {favoriteItems.map((phone: Device) => (
           <ProductCard phone={phone} key={phone.id} />
         ))}

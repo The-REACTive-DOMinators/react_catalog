@@ -24,8 +24,6 @@ export const BreadCrumbs = () => {
       );
     });
 
-  console.log(location);
-
   return (
     <div className="breadcrumbs">
       <NavLink to="/" className="home-icon crumb">

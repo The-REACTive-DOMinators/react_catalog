@@ -32,6 +32,10 @@
       padding-right: 24px;
       padding-left: 24px;
     }
+
+    &__title {
+      @include secondaryTitle;
+    }
   }
 
   &__buttons {
@@ -75,4 +79,10 @@
     padding-left: 0;
     padding-right: 0;
   }
+}
+
+.product-slider__buttons__button--prev,
+.product-slider__buttons__button--next {
+  height: 32px;
+  width: 32px;
 }
