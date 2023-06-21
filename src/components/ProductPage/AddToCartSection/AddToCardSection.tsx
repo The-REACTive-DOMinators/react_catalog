@@ -53,24 +53,28 @@ export const AddToCardSection: FC<Props> = ({
       </div>
 
       <div className="add-section">
-        <AddButton
-          handleAddToCart={handleAddToCart}
-          isAdd={isAdd}
-        >
-          {isAdd
-            ? 'Added to cart'
-            : 'Add to cart'}
+        <div className="button-add-to-cart_container">
+          <AddButton
+            handleAddToCart={handleAddToCart}
+            isAdd={isAdd}
+          >
+            {isAdd
+              ? 'Added to cart'
+              : 'Add to cart'}
 
-        </AddButton>
+          </AddButton>
+        </div>
 
-        <ButtonWithIcon
-          onHandleClick={handleFavorite}
-          isSelected={isFavorite}
-        >
-          {isFavorite
-            ? <FavoriteFullIcon />
-            : <FavoriteIcon />}
-        </ButtonWithIcon>
+        <div className="button-with-icon_container">
+          <ButtonWithIcon
+            onHandleClick={handleFavorite}
+            isSelected={isFavorite}
+          >
+            {isFavorite
+              ? <FavoriteFullIcon />
+              : <FavoriteIcon />}
+          </ButtonWithIcon>
+        </div>
       </div>
 
       <SpecMap phoneSpecs={newPhoneSpecs} />
