@@ -4,7 +4,7 @@ import 'swiper/swiper.scss';
 import 'swiper/swiper-bundle.min.css';
 import { Navigation, Autoplay, Swiper as SwiperType } from 'swiper';
 
-import { FC, useRef } from 'react';
+import React, { FC, useRef } from 'react';
 import { Device } from '../../types/Device';
 import { ProductCard } from '../ProductCard';
 import { ButtonWithIcon } from '../ButtonWithIcon';
@@ -62,6 +62,7 @@ export const ProductSlider: FC<Props> = ({ products, title }) => {
       <Swiper
         modules={[Navigation, Autoplay]}
         className="product-slider"
+        loop
         spaceBetween={16}
         slidesPerView={4}
         navigation={{
