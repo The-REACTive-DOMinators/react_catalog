@@ -76,16 +76,13 @@ export const ProductSlider: FC<Props> = ({ products, title }) => {
             slidesPerView: 4,
             initialSlide: 0,
           },
-          1050: {
+          1094: {
             slidesPerView: 4,
           },
-          778: {
+          828: {
             slidesPerView: 3,
           },
-          600: {
-            slidesPerView: 2,
-          },
-          422: {
+          578: {
             slidesPerView: 2,
           },
           0: {
