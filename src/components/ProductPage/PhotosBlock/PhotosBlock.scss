@@ -9,7 +9,12 @@
   max-width: 554px;
 
   @media (max-width: 640px) {
-    margin: 0 auto;
+    height: 388px;
+    margin-left: 0;
+  }
+
+  @media (max-width: 848px) {
+    padding-top: 50px;
   }
 
   &__selectedItem-container {
@@ -19,9 +24,16 @@
     position: relative;
     left: 90px;
 
-    @media (max-width: 1200px) {
+    @media (max-width: 1199px) {
+      max-width: 374px;
+      max-height: 374px;
+    }
+
+    @media (max-width: 848px) {
       max-width: 274px;
-      height: 274px;
+      max-height: 274px;
+
+      left: 50px;
     }
   }
 
@@ -38,7 +50,6 @@
 }
 
 #swiper .swiper-pagination-bullets {
-  padding-top: 16px;
   position: static;
 
   @include onTablet {
@@ -48,6 +59,7 @@
 
 #swiper .swiper-pagination {
   background-color: $mainBackground;
+
   @include onTablet {
     position: absolute;
     top: 0;
@@ -57,6 +69,10 @@
     flex-direction: column;
     justify-content: flex-start;
     width: fit-content;
+  }
+
+  @media (max-width: 640px) {
+    height: 64px;
   }
 }
 
@@ -69,7 +85,7 @@
   border: 1px solid #474747;
   transition: all 0.3s ease-in-out;
 
-  margin-bottom: 17px;
+  margin-bottom: 10px;
 
   &:hover {
     border: 1px solid #fff;
@@ -84,8 +100,13 @@
   }
 
   @include onTablet {
-    width: 35px;
-    height: 35px;
+    width: 58px;
+    height: 58px;
+  }
+
+  @media (max-width: 848px) {
+    width: 38px;
+    height: 38px;
   }
 
   @include onDesktop {
@@ -105,6 +126,5 @@
   left: 0;
   width: 100%;
   height: 100%;
-
   padding: 5px;
 }
