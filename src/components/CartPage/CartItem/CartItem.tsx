@@ -9,21 +9,22 @@ import './CartItem.scss';
 
 interface Props {
   phone: Device;
-  handleRemove: (itemId: number | string) => void;
+  handleRemove: (itemId: string) => void;
   totalPrice: number,
   setTotalPrice: (diff: number) => void;
-  handleCountPlus: (itemId: number | string) => void;
-  handleCountMinus: (itemId: number | string) => void;
+  handleCountPlus: (itemId: string) => void;
+  handleCountMinus: (itemId: string) => void;
 }
 
-const countItemFromLS = (itemId: number | string) => {
+const countItemFromLS = (itemId: string) => {
   const cartItemsData = localStorage.getItem('cartItems');
 
   if (cartItemsData) {
     const cartItems = JSON.parse(cartItemsData);
 
     const countItem: number = cartItems
-      .filter((item: { id: string | number; }) => +item.id === itemId).length;
+
+      .filter((item: { id: string }) => item.id === itemId).length;
 
     return countItem;
   }
@@ -43,9 +44,11 @@ export const CartItem: FC<Props> = ({
   const [count, setCount] = useState(1);
 
   const decrementCount = () => {
-    setCount(currentCount => currentCount - 1);
-    setTotalPrice(totalPrice - phone.price);
-    handleCountMinus(phone.id);
+    if (count > 1) {
+      setCount(currentCount => currentCount - 1);
+      setTotalPrice(totalPrice - phone.price);
+      handleCountMinus(phone.id);
+    }
   };
 
   const incrementCount = () => {
@@ -64,7 +67,7 @@ export const CartItem: FC<Props> = ({
         <button
           type="button"
           className="cart-item__close-button"
-          onClick={() => handleRemove(+phone.id)}
+          onClick={() => handleRemove(phone.id)}
         >
           <CloseIcon className="cart-item__close" />
         </button>
@@ -83,6 +86,7 @@ export const CartItem: FC<Props> = ({
               <ButtonWithIcon
                 onHandleClick={decrementCount}
                 isSelected={!isActive}
+                disabled={count === 1}
               >
                 <MinusIcon />
               </ButtonWithIcon>
@@ -102,12 +106,6 @@ export const CartItem: FC<Props> = ({
             {phone.price * count}
           </span>
         </div>
-        {/* <Counter
-          phone={phone}
-          totalPrice={totalPrice}
-          setTotalPrice={setTotalPrice}
-          handleCountChange={handleCountChange}
-        /> */}
       </div>
     </div>
   );

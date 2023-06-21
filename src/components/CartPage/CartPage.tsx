@@ -2,108 +2,94 @@ import { useEffect, useState } from 'react';
 import { Device } from '../../types/Device';
 import './CartPage.scss';
 import { CartItem } from './CartItem';
-
-const getCartItemsFromLS = (): Device[] => {
-  const cartItemsData = localStorage.getItem('cartItems');
-
-  return cartItemsData ? JSON.parse(cartItemsData) : [];
-};
-
-const getTotalPriceFromLS = () => {
-  const cartItemsData = localStorage.getItem('cartItems');
-
-  if (cartItemsData) {
-    const cartItems = JSON.parse(cartItemsData);
-
-    const totalPrice = cartItems
-      .reduce((sum: number, item: Device) => sum + item.price, 0);
-
-    localStorage.setItem('totalPrice', JSON.stringify(totalPrice));
-
-    return totalPrice;
-  }
-
-  return 0;
-};
-
-function countPhonesFromLS() {
-  const cartItemsData = localStorage.getItem('cartItems');
-
-  if (!cartItemsData) {
-    return 0;
-  }
-
-  return JSON.parse(cartItemsData).length;
-}
+import { useLocalStorage } from '../../castomHooks/useLocalSrorage';
 
 export const CartPage = () => {
-  const [cartItemsState, setCartItemsState] = useState(getCartItemsFromLS());
-  const [totalPriceState, setTotalPriceState] = useState(getTotalPriceFromLS());
-  const [countItems, setCountItems] = useState(countPhonesFromLS());
+  const [cartItems, setCartItems] = useLocalStorage('cartItems', []);
+  const [totalPrice, setTotalPrice] = useLocalStorage('totalPrice', 0);
+  const [countItems, setCountItems] = useState(cartItems.length);
 
-  useEffect(() => {
-    setTotalPriceState(getTotalPriceFromLS());
-    setCountItems(countPhonesFromLS());
-  }, [totalPriceState, countItems]);
+  const getTotalPrice = () => {
+    if (cartItems.length > 0) {
+      const updateTotalPrice = cartItems
+        .reduce((sum: number, item: Device) => sum + item.price, 0);
 
-  const handleRemove = (itemId: number | string) => {
-    const updatedCartItems = cartItemsState.filter(
-      (item: Device) => +item.id !== itemId,
-    );
+      return updateTotalPrice;
+    }
 
-    localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
-    const updatedTotalPrice = getTotalPriceFromLS();
-
-    setCartItemsState(updatedCartItems);
-    setTotalPriceState(updatedTotalPrice);
-
-    localStorage.setItem('totalPrice', updatedTotalPrice.toString());
+    return 0;
   };
 
-  const handleCountPlus = (itemId: number | string): void => {
-    const updatedCartItem = cartItemsState.find(item => +item.id === itemId);
+  const handleRemove = (itemId: string) => {
+    setCartItems((prevCartItems: Device[]) => {
+      const updatedCartItems = prevCartItems.filter(
+        (item: Device) => +item.id !== +itemId,
+      );
+      const updateTotalPrice = updatedCartItems
+        .reduce((sum: number, item: Device) => sum + item.price, 0);
 
-    if (updatedCartItem) {
-      const updatedCartItems = [...cartItemsState, updatedCartItem];
+      setTotalPrice(updateTotalPrice);
+      setCountItems(updatedCartItems.length);
 
-      localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
-
-      const updatedTotalPrice = getTotalPriceFromLS();
-
-      setCartItemsState(updatedCartItems);
-
-      localStorage.setItem('totalPrice', updatedTotalPrice.toString());
-    }
+      return updatedCartItems;
+    });
   };
 
-  const handleCountMinus = (itemId: number | string): void => {
-    const indexToRemove = cartItemsState.findIndex(item => +item.id === itemId);
+  const handleCountPlus = (itemId: string): void => {
+    setCartItems((prevCartItems: Device[]) => {
+      const updatedCartItem = prevCartItems
+        .find((item: Device) => +item.id === +itemId);
 
-    if (indexToRemove === -1) {
-      return;
-    }
+      if (updatedCartItem) {
+        const updatedCartItems = [...prevCartItems, updatedCartItem];
+        const updatedTotalPrice = updatedCartItems
+          .reduce((sum: number, item: Device) => sum + item.price, 0);
 
-    const updatedCartItems = cartItemsState
-      .reverse()
-      .filter((_, index) => index !== indexToRemove)
-      .reverse();
+        setTotalPrice(updatedTotalPrice);
+        setCountItems(updatedCartItems.length);
 
-    if (updatedCartItems) {
-      localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+        return updatedCartItems;
+      }
 
-      const updatedTotalPrice = getTotalPriceFromLS();
+      return prevCartItems;
+    });
+  };
 
-      setCartItemsState(updatedCartItems);
+  const handleCountMinus = (itemId: string): void => {
+    setCartItems((prevCartItems: Device[]) => {
+      const indexToRemove = prevCartItems
+        .reverse()
+        .findIndex((item: Device) => +item.id === +itemId);
 
-      localStorage.setItem('totalPrice', updatedTotalPrice.toString());
-    }
+      if (indexToRemove === -1) {
+        return prevCartItems;
+      }
+
+      const updatedCartItems = prevCartItems
+        .filter((_: unknown, index: number) => index !== indexToRemove)
+        .reverse();
+      const updatedTotalPrice = updatedCartItems
+        .reduce((sum: number, item: Device) => sum + item.price, 0);
+
+      setTotalPrice(updatedTotalPrice);
+      setCountItems(updatedCartItems.length);
+
+      return updatedCartItems;
+    });
   };
 
   const handleClearCart = () => {
-    localStorage.setItem('cartItems', '[]');
+    setCartItems([]);
+    setTotalPrice(0);
+    setCountItems(0);
   };
 
-  const itemsToRender = cartItemsState.reduce((acc: Device[], obj: Device) => {
+  useEffect(() => {
+    setTotalPrice(getTotalPrice());
+    setCountItems(cartItems.length);
+  }, []);
+
+  const itemsToRender = cartItems.reduce((acc: Device[], obj: Device) => {
     const existingItems = acc
       .find(item => JSON.stringify(item) === JSON.stringify(obj));
 
@@ -132,10 +118,10 @@ export const CartPage = () => {
               key={phone.id}
               phone={phone}
               handleRemove={handleRemove}
-              totalPrice={totalPriceState}
+              totalPrice={totalPrice}
               handleCountPlus={handleCountPlus}
               handleCountMinus={handleCountMinus}
-              setTotalPrice={setTotalPriceState}
+              setTotalPrice={setTotalPrice}
             />
           ))}
         </div>
@@ -143,7 +129,7 @@ export const CartPage = () => {
         <div className="cart__total-info">
           <p className="cart__total-sum">{`Total for ${countItems} items`}</p>
 
-          <p className="cart__total-text">{totalPriceState}</p>
+          <p className="cart__total-text">{totalPrice}</p>
 
           <div className="cart__separate-line" />
 
