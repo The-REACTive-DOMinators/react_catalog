@@ -108,19 +108,27 @@ export const CartPage = () => {
       <h1>Cart</h1>
 
       <div className="cart__container">
-        <div className="cart__cart-item">
-          {itemsToRender.map((phone: Device) => (
-            <CartItem
-              key={phone.id}
-              phone={phone}
-              handleRemove={handleRemove}
-              totalPrice={totalPrice}
-              handleCountPlus={handleCountPlus}
-              handleCountMinus={handleCountMinus}
-              setTotalPrice={setTotalPrice}
-            />
-          ))}
-        </div>
+        {cartItems.length < 1
+          ? (
+            <p className="cart__empty">
+              Cart is empty
+            </p>
+          )
+          : (
+            <div className="cart__cart-item">
+              {itemsToRender.map((phone: Device) => (
+                <CartItem
+                  key={phone.id}
+                  phone={phone}
+                  handleRemove={handleRemove}
+                  totalPrice={totalPrice}
+                  handleCountPlus={handleCountPlus}
+                  handleCountMinus={handleCountMinus}
+                  setTotalPrice={setTotalPrice}
+                />
+              ))}
+            </div>
+          )}
 
         <div className="cart__total-info">
           <p className="cart__total-sum">{totalPrice}</p>
