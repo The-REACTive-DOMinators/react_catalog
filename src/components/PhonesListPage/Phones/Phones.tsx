@@ -203,15 +203,13 @@ export const Phones: FC = () => {
           ))}
           {hasError && <div>Error occurred.</div>}
         </div>
-        {!isLoading && (
-          <Pagination
-            onClick={handleSortByPageNumber}
-            phones={totalPhones}
-            currentPage={currentPage}
-            onForward={handlePageForward}
-            onBack={handlePageBack}
-          />
-        )}
+        <Pagination
+          onClick={handleSortByPageNumber}
+          phones={totalPhones}
+          currentPage={currentPage}
+          onForward={handlePageForward}
+          onBack={handlePageBack}
+        />
       </div>
     </>
   );
