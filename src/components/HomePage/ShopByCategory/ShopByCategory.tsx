@@ -1,9 +1,37 @@
 /* eslint-disable max-len */
-import { FC } from 'react';
+import {
+  FC,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react';
 import './styles/main.scss';
 import { Link } from 'react-router-dom';
+import { getLength } from '../../../api/phones';
 
 export const ShopByCategory: FC = () => {
+  const [phonesCount, setPhonesCount] = useState<null | number>(null);
+  const [isLoadingError, setIsLoadingError] = useState(false);
+
+  const PhoneModelsString = phonesCount !== null && phonesCount > 1 ? `${phonesCount} models` : `${phonesCount} model`;
+
+  const loadPhonesLength = useCallback(async () => {
+    try {
+      const phonesLength = await getLength();
+
+      setPhonesCount(phonesLength);
+    } catch (error) {
+      setIsLoadingError(true);
+    }
+  }, []);
+
+  useEffect(
+    () => {
+      loadPhonesLength();
+    },
+    [],
+  );
+
   return (
     <div className="container-categories">
       <div className="section-categories">
@@ -20,7 +48,7 @@ export const ShopByCategory: FC = () => {
             <div className="picture-container-categories">
               <Link to="/phones">
                 <img
-                  src="https://server-store-p1t7.onrender.com/img/category-phones.png"
+                  src={`${process.env.REACT_APP_BASE_URL}/img/category-phones.png`}
                   className="category-categories_section-picture"
                   alt="mobile phones"
                 />
@@ -34,7 +62,7 @@ export const ShopByCategory: FC = () => {
 
             <p>
               <Link to="/phones" className="category-categories_section-subtitle">
-                95 models
+                {isLoadingError ? <p className="phone-counter-error">something went wrong</p> : PhoneModelsString}
               </Link>
             </p>
           </div>
@@ -49,7 +77,7 @@ export const ShopByCategory: FC = () => {
             <div className="picture-container-categories">
               <Link to="/tablets">
                 <img
-                  src="https://server-store-p1t7.onrender.com/img/category-tablets.png"
+                  src={`${process.env.REACT_APP_BASE_URL}/img/category-tablets.png`}
                   className="category-categories_section-picture"
                   alt="tablets"
                 />
@@ -64,7 +92,7 @@ export const ShopByCategory: FC = () => {
 
             <p>
               <Link to="/tablets" className="category-categories_section-subtitle">
-                24 models
+                Coming soon
               </Link>
             </p>
           </div>
@@ -79,7 +107,7 @@ export const ShopByCategory: FC = () => {
             <div className="picture-container-categories">
               <Link to="/accessories">
                 <img
-                  src="https://server-store-p1t7.onrender.com/img/category-accessories.png"
+                  src={`${process.env.REACT_APP_BASE_URL}/img/category-accessories.png`}
                   className="category-categories_section-picture"
                   alt="accessories"
                 />
@@ -93,7 +121,7 @@ export const ShopByCategory: FC = () => {
 
             <p>
               <Link to="/accessories" className="category-categories_section-subtitle">
-                100 models
+                Coming soon
               </Link>
             </p>
           </div>

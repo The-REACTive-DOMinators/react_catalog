@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import './styles/main.scss';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Arrow } from '../../icons/Arrow';
 import { LogoIcon } from '../../icons/Logo';
 
@@ -22,9 +22,10 @@ export const Footer: FC = () => {
         <ul className="nav-footer__list">
           <li className="nav-footer__item">
             <a
-              href="!#"
+              href="https://github.com/The-REACTive-DOMinators/react_catalog"
               className="nav-footer__link"
               target="_blank"
+              rel="noreferrer"
             >
               Github
             </a>
@@ -41,13 +42,12 @@ export const Footer: FC = () => {
           </li>
 
           <li className="nav-footer__item">
-            <a
-              href="!#"
+            <NavLink
+              to="/rights"
               className="nav-footer__link"
-              target="_blank"
             >
               Rights
-            </a>
+            </NavLink>
           </li>
         </ul>
       </nav>

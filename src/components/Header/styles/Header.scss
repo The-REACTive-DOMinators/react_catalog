@@ -27,7 +27,7 @@
   }
 
   &__logo {
-    cursor: pointer;
+    width: 100px;
     padding-left: 16px;
 
     @include onDesktop {
@@ -44,7 +44,7 @@
   }
 
   &__burger-menu {
-    @include icoStyles;
+    @include iconStyles;
     width: 48px;
     height: $header-tablet-height;
 
@@ -58,6 +58,27 @@
   @include transition;
 
   &:hover {
-    background-color: grey;
+    background-color: $icon-hover-color;
+  }
+}
+
+.is-active {
+  color: $textColor;
+
+  &::after {
+    opacity: 100;
+  }
+}
+
+.link-header-icon {
+  &::after {
+    @include onTablet {
+      content: "";
+      display: block;
+      opacity: 0;
+      border-bottom: 4px solid $pink;
+      border-radius: 2px;
+      @include transition;
+    }
   }
 }

@@ -1,15 +1,5 @@
 @import "../../../styles/main.scss";
 
-.container {
-  @include onTablet {
-    width: $section-width-onTablet;
-  }
-
-  @include onDesktop {
-    width: $section-width-onDesktop;
-  }
-}
-
 .price {
   display: flex;
   margin-bottom: 16px;
@@ -30,6 +20,7 @@
 
 .add-section {
   display: flex;
+  gap: 16px;
   margin-bottom: 32px;
 }
 
@@ -40,4 +31,15 @@
   width: 40px;
   height: 40px;
   background-color: $likeButtonBcg;
+}
+
+.button-with-icon_container {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+}
+
+.button-add-to-cart_container {
+  height: 48px;
+  width: 100%;
 }

@@ -2,6 +2,15 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  margin-bottom: 56px;
+
+  @include onTablet {
+    margin-bottom: 64px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 81px;
+  }
 
   &__block {
     display: flex;

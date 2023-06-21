@@ -75,11 +75,9 @@
   color: #75767f;
 }
 
-.loader {
+.flex-loader {
   display: flex;
   justify-content: center;
-  align-items: center;
-  width: 100%;
+  margin-top: 100px;
   height: 100vh;
-  margin: 0 auto;
 }
