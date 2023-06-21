@@ -1,0 +1,31 @@
+@import "../../styles/utils/variables";
+@import "../../styles/utils/mixins";
+
+.rights-container {
+  margin-top: 50px;
+}
+
+.rights_main-title {
+  text-align: center;
+  @include mainTitle;
+  margin-bottom: 70px;
+}
+
+.rights-second-title {
+  @include secondaryTitle;
+  margin-bottom: 16px;
+}
+
+.rights-third-title {
+  @include thirdTitle;
+  margin-bottom: 12px;
+}
+
+.rights-paragraph {
+  color: $secondaryTextColor;
+  margin-bottom: 24px;
+}
+
+.last_paragraph {
+  margin-bottom: 120px;
+}
