@@ -56,7 +56,7 @@
   }
 
   &__phone_link {
-    @include bodyText;
+    @include cardTitle;
 
     display: block;
   }
