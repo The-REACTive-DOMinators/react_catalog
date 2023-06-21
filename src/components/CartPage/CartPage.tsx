@@ -108,7 +108,7 @@ export const CartPage = () => {
     <div className="cart">
       <GoBack />
 
-      <h1>Cart</h1>
+      <h1 className="cart__title">Cart</h1>
 
       <div className="cart__container">
         {cartItems.length < 1
@@ -134,7 +134,10 @@ export const CartPage = () => {
           )}
 
         <div className="cart__total-info">
-          <p className="cart__total-sum">{totalPrice}</p>
+          <p className="cart__total-sum">
+            &#36;
+            {totalPrice}
+          </p>
 
           <p className="cart__total-text">{`Total for ${countItems} items`}</p>
 
