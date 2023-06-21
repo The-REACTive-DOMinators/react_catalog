@@ -1,10 +1,11 @@
 import { FC, useEffect, useState } from 'react';
+import cn from 'classnames';
+import { Link } from 'react-router-dom';
 import { CloseIcon } from '../../../icons/CloseIcon';
 import { MinusIcon } from '../../../icons/MinusIcon';
 import { PlusIcon } from '../../../icons/PlusIcon';
 import { Device } from '../../../types/Device';
 import { ButtonWithIcon } from '../../ButtonWithIcon';
-// import { Counter } from '../Counter';
 import './CartItem.scss';
 
 interface Props {
@@ -61,6 +62,8 @@ export const CartItem: FC<Props> = ({
     setCount(countItemFromLS(phone.id));
   }, [count]);
 
+  const { phoneId, name, price } = phone;
+
   return (
     <div className="cart-item">
       <div className="cart-item__info">
@@ -71,41 +74,52 @@ export const CartItem: FC<Props> = ({
         >
           <CloseIcon className="cart-item__close" />
         </button>
-        <img
-          src={`${process.env.REACT_APP_BASE_URL}/${phone.image}`}
-          alt={phone.name}
-          className="cart-item__image"
-        />
-        <h1 className="cart-item__title">{phone.name}</h1>
+        <Link to={`/phones/${phoneId}`}>
+          <div className="cart-item__img-container">
+            <img
+              src={`${process.env.REACT_APP_BASE_URL}/${phone.image}`}
+              alt={name}
+              className="cart-item__image"
+            />
+          </div>
+        </Link>
+
+        <Link
+          to={`/phones/${phoneId}`}
+          className="cart-item__phone_link"
+        >
+          <h1 className="cart-item__title">{name}</h1>
+        </Link>
       </div>
 
-      <div className="cart-item__counter">
-        <div className="counter">
-          <div className="counter__buttons">
-            <div className="counter__icon">
-              <ButtonWithIcon
-                onHandleClick={decrementCount}
-                isSelected={!isActive}
-                disabled={count === 1}
-              >
-                <MinusIcon />
-              </ButtonWithIcon>
-            </div>
-            <span className="">{count}</span>
-            <div className="counter__icon">
-              <ButtonWithIcon
-                onHandleClick={incrementCount}
-                isSelected={isActive}
-              >
-                <PlusIcon />
-              </ButtonWithIcon>
-            </div>
+      <div className="cart__counter">
+        <div className="cart__counter_buttons">
+          <div
+            className={cn('cart__counter_icon',
+              { 'cart__counter_icon--minus': count === 1 })}
+          >
+            <ButtonWithIcon
+              onHandleClick={decrementCount}
+              isSelected={!isActive}
+              disabled={count === 1}
+            >
+              <MinusIcon />
+            </ButtonWithIcon>
           </div>
-          <span className="counter__price">
-            &#36;
-            {phone.price * count}
-          </span>
+          <span className="">{count}</span>
+          <div className="cart__counter_icon">
+            <ButtonWithIcon
+              onHandleClick={incrementCount}
+              isSelected={isActive}
+            >
+              <PlusIcon />
+            </ButtonWithIcon>
+          </div>
         </div>
+        <span className="cart__counter_price">
+          &#36;
+          {price * count}
+        </span>
       </div>
     </div>
   );

@@ -4,16 +4,16 @@
   margin: 0 auto;
   max-width: 1200px;
   padding: 16px;
-  min-height: 65vh;
+  min-height: 63vh;
 
   @include onTablet {
     padding: 24px;
-    min-height: 85vh;
+    min-height: 83vh;
   }
 
   @include onDesktop {
     padding: 32px;
-    min-height: 83vh;
+    min-height: 81vh;
   }
 
   &__empty {
@@ -32,6 +32,14 @@
       grid-template-columns: repeat(24, 1fr);
       column-gap: $gap;
     }
+  }
+
+  &__title {
+    margin-bottom: 32px;
+
+    @include mainTitle;
+
+    
   }
 
   &__cart-item {
@@ -56,6 +64,10 @@
 
   &__total-sum {
     @include price;
+
+    @include onDesktop {
+      @include mainTitle;
+    }
   }
 
   &__total-text {
