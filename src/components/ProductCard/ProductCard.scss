@@ -56,7 +56,7 @@
     }
   }
 
-  &____phone_link {
+  &__phone_link {
     @include bodyText;
 
     display: block;
@@ -107,6 +107,7 @@
 
   &__buttons {
     display: flex;
+    gap: 16px;
   }
 
   &__button-container {
@@ -114,4 +115,9 @@
     height: 40px;
     flex-shrink: 0;
   }
+}
+
+.add-to-cart-button {
+  height: 40px;
+  width: 100%;
 }

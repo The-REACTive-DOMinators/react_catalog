@@ -148,14 +148,17 @@ export const ProductCard: FC<Props> = memo(({ phone }) => {
           <p>{ram}</p>
         </div>
         <div className="card__buttons">
-          <AddButton
-            handleAddToCart={handleAddToCart}
-            isAdd={isAdd}
-          >
-            {isAdd
-              ? 'Added to cart'
-              : 'Add to cart'}
-          </AddButton>
+          <div className="add-to-cart-button">
+            <AddButton
+              handleAddToCart={handleAddToCart}
+              isAdd={isAdd}
+            >
+              {isAdd
+                ? 'Added to cart'
+                : 'Add to cart'}
+            </AddButton>
+          </div>
+
           <div className="card__button-container">
             <ButtonWithIcon
               onHandleClick={handleFavorite}
