@@ -8,15 +8,17 @@ import { Recomended } from './RecomendedBlock/Recomended';
 import { PhoneCardParams } from './PhoneCardParams/PhoneCardParams';
 import { PhoneDescription } from '../../types/PhoneDescription';
 import { AddToCardSection } from './AddToCartSection/AddToCardSection';
-import './Product.scss';
 import { BreadCrumbs } from './BreadCrumbs/BreadCrumbs';
 import { GoBack } from '../GoBack/GoBack';
+import './Product.scss';
 
 export const Product: FC = () => {
   const [
     phoneDescription,
     setPhoneDescription,
   ] = useState<PhoneDescription>({} as PhoneDescription);
+  const { phoneId: initialPhoneId = '' } = useParams();
+  const [phoneId, setPhoneId] = useState(initialPhoneId);
   const [images, setImages] = useState(['']);
   const [price, setPrice] = useState(0);
   const [fullPrice, setFullPrice] = useState(0);
@@ -28,29 +30,25 @@ export const Product: FC = () => {
   ]);
   const [selectedColor, setSelectedColor] = useState('');
   const [selectedCapacity, setSelectedCapacity] = useState('');
-  const { phoneId = '' } = useParams();
-
   const title = phoneId.split('-').join(' ');
 
   function getSelectedColor() {
     const color = phoneId?.split('-')[phoneId.split('-').length - 1];
 
-    if (color) {
-      setSelectedColor(color);
-    }
+    setSelectedColor(color);
 
     return color;
   }
 
   function getSelectedCapacity() {
     const pattern = /(\d+)gb/;
-    const capacity = phoneId?.match(pattern)?.[1];
+    const capacity = phoneId.match(pattern)?.[1];
 
     if (capacity) {
       setSelectedCapacity(capacity);
     }
 
-    return capacity;
+    return capacity || '';
   }
 
   async function getPhoneById(id: string) {
@@ -95,12 +93,14 @@ export const Product: FC = () => {
   };
 
   useEffect(() => {
-    if (phoneId) {
-      getPhoneById(phoneId);
-      getSelectedColor();
-      getSelectedCapacity();
-    }
-  }, [phoneId]);
+    setPhoneId(initialPhoneId);
+  }, [initialPhoneId]);
+
+  useEffect(() => {
+    getPhoneById(phoneId);
+    setSelectedColor(getSelectedColor());
+    setSelectedCapacity(getSelectedCapacity());
+  }, [phoneId, selectedColor, selectedCapacity]);
 
   return (
     <div className="global-container">
@@ -130,11 +130,14 @@ export const Product: FC = () => {
             SelectedColor={selectedColor}
             SelectedCapacity={selectedCapacity}
             phoneId={phoneId}
+            onChangeSelectedColor={setSelectedColor}
+            onChangeSelectedCapacity={setSelectedCapacity}
           />
           <AddToCardSection
             newPrice={fullPrice}
             oldPrice={price}
             phoneSpecs={chars}
+            id={phoneId}
           />
 
         </div>

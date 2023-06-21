@@ -9,6 +9,8 @@ interface Props {
   SelectedColor: string;
   SelectedCapacity: string;
   phoneId: string;
+  onChangeSelectedColor: (color: string) => void;
+  onChangeSelectedCapacity: (capacity: string) => void;
 }
 
 export const PhoneCardParams: FC<Props> = ({
@@ -17,20 +19,25 @@ export const PhoneCardParams: FC<Props> = ({
   SelectedColor,
   SelectedCapacity,
   phoneId,
+  onChangeSelectedColor,
+  onChangeSelectedCapacity,
 }) => {
   function getPhoneByColor(id: string, color: string) {
+    const newSelectedColor = color;
     const splittedId = id.split('-');
     const withoutColor = splittedId.slice(0, splittedId.length - 1).join('-');
-    const newUrl = `${withoutColor}-${color}`;
+    const newUrl = `${withoutColor}-${newSelectedColor}`;
 
     return `/phones/${newUrl}`;
   }
 
   function getPhoneByCapacity(id: string, capacity: string) {
+    const newSelectedCapacity = capacity;
     const splittedId = id.split('-');
     const withoutCapacity = splittedId
-      .slice(0, splittedId.length - 2).join('-');
-    const newUrl = `${withoutCapacity}-${capacity.toLowerCase()}-${SelectedColor}`;
+      .slice(0, splittedId.length - 2)
+      .join('-');
+    const newUrl = `${withoutCapacity}-${newSelectedCapacity.toLowerCase()}-${SelectedColor}`;
 
     return `/phones/${newUrl}`;
   }
@@ -51,6 +58,20 @@ export const PhoneCardParams: FC<Props> = ({
     return color;
   }
 
+  function handleColorClick(color: string) {
+    onChangeSelectedColor(color);
+    setTimeout(() => {
+      window.location.reload();
+    }, 0);
+  }
+
+  function handleCapacityClick(capacity: string) {
+    onChangeSelectedCapacity(capacity);
+    setTimeout(() => {
+      window.location.reload();
+    }, 0);
+  }
+
   return (
     <div className="params-sections">
       <div className="params-section">
@@ -67,6 +88,7 @@ export const PhoneCardParams: FC<Props> = ({
                 relative="path"
                 style={{ background: getProperColor(color) }}
                 className="button"
+                onClick={() => handleColorClick(color)}
               />
             </div>
           ))}
@@ -83,9 +105,10 @@ export const PhoneCardParams: FC<Props> = ({
               className={cn('capacity',
                 {
                   'active-capacity':
-                  `${SelectedCapacity}GB` === capacity,
+                    `${SelectedCapacity}GB` === capacity,
                 })}
               key={capacity}
+              onClick={() => handleCapacityClick(capacity)}
             >
               {capacity}
             </Link>
