@@ -14,10 +14,6 @@ import {
   Autoplay, EffectCube, Navigation, Pagination,
 } from 'swiper';
 import { NavLink } from 'react-router-dom';
-import Acc from './Accessories.png';
-import Phones from './Iphone.png';
-import Tablets from './Ipad.png';
-
 // import required modules
 // SwiperCore.use([EffectCube, Navigation, Pagination]);
 
@@ -62,17 +58,17 @@ export default function Slider() {
         >
           <SwiperSlide>
             <NavLink to="/phones">
-              <img src={Phones} alt="phones" className="swiper-slide-img" />
+              <img src={`${process.env.REACT_APP_BASE_URL}/img/Iphone.png`} alt="phones" className="swiper-slide-img" />
             </NavLink>
           </SwiperSlide>
           <SwiperSlide>
             <NavLink to="/accessories">
-              <img src={Acc} alt="acc" className="swiper-slide-img purple" />
+              <img src={`${process.env.REACT_APP_BASE_URL}/img/Accessories.png`} alt="acc" className="swiper-slide-img purple" />
             </NavLink>
           </SwiperSlide>
           <SwiperSlide>
             <NavLink to="/tablets">
-              <img src={Tablets} alt="tablets" className="swiper-slide-img" />
+              <img src={`${process.env.REACT_APP_BASE_URL}/img/Ipad.png`} alt="tablets" className="swiper-slide-img" />
             </NavLink>
           </SwiperSlide>
         </Swiper>
