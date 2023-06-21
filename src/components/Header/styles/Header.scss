@@ -73,10 +73,13 @@
 .link-header-icon {
   &::after {
     @include onTablet {
+      position: relative;
       content: "";
       display: block;
+      width: 94%;
+      left: 2px;
       opacity: 0;
-      border-bottom: 4px solid $pink;
+      border-bottom: 4px solid $textColor;
       border-radius: 2px;
       @include transition;
     }
