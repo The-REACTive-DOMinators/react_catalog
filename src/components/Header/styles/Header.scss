@@ -54,14 +54,6 @@
   }
 }
 
-.icon {
-  @include transition;
-
-  &:hover {
-    background-color: $icon-hover-color;
-  }
-}
-
 .is-active {
   color: $textColor;
 
@@ -76,8 +68,9 @@
       position: relative;
       content: "";
       display: block;
-      width: 97%;
-      left: 1px;
+      bottom: 5px;
+      width: 95%;
+      left: 2px;
       opacity: 0;
       border-bottom: 4px solid $textColor;
       border-radius: 2px;
