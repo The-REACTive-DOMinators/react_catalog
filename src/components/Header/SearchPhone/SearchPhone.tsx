@@ -2,6 +2,7 @@ import {
   FC,
   useCallback,
   useEffect,
+  useRef,
   useState,
 } from 'react';
 import './SearchPhone.scss';
@@ -20,6 +21,9 @@ export const SearchPhone: FC = () => {
     setPhonesList(phones);
   }, []);
 
+  const searchContainerRef = useRef<HTMLDivElement>(null);
+  const searchInputRef = useRef<HTMLInputElement>(null);
+
   const filterPhones = (phones: Device[], value: string) => {
     return phones.filter(phone => (
       phone.name.toLowerCase().includes(value.toLowerCase())
@@ -36,8 +40,30 @@ export const SearchPhone: FC = () => {
 
   const filteredPhones = filterPhones(phonesList, query);
 
+  const handleOutsideClick = (event: MouseEvent) => {
+    if (
+      searchContainerRef.current
+      && !searchContainerRef.current.contains(event.target as Node)
+    ) {
+      setShowPhoneList(false);
+    }
+  };
+
+  const handleSearchInputClick = () => {
+    setShowPhoneList(!showPhoneList);
+    setQuery('');
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', handleOutsideClick);
+
+    return () => {
+      document.removeEventListener('click', handleOutsideClick);
+    };
+  }, []);
+
   return (
-    <div className="search-input_container">
+    <div className="search-input_container" ref={searchContainerRef}>
       <div className="underline">
         <input
           placeholder="Search..."
@@ -45,14 +71,15 @@ export const SearchPhone: FC = () => {
           className="searchInput"
           value={query}
           onChange={(event) => setQuery(event.target.value)}
-          onClick={() => setShowPhoneList(!showPhoneList)}
+          onClick={handleSearchInputClick}
+          ref={searchInputRef}
         />
       </div>
 
       {showPhoneList && (
         <ul className="phones-list">
-          {filteredPhones.map(({ name, id }) => (
-            <Link key={id} to={`/phones/${id}`}>
+          {filteredPhones.map(({ name, phoneId }) => (
+            <Link key={phoneId} to={`/phones/${phoneId}`} onClick={handleSearchInputClick}>
               <li className="phones-list__item">{name}</li>
             </Link>
           ))}
