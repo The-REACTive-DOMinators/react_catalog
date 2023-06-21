@@ -44,7 +44,7 @@
   }
 
   &__burger-menu {
-    @include icoStyles;
+    @include iconStyles;
     width: 48px;
     height: $header-tablet-height;
 

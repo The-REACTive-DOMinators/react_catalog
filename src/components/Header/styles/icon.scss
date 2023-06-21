@@ -1,5 +1,5 @@
 .icon {
-  @include icoStyles;
+  @include iconStyles;
 
   @include onTablet {
     width: 48px;
