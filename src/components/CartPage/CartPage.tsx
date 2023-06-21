@@ -3,6 +3,7 @@ import { Device } from '../../types/Device';
 import './CartPage.scss';
 import { CartItem } from './CartItem';
 import { useLocalStorage } from '../../castomHooks/useLocalSrorage';
+import { GoBack } from '../GoBack/GoBack';
 
 export const CartPage = () => {
   const [cartItems, setCartItems] = useLocalStorage('cartItems', []);
@@ -102,12 +103,7 @@ export const CartPage = () => {
 
   return (
     <div className="cart">
-      <button
-        type="button"
-        onClick={() => window.history.back()}
-      >
-        Back
-      </button>
+      <GoBack />
 
       <h1>Cart</h1>
 
@@ -127,9 +123,9 @@ export const CartPage = () => {
         </div>
 
         <div className="cart__total-info">
-          <p className="cart__total-sum">{`Total for ${countItems} items`}</p>
+          <p className="cart__total-sum">{totalPrice}</p>
 
-          <p className="cart__total-text">{totalPrice}</p>
+          <p className="cart__total-text">{`Total for ${countItems} items`}</p>
 
           <div className="cart__separate-line" />
 
