@@ -1,12 +1,16 @@
 @import "../../../styles/main.scss";
 
 .search-input_container {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-left: 1px solid $borderColor;
-  border-right: 1px solid $borderColor;
+  display: none;
+
+  @include onDesktop {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 1px solid $borderColor;
+    border-right: 1px solid $borderColor;
+  }
 }
 
 .underline {
