@@ -1,7 +1,9 @@
+/* eslint-disable react/jsx-indent */
+/* eslint-disable max-len */
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { ButtonWithIcon } from '../ButtonWithIcon';
 import './CartModal.scss';
+import iconSuccess from './IconSuccess.svg';
 
 interface Props {
   setIsCheckout: (isCheck: boolean) => void;
@@ -16,18 +18,29 @@ export const CartModal: FC<Props> = ({ setIsCheckout }) => {
     <div className="cart-modal">
       <div className="cart-modal__overlay" />
       <div className="cart-modal__content">
-        <p className="cart-modal__text">
-          Congratulations! You have successfully made an order!
-        </p>
-        <Link to="/">
-          <div className="cart-modal__button">
-            <ButtonWithIcon
-              onHandleClick={onHandleClick}
-            >
-              Go home
-            </ButtonWithIcon>
+        <div className="cart-modal__left">
+          <div className="cart-modal__text">
+            <p>Congratulations! Your payment was successful.</p>
+            <p>Thank you for choosing our store.</p>
+            <p>Enjoy your new mobile devices and accessories!</p>
           </div>
-        </Link>
+          <div className="cart-modal__button-container">
+            <Link to="/" className="cart-modal__link">
+              <button
+                className="cart-modal__button"
+                type="button"
+                onClick={onHandleClick}
+              >
+                Go home
+              </button>
+            </Link>
+          </div>
+        </div>
+        <div className="cart-modal__right">
+          <div className="cart-modal__img-container">
+            <img src={iconSuccess} alt="" className="cart-modal__image" />
+          </div>
+        </div>
       </div>
     </div>
   );
