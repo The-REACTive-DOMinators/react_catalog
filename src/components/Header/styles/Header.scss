@@ -54,14 +54,6 @@
   }
 }
 
-.icon {
-  @include transition;
-
-  &:hover {
-    background-color: $icon-hover-color;
-  }
-}
-
 .is-active {
   color: $textColor;
 
@@ -73,10 +65,14 @@
 .link-header-icon {
   &::after {
     @include onTablet {
+      position: relative;
       content: "";
       display: block;
+      bottom: 5px;
+      width: 95%;
+      left: 2px;
       opacity: 0;
-      border-bottom: 4px solid $pink;
+      border-bottom: 4px solid $textColor;
       border-radius: 2px;
       @include transition;
     }
