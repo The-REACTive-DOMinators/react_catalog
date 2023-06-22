@@ -7,17 +7,46 @@ import { ButtonWithIcon } from '../../ButtonWithIcon';
 import { FavoriteFullIcon } from '../../../icons/FavouriteFullIcon';
 import { SpecMap } from '../SpecMap/SpecMap';
 import { DeviceSpecsShort } from './DeviceSpecsShort';
+import { Device } from '../../../types/Device';
 
 interface Props {
   phoneSpecs: DeviceSpecsShort;
   newPrice: number;
   oldPrice: number;
+  id: string;
+}
+
+function isItemInCart(id: string) {
+  const data = localStorage.getItem('cartItems');
+
+  if (data) {
+    const cartItems = JSON.parse(data);
+
+    return cartItems
+      .some((item: Device) => item.phoneId === id);
+  }
+
+  return false;
+}
+
+function isItemInFavorite(id: string) {
+  const data = localStorage.getItem('favorite');
+
+  if (data) {
+    const cartItems = JSON.parse(data);
+
+    return cartItems
+      .some((item: Device) => item.phoneId === id);
+  }
+
+  return false;
 }
 
 export const AddToCardSection: FC<Props> = ({
   phoneSpecs,
   newPrice,
   oldPrice,
+  id,
 }) => {
   const {
     screen,
@@ -33,8 +62,8 @@ export const AddToCardSection: FC<Props> = ({
     ram,
   };
 
-  const [isFavorite, setisFavorite] = useState(false);
-  const [isAdd, setIsAdd] = useState(false);
+  const [isFavorite, setisFavorite] = useState(isItemInFavorite(id));
+  const [isAdd, setIsAdd] = useState(isItemInCart(id));
 
   const handleAddToCart = useCallback(() => {
     setIsAdd(!isAdd);
