@@ -1,6 +1,9 @@
 @import "../../../styles/utils/mixins";
 
 .breadcrumbs {
+  display: flex;
+  align-items: center;
+  text-align: center;
   max-width: 1200px;
   margin: 25px auto;
   margin-bottom: 28px;
@@ -27,15 +30,17 @@
   color: #89939a;
 }
 
-.breadcrumbs .home-icon {
-  align-self: center;
-}
-
 .link {
+  align-self: center;
   margin-right: 15px;
 }
 
 .crumb {
   text-transform: capitalize;
-  font-size: 12px;
+  font-size: 15px;
+}
+
+.home-icon {
+  display: flex;
+  align-items: center;
 }

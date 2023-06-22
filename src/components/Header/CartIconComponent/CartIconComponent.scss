@@ -1,0 +1,40 @@
+@import "../../../styles/utils/variables";
+@import "../../../styles/utils/mixins";
+
+.icon-counter {
+  &__container {
+    position: relative;
+
+    @include onTablet {
+      width: 48px;
+      height: 48px;
+    }
+
+    @include onDesktop {
+      width: 64px;
+      height: 64px;
+    }
+  }
+
+  &__counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 15px;
+    bottom: 30px;
+    width: 14px;
+    height: 14px;
+    background: red;
+    border-radius: 50%;
+    border: 1px solid $secondaryTextColor;
+  }
+
+  &__label {
+    @include bodyText;
+
+    color: $textColor;
+    font-size: 7px;
+    line-height: 9.5px;
+  }
+}
