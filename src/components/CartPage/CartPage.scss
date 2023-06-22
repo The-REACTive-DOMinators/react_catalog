@@ -4,22 +4,33 @@
   margin: 0 auto;
   max-width: 1200px;
   padding: 16px;
-  min-height: 65vh;
+  min-height: 63vh;
 
   @include onTablet {
     padding: 24px;
-    min-height: 85vh;
+    min-height: 83vh;
   }
 
   @include onDesktop {
     padding: 32px;
-    min-height: 83vh;
+    min-height: 81vh;
   }
 
   &__empty {
-    display: block;
-    font-size: 36px;
+    display: flex;
+    flex-direction: column;
     grid-column: 1 / 17;
+
+    @include secondaryTitle;
+
+    &--text {
+      margin-bottom: 32px;
+    }
+
+    &--img {
+      display: flex;
+      justify-content: center;
+    }
   }
 
   &__container {
@@ -32,6 +43,12 @@
       grid-template-columns: repeat(24, 1fr);
       column-gap: $gap;
     }
+  }
+
+  &__title {
+    margin-bottom: 32px;
+
+    @include mainTitle;
   }
 
   &__cart-item {
@@ -56,6 +73,10 @@
 
   &__total-sum {
     @include price;
+
+    @include onDesktop {
+      @include mainTitle;
+    }
   }
 
   &__total-text {
@@ -85,10 +106,31 @@
 
     &:hover {
       @include addButtonHover;
+      box-shadow: 0 0 4px 4px rgba(163, 120, 255, 0.3);
     }
 
     &--selected {
       @include addButtonSelected;
+    }
+
+    &--disable {
+      pointer-events: none;
+    }
+  }
+
+  &__add_button {
+    @include addButton;
+
+    width: 150px;
+    height: 40px;
+
+    margin-right: 8px;
+
+    transition: box-shadow 0.3s;
+
+    &:hover {
+      @include addButtonHover;
+      box-shadow: 0 0 4px 4px rgba(163, 120, 255, 0.3);
     }
   }
 }

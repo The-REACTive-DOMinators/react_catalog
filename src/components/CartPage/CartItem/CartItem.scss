@@ -14,18 +14,41 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    padding: 24px;
   }
 
   &__info {
     display: flex;
+    align-items: center;
+
+    margin-bottom: 18px;
 
     @include onTablet {
       margin-right: 24px;
+      margin-bottom: 0;
     }
   }
 
-  &__close {
+  &__close-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 24px;
+    width: 24px;
+
+    margin-right: 20px;
+
+    @include onTablet {
+      margin-right: 32px;
+    }
+
     fill: $secondaryTextColor;
+
+    &:hover {
+      @include iconButtonHover;
+    }
   }
 
   &__title {
@@ -41,6 +64,7 @@
   }
 
   &__image {
+    display: block;
     width: 80px;
     height: 80px;
     object-position: center;
@@ -57,31 +81,30 @@
     }
   }
 
-  &__close-button {
-    margin-right: 23px;
-
-    @include onTablet {
-      margin-right: 31px;
-    }
-  }
-
-  &__counter {
-    width: 100%;
+  &__phone_link {
+    display: flex;
+    align-items: center;
   }
 }
 
-.counter {
+.cart__counter {
+  width: 100%;
   display: flex;
+  align-items: center;
   justify-content: space-between;
 
-  &__icon {
+  &_icon {
     width: 32px;
     height: 32px;
 
     flex-shrink: 0;
+
+    &--minus {
+      pointer-events: none;
+    }
   }
 
-  &__buttons {
+  &_buttons {
     display: flex;
     justify-content: space-between;
     text-align: center;
@@ -89,7 +112,7 @@
     width: 96px;
   }
 
-  &__price {
+  &_price {
     @include price;
 
     display: block;

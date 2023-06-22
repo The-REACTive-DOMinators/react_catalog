@@ -1,10 +1,14 @@
+/* eslint-disable max-len */
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import cn from 'classnames';
 import { Device } from '../../types/Device';
 import './CartPage.scss';
 import { CartItem } from './CartItem';
 import { useLocalStorage } from '../../castomHooks/useLocalSrorage';
 import { GoBack } from '../GoBack/GoBack';
 import { CartModal } from '../CartModal';
+import iconEmptyCart from './IconEmptyCart.svg';
 
 export const CartPage = () => {
   const [cartItems, setCartItems] = useLocalStorage('cartItems', []);
@@ -108,33 +112,54 @@ export const CartPage = () => {
     <div className="cart">
       <GoBack />
 
-      <h1>Cart</h1>
+      <h1 className="cart__title">Cart</h1>
 
       <div className="cart__container">
-        {cartItems.length < 1
-          ? (
-            <p className="cart__empty">
-              Cart is empty
-            </p>
-          )
-          : (
-            <div className="cart__cart-item">
-              {itemsToRender.map((phone: Device) => (
-                <CartItem
-                  key={phone.id}
-                  phone={phone}
-                  handleRemove={handleRemove}
-                  totalPrice={totalPrice}
-                  handleCountPlus={handleCountPlus}
-                  handleCountMinus={handleCountMinus}
-                  setTotalPrice={setTotalPrice}
+        {(cartItems.length < 1 && isCheckout === false)
+          && (
+            <div className="cart__empty">
+              <p className="cart__empty--text">
+                Oops! Your cart is empty. Time to fill it up with amazing goods and accessories!
+              </p>
+              <Link to="/">
+                <button
+                  type="button"
+                  className="cart__add_button"
+                >
+                  Shoping
+                </button>
+              </Link>
+              <div className="cart__empty--img">
+                <img
+                  src={iconEmptyCart}
+                  alt=""
+                  className="image"
                 />
-              ))}
+              </div>
             </div>
           )}
 
+        {(cartItems.length > 0 && isCheckout === false) && (
+          <div className="cart__cart-item">
+            {itemsToRender.map((phone: Device) => (
+              <CartItem
+                key={phone.id}
+                phone={phone}
+                handleRemove={handleRemove}
+                totalPrice={totalPrice}
+                handleCountPlus={handleCountPlus}
+                handleCountMinus={handleCountMinus}
+                setTotalPrice={setTotalPrice}
+              />
+            ))}
+          </div>
+        )}
+
         <div className="cart__total-info">
-          <p className="cart__total-sum">{totalPrice}</p>
+          <p className="cart__total-sum">
+            &#36;
+            {totalPrice}
+          </p>
 
           <p className="cart__total-text">{`Total for ${countItems} items`}</p>
 
@@ -142,12 +167,16 @@ export const CartPage = () => {
 
           <button
             type="button"
-            className="cart__checkout"
+            className={cn('cart__checkout',
+              { 'cart__checkout--disable': cartItems.length < 1 })}
             onClick={handleCheckout}
+            disabled={cartItems.length < 1}
           >
             Checkout
           </button>
         </div>
+
+        {/* <CartModal setIsCheckout={setIsCheckout} /> */}
 
         {isCheckout
           && <CartModal setIsCheckout={setIsCheckout} />}
