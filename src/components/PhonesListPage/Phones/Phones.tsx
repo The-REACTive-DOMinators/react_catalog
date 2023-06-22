@@ -20,7 +20,7 @@ export const Phones: FC = () => {
   const [hasError, setHasError] = useState(false);
   const [sortBy, setSortBY] = useState('year');
   const [totalPhones, setTotalPhones] = useState(8);
-  const [order, setOrder] = useState('ASC');
+  const [order, setOrder] = useState('DESC');
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [phoneDataLength, setPhoneDataLength] = useState<number>(0);
 
@@ -178,7 +178,7 @@ export const Phones: FC = () => {
               className="product-filter__itemsOnPage order"
               onChange={handleSortByOrder}
               defaultValue={localStorage.getItem('sortByOrderValue')
-                    ?? 'ASC'}
+                    ?? 'DESC'}
             >
               <option value="ASC">Asc</option>
               <option value="DESC">Desc</option>
