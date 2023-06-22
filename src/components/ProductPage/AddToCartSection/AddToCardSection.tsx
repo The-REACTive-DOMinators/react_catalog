@@ -1,5 +1,10 @@
 /* eslint-disable quote-props */
-import { FC, useCallback, useState } from 'react';
+import {
+  FC,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react';
 import './AddToCardSection.scss';
 import { AddButton } from '../../AddButton';
 import { FavoriteIcon } from '../../../icons/FavoriteIcon';
@@ -8,6 +13,7 @@ import { FavoriteFullIcon } from '../../../icons/FavouriteFullIcon';
 import { SpecMap } from '../SpecMap/SpecMap';
 import { DeviceSpecsShort } from './DeviceSpecsShort';
 import { Device } from '../../../types/Device';
+import { PhoneDescription } from '../../../types/PhoneDescription';
 
 interface Props {
   phoneSpecs: DeviceSpecsShort;
@@ -42,11 +48,45 @@ function isItemInFavorite(id: string) {
   return false;
 }
 
+const getCartItemsFromLS = () => {
+  const data = localStorage.getItem('cartItems');
+
+  return data
+    ? JSON.parse(data)
+    : [];
+};
+
+const getFavoriteItemsFromLS = () => {
+  const data = localStorage.getItem('favorite');
+
+  return data
+    ? JSON.parse(data)
+    : [];
+};
+
+const hasCardInLocalCart = (phoneId: string) => {
+  const existingCartItems = getCartItemsFromLS() || [];
+  const isCardCart = existingCartItems
+    .find((item: Device) => item.id === phoneId);
+
+  return !!isCardCart;
+};
+
+const hasCardInLocalFavor = (phoneId: string) => {
+  const existingFavoriteItems = getFavoriteItemsFromLS() || [];
+  const isCardFavor = existingFavoriteItems
+    .find((item: Device) => item.id === phoneId);
+
+  return !!isCardFavor;
+};
+
 export const AddToCardSection: FC<Props> = ({
   phoneSpecs,
   newPrice,
   oldPrice,
   id,
+  phoneId,
+  phoneDescription,
 }) => {
   const {
     screen,

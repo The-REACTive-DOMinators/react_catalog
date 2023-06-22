@@ -136,11 +136,13 @@ export const Product: FC = () => {
             onChangeSelectedColor={setSelectedColor}
             onChangeSelectedCapacity={setSelectedCapacity}
           />
+
           <AddToCardSection
             newPrice={fullPrice}
             oldPrice={price}
             phoneSpecs={chars}
-            id={phoneId}
+            phoneId={phoneId}
+            phoneDescription={phoneDescription}
           />
 
         </div>

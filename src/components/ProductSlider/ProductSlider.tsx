@@ -4,7 +4,7 @@ import 'swiper/swiper.scss';
 import 'swiper/swiper-bundle.min.css';
 import { Navigation, Autoplay, Swiper as SwiperType } from 'swiper';
 
-import React, { FC, useRef } from 'react';
+import { FC, useRef } from 'react';
 import { Device } from '../../types/Device';
 import { ProductCard } from '../ProductCard';
 import { ButtonWithIcon } from '../ButtonWithIcon';
