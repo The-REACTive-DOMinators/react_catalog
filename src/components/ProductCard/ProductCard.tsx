@@ -95,7 +95,6 @@ export const ProductCard: FC<Props> = memo(({ phone }) => {
     setisFavorite(!isFavorite);
   }, [isFavorite]);
 
-  // window.scrollTo({ top: 0, behavior: 'smooth' });
   const {
     phoneId,
     name,

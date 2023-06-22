@@ -5,9 +5,9 @@ import { LogoIcon } from '../../icons/Logo';
 import { MenuIcon } from '../../icons/MenuIcon';
 import { PageNavLink } from './PageNavLink/PageNavLink';
 import { CartIconComponent } from './CartIconComponent/CartIconComponent';
-
 import { PageNavLinkIcon } from './PageNavLinkIcon/PageNavLinkIcon';
 import { FavIconComponent } from './FavIconComponent/FavIconComponent';
+import { SearchPhone } from './SearchPhone/SearchPhone';
 
 export const Header: FC = () => (
   <header className="header">
@@ -37,6 +37,8 @@ export const Header: FC = () => (
     </div>
 
     <div className="header__icons">
+      <SearchPhone />
+
       <PageNavLinkIcon to="/favorites" icon={<FavIconComponent />} />
 
       <PageNavLinkIcon to="/cart" icon={<CartIconComponent />} />

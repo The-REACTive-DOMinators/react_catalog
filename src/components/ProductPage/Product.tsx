@@ -102,6 +102,9 @@ export const Product: FC = () => {
     setSelectedCapacity(getSelectedCapacity());
   }, [phoneId, selectedColor, selectedCapacity]);
 
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [phoneId]);
+
   return (
     <div className="global-container">
       <BreadCrumbs />

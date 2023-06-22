@@ -1,0 +1,44 @@
+@import "../../../styles/main.scss";
+
+.search-input_container {
+  display: none;
+
+  @include onDesktop {
+    height: 66px;
+
+    @include iconStyles;
+  }
+}
+
+.underline {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid $accentColor;
+}
+
+.searchInput {
+  padding-top: 8px;
+  padding-left: 10px;
+  font-size: 15px;
+  background-color: transparent;
+  color: $textColor;
+  width: 100%;
+}
+
+.phones-list {
+  box-shadow: none;
+  background-color: transparent;
+  position: absolute;
+  top: 80px;
+  max-height: 150px;
+  width: 204px;
+  -ms-overflow-style: none;
+  overflow-y: scroll;
+
+  &__item {
+    padding: 15px;
+  }
+}

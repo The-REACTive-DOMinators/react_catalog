@@ -1,4 +1,5 @@
-@import "../../styles/main.scss";
+@import "../../styles/utils/variables";
+@import "../../styles/utils/mixins";
 
 .cart-modal {
   position: fixed;
@@ -9,7 +10,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1;
+  z-index: 999;
 
   &__overlay {
     position: absolute;
@@ -22,26 +23,82 @@
 
   &__content {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    background-color: $textColor;
-    padding: 20px;
+    width: 90%;
+    background-color: $mainBackground;
+    padding: 40px 30px;
     border-radius: 5px;
     z-index: 2;
-    color: $mainBackground;
+    color: $textColor;
+    box-shadow: 0 0 4px 4px rgba(163, 120, 255, 0.3);
+
+    @include onTablet {
+      width: 70%;
+    }
+
+    @include onDesktop {
+      width: 50%;
+    }
   }
 
-  &__button {
-    display: block;
+  &__left {
+    flex-grow: 1;
+  }
+
+  &__right {
+    margin-left: 20px;
+  }
+
+  &__img-container {
     width: 100px;
-    height: 32px;
-    background-color: $mainBackground;
-    color: #fff;
+    height: 100px;
+
+    @include onTablet {
+      width: 150px;
+      height: 150px;
+    }
+
+    @include onDesktop {
+      width: 200px;
+      height: 200px;
+    }
   }
 
   &__text {
-    margin-bottom: 15px;
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+    margin-bottom: 32px;
 
+    @include onTablet {
+      @include thirdTitle;
+    }
+  }
+
+  &__image {
+    object-fit: contain;
+  }
+
+  &__button {
+    @include addButton;
+
+    max-width: 150px;
+    height: 40px;
+
+    padding: 8px 16px;
+    margin-right: 8px;
+
+    transition: box-shadow 0.3s;
+
+    &:hover {
+      @include addButtonHover;
+      box-shadow: 0 0 4px 4px rgba(163, 120, 255, 0.3);
+    }
+  }
+
+  &__link {
+    width: 100%;
+    height: 100%;
   }
 }
