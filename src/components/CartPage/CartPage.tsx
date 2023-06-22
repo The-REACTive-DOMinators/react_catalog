@@ -176,8 +176,6 @@ export const CartPage = () => {
           </button>
         </div>
 
-        {/* <CartModal setIsCheckout={setIsCheckout} /> */}
-
         {isCheckout
           && <CartModal setIsCheckout={setIsCheckout} />}
       </div>
