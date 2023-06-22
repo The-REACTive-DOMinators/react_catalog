@@ -29,7 +29,7 @@ export const BreadCrumbs = () => {
       <NavLink to="/" className="home-icon crumb">
         <HomeIcon />
       </NavLink>
-      <ArrowRight />
+      <ArrowRight className="breadcrumbs-title" />
       {crumbs}
     </div>
   );

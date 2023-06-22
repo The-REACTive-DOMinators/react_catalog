@@ -1,4 +1,4 @@
-import { NavLink, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import {
   useEffect,
   FC, useState,
@@ -10,10 +10,9 @@ import { Device } from '../../../types/Device';
 import { getLength, getSortedPhones } from '../../../api/phones';
 import { ProductCard } from '../../ProductCard';
 import './Phone.scss';
-import { HomeIcon } from '../../../icons/HomeIcon';
-import { ArrowRight } from '../../../icons/ArrowRight';
 import { Loader } from '../../loader/Loader';
 import { Pagination } from './Pagination/Pagination';
+import { BreadCrumbs } from '../../ProductPage/BreadCrumbs/BreadCrumbs';
 
 export const Phones: FC = () => {
   const [phoneData, setPhoneData] = useState<Device[]>([]);
@@ -148,13 +147,14 @@ export const Phones: FC = () => {
   return (
     <>
       <div className="container1">
-        <div className="route-links">
+        {/* <div className="route-links">
           <NavLink to="/home" className="home-icon">
             <HomeIcon />
           </NavLink>
           <ArrowRight className="arrow-icon" />
           <span className="phones-title">Phones</span>
-        </div>
+        </div> */}
+        <BreadCrumbs />
         <h1 className="title">Mobile phones</h1>
 
         <div className="counter">{`${phoneDataLength} models`}</div>
