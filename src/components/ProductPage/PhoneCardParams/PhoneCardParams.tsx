@@ -60,16 +60,10 @@ export const PhoneCardParams: FC<Props> = ({
 
   function handleColorClick(color: string) {
     onChangeSelectedColor(color);
-    // setTimeout(() => {
-    //   window.location.reload();
-    // }, 0);
   }
 
   function handleCapacityClick(capacity: string) {
     onChangeSelectedCapacity(capacity);
-    // setTimeout(() => {
-    //   window.location.reload();
-    // }, 0);
   }
 
   return (
