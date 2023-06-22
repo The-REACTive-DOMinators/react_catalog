@@ -100,6 +100,8 @@ export const Product: FC = () => {
       getSelectedColor();
       getSelectedCapacity();
     }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [phoneId]);
 
   return (
